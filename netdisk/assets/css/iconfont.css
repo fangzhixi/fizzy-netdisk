@@ -1,0 +1,64 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1619615616147'); /* IE9 */
+  src: url('iconfont.eot?t=1619615616147#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,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') format('woff2'),
+  url('iconfont.woff?t=1619615616147') format('woff'),
+  url('iconfont.ttf?t=1619615616147') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1619615616147#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  margin: 4px 10px 0px 0px;
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconexcel:before {
+  content: "\e62b";
+}
+
+.iconword:before {
+  content: "\e69e";
+}
+
+.iconpptx:before {
+  content: "\e6dc";
+}
+
+.iconpdf:before {
+  content: "\e665";
+}
+
+.iconaudio:before {
+  content: "\e678";
+}
+
+.iconmedia:before {
+  content: "\e637";
+}
+
+.iconfolder:before {
+  content: "\e6aa";
+}
+
+.iconmedia-photo:before {
+  content: "\e8f2";
+}
+
+.icondashboard:before {
+  content: "\e603";
+}
+
+.iconzip:before {
+  content: "\e604";
+}
+
+.icondashboard{
+  font-size: 14px;
+}
