@@ -48,8 +48,10 @@
             return [self.frameElement.clientWidth,self.frameElement.clientHeight];
         }				
         self.setDimension = function(width,height) { //width and height of image
-            image.width=Math.round(width);
-            image.height=Math.round(height);
+            // image.width=Math.round(width);
+            // image.height=Math.round(height);
+            image.style.width="100%"
+            image.style.height="aut"
         }
         self.getDimension =  function() {
             return [image.width,image.height];
@@ -375,6 +377,8 @@
 
             image = document.createElement('img');
             image.className = 'image_container';
+            image.setAttribute("width","100");
+            image.setAttribute("height","100");
             image.style.position='absolute';
             image.style.zIndex=3;
 
