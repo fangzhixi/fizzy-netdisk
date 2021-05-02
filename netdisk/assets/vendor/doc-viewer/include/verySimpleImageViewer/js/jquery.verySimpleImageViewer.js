@@ -48,10 +48,8 @@
             return [self.frameElement.clientWidth,self.frameElement.clientHeight];
         }				
         self.setDimension = function(width,height) { //width and height of image
-            // image.width=Math.round(width);
-            // image.height=Math.round(height);
-            image.style.width="100%"
-            image.style.height="aut"
+            image.width=Math.round(width);
+            image.height=Math.round(height);
         }
         self.getDimension =  function() {
             return [image.width,image.height];
@@ -379,7 +377,21 @@
             image.className = 'image_container';
             image.setAttribute("width","100");
             image.setAttribute("height","100");
+            // alert(123)
             image.style.position='absolute';
+            
+            int = setInterval(function(){
+                var img = $(".image_container")
+                if(img.attr('width') > 0 || img.attr('height') > 0)
+                    clearInterval(int)
+                else{
+                    image.setAttribute("width",400);
+                    image.setAttribute("height",400);
+                    console.log("width: " + img.attr('width'))
+                    console.log("height: " + img.attr('height'))
+                }
+            },100)  //每隔3秒打印一次
+
             image.style.zIndex=3;
 
             div_imge_container.appendChild(image);

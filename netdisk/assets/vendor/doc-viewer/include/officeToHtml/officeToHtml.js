@@ -413,7 +413,7 @@
         $("<button></button>", {
             id: "secondaryPresentationMode",
             class: "secondaryToolbarButton presentationMode visibleLargeView",
-            title: "Switch to Presentation Mode",
+            title: "全屏展示",
             tabindex: "51",
             "data-l10n-id": "presentation_mode"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
@@ -437,19 +437,19 @@
         $("<button></button>", {
             id: "secondaryPrint",
             class: "secondaryToolbarButton print visibleMediumView",
-            title: "Print",
+            title: "打印",
             tabindex: "53",
             "data-l10n-id": "print"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
         $("<span></span>", {
             "data-l10n-id": "print_label",
-            text: "Print"
+            text: "打印"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer #secondaryPrint");
 
         $("<button></button>", {
             id: "secondaryDownload",
             class: "secondaryToolbarButton download visibleMediumView",
-            title: "Download",
+            title: "下载此文件",
             tabindex: "54",
             "data-l10n-id": "download"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
@@ -482,7 +482,7 @@
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
         $("<span></span>", {
             "data-l10n-id": "first_page_label",
-            text: "Go to First Page"
+            text: "返回第一页"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer #firstPage");
 
         $("<button></button>", {
@@ -494,7 +494,7 @@
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
         $("<span></span>", {
             "data-l10n-id": "last_page_label",
-            text: "Go to Last Page"
+            text: "前往最后一页"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer #lastPage");
         $("<div></div>", {
             class: "horizontalToolbarSeparator"
@@ -508,7 +508,7 @@
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
         $("<span></span>", {
             "data-l10n-id": "page_rotate_cw_label",
-            text: "Rotate Clockwise"
+            text: "顺时针旋转"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer #pageRotateCw");
 
         $("<button></button>", {
@@ -520,7 +520,7 @@
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
         $("<span></span>", {
             "data-l10n-id": "page_rotate_ccw_label",
-            text: "Rotate Counterclockwise"
+            text: "逆时针旋转"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer #pageRotateCcw");
 
         $("<div></div>", {
@@ -536,7 +536,7 @@
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
         $("<span></span>", {
             "data-l10n-id": "cursor_text_select_tool_label",
-            text: "Text Selection Tool"
+            text: "鼠标选择文字"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer #cursorSelectTool");
 
         $("<button></button>", {
@@ -548,7 +548,7 @@
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer");
         $("<span></span>", {
             "data-l10n-id": "cursor_hand_tool_label",
-            text: "Hand Tool"
+            text: "鼠标拖动页面"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer #secondaryToolbar #secondaryToolbarButtonContainer #cursorHandTool");
 
         $("<div></div>", {
@@ -654,7 +654,7 @@
         $("<button></button>", {
             id: "presentationMode",
             class: "toolbarButton presentationMode hiddenLargeView " + presentationModeOpt,
-            title: "Switch to Presentation Mode",
+            title: "全屏展示",
             tabindex: "31",
             "data-l10n-id": "presentation_mode"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerRight");
@@ -665,7 +665,7 @@
         $("<button></button>", {
             id: "openFile",
             class: "toolbarButton openFile hiddenLargeView " + openFileOpt,
-            title: "Open File",
+            title: "打开文件",
             tabindex: "32",
             "data-l10n-id": "open_file"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerRight");
@@ -676,30 +676,30 @@
         $("<button></button>", {
             id: "print",
             class: "toolbarButton print hiddenMediumView " + printOpt,
-            title: "Print",
+            title: "打印",
             tabindex: "33",
             "data-l10n-id": "print"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerRight");
         $("<span></span>", {
             "data-l10n-id": "print_label",
-            text: "Print"
+            text: "打印"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerRight #print");
         $("<button></button>", {
             id: "download",
             class: "toolbarButton download hiddenMediumView " + downloadOpt,
-            title: "Download",
+            title: "下载此文件",
             tabindex: "34",
             "data-l10n-id": "download"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerRight");
         $("<span></span>", {
             "data-l10n-id": "download_label",
-            text: "Download"
+            text: "下载此文件"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerRight #download");
         $("<a></a>", {
-            href: "#",
+            href: fObj.Obj,
             id: "viewBookmark",
             class: "toolbarButton bookmark hiddenSmallView " + bookmarkOpt,
-            title: "Current view (copy or open in new window)",
+            title: "在新窗口打开当前视图",
             tabindex: "35",
             "data-l10n-id": "bookmark",
             target: "_blank"
@@ -772,28 +772,28 @@
             value: "auto",
             selected: "selected",
             "data-l10n-id": "page_scale_auto",
-            text: "Automatic Zoom"
+            text: "自动缩放页面"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerMiddle #scaleSelectContainer #scaleSelect");
         $("<option></option>", {
             id: "pageActualOption",
             title: "",
             value: "page-actual",
             "data-l10n-id": "page_scale_actual",
-            text: "Actual Size"
+            text: "页面真实大小"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerMiddle #scaleSelectContainer #scaleSelect");
         $("<option></option>", {
             id: "pageFitOption",
             title: "",
             value: "page-fit",
             "data-l10n-id": "page_scale_fit",
-            text: "Page Fit"
+            text: "显示完整一页"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerMiddle #scaleSelectContainer #scaleSelect");
         $("<option></option>", {
             id: "pageWidthOption",
             title: "",
             value: "page-width",
             "data-l10n-id": "page_scale_width",
-            text: "Page Width"
+            text: "页面填充区域"
         }).appendTo('div#' + divId + " .loadingInProgress #outerContainer #mainContainer .toolbar #toolbarContainer #toolbarViewer #toolbarViewerMiddle #scaleSelectContainer #scaleSelect");
         $("<option></option>", {
             id: "customScaleOption",
@@ -3216,7 +3216,7 @@
                         }).catch(function () { });
                     }
                     var href = PDFViewerApplication.pdfLinkService.getAnchorUrl(location.pdfOpenParams);
-                    PDFViewerApplication.appConfig.toolbar.viewBookmark.href = href;
+                    // PDFViewerApplication.appConfig.toolbar.viewBookmark.href = PDFViewerApplication.appConfig.toolbar.viewBookmark.href + href;
                     PDFViewerApplication.appConfig.secondaryToolbar.viewBookmarkButton.href = href;
                     PDFViewerApplication.pdfHistory.updateCurrentBookmark(location.pdfOpenParams, location.pageNumber);
                     var currentPage = PDFViewerApplication.pdfViewer.getPageView(PDFViewerApplication.page - 1);
