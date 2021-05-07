@@ -1,0 +1,32 @@
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:247","logId":"5f6db8f5b04d8"},"level":"info","logTime":"2020-09-25 17:31:33","message":"通用印刷体识别（高精度版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:247","logId":"5f6db8f5b04d8"},"level":"info","logTime":"2020-09-25 17:31:34","message":"通用印刷体识别（高精度版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:179","logId":"5f6db975e2db4"},"level":"info","logTime":"2020-09-25 17:33:42","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:179","logId":"5f6db975e2db4"},"level":"info","logTime":"2020-09-25 17:33:42","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:286","logId":"5f6db9b3e1d68"},"level":"info","logTime":"2020-09-25 17:34:45","message":"通用印刷体识别 （精简版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:286","logId":"5f6db9b3e1d68"},"level":"info","logTime":"2020-09-25 17:34:46","message":"通用印刷体识别 （精简版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:179","logId":"5f6db9f89b77c"},"level":"info","logTime":"2020-09-25 17:35:53","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:179","logId":"5f6db9f89b77c"},"level":"info","logTime":"2020-09-25 17:35:54","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:286","logId":"5f6dba137edd8"},"level":"info","logTime":"2020-09-25 17:36:20","message":"通用印刷体识别 （精简版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:286","logId":"5f6dba137edd8"},"level":"info","logTime":"2020-09-25 17:36:22","message":"通用印刷体识别 （精简版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:326","logId":"5f6dba8e428ac"},"level":"info","logTime":"2020-09-25 17:38:22","message":"通用印刷体识别 （高速版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:326","logId":"5f6dba8e428ac"},"level":"info","logTime":"2020-09-25 17:38:23","message":"通用印刷体识别 （高速版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:380","logId":"5f6dbb98254e8"},"level":"info","logTime":"2020-09-25 17:42:49","message":"英文识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:380","logId":"5f6dbb98254e8"},"level":"info","logTime":"2020-09-25 17:42:49","message":"英文识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:434","logId":"5f6dbcbef0cc4"},"level":"info","logTime":"2020-09-25 17:47:43","message":"通用手写体识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:434","logId":"5f6dbcbef0cc4"},"level":"info","logTime":"2020-09-25 17:47:43","message":"通用手写体识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:471","logId":"5f6dbd50b39ec"},"level":"info","logTime":"2020-09-25 17:50:08","message":"快速文本检测识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:471","logId":"5f6dbd50b39ec"},"level":"info","logTime":"2020-09-25 17:50:08","message":"快速文本检测识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:179","logId":"5f6febe6a3844"},"level":"info","logTime":"2020-09-27 09:33:26","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:179","logId":"5f6febe6a3844"},"level":"info","logTime":"2020-09-27 09:33:27","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:182","logId":"5f6fec110029c"},"level":"info","logTime":"2020-09-27 09:34:10","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:182","logId":"5f6fec110029c"},"level":"info","logTime":"2020-09-27 09:34:10","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:184","logId":"5f6fec7b454f8"},"level":"info","logTime":"2020-09-27 09:35:55","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:184","logId":"5f6fec7b454f8"},"level":"info","logTime":"2020-09-27 09:35:56","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:183","logId":"5f6fec8e888c4"},"level":"info","logTime":"2020-09-27 09:36:15","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:183","logId":"5f6fec8e888c4"},"level":"info","logTime":"2020-09-27 09:36:16","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:177","logId":"5f6fecf28a964"},"level":"info","logTime":"2020-09-27 09:37:55","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:177","logId":"5f6fecf28a964"},"level":"info","logTime":"2020-09-27 09:37:56","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:177","logId":"5f6fecfbccdf4"},"level":"info","logTime":"2020-09-27 09:38:04","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:177","logId":"5f6fecfbccdf4"},"level":"info","logTime":"2020-09-27 09:38:05","message":"通用印刷体识别识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:245","logId":"5f6fed2329a98"},"level":"info","logTime":"2020-09-27 09:38:44","message":"通用印刷体识别（高精度版）识别成功"}
+{"context":{"app":"ticket-ocr/ocr-api","line":"service/ticket_ocr_service_general.go:245","logId":"5f6fed2329a98"},"level":"info","logTime":"2020-09-27 09:38:45","message":"通用印刷体识别（高精度版）识别成功"}

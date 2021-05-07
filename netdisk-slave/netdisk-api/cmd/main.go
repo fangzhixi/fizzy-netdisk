@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/fangzhixi/netdisk-core/internal/config"
+	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/internal/config"
 )
 
 func FlagInit() (flagMap map[string]string) {
