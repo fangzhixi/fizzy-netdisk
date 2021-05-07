@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"github.com/fangzhixi/netdisk-core/pkg/utils/yaml"
+	"github.com/fangzhixi/netdisk-core/internal/utils/yaml"
 )
 
 type Configuration struct {
