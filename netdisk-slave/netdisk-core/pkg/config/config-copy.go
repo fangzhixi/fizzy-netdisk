@@ -1,7 +1,6 @@
 package config
 
 import (
-	"flag"
 	"time"
 )
 
@@ -93,10 +92,4 @@ type RemoteConf struct {
 		ApiRegister   string `yaml:"api_register"`
 	} `yaml:"cas"`
 	DcacheRegistry string `yaml:"dcache_registry"`
-}
-
-func init() {
-	// flag.StringVar(&configFilePath, "conf", "./config/conf.yaml", "config name")
-	flag.Parse()
-	// fmt.Println("[INFO] reading config path:", configFilePath)
 }

@@ -3,9 +3,24 @@ package errcode
 type Code int
 
 const (
-	Ok                Code = 0
-	Undefine          Code = 900
-	BusinessDataError Code = 1014
+	OK                  = 0
+	UNDERFINE           = 900
+	BUSINESS_DATA_ERROR = 1014
+
+	BAD_REQUEST                = 400
+	FORBIDDEN                  = 403
+	INTERNAL_SERVER_ERROR      = 500
+	VALIDATE_ERROR             = 1010
+	EXTERNAL_DEPENDENCY_ERROR  = 1016
+	EXTERNAL_DEPENDENCY_REJECT = 1017
+
+	No_AVAILABLE_PKG_ERROR = 5001
+)
+
+const (
+	Ok                = 0
+	Undefine          = 900
+	BusinessDataError = 1014
 
 	BadRequest               Code = 400
 	Forbidden                Code = 403
@@ -18,12 +33,12 @@ const (
 )
 
 var ErrorMsg = map[Code]string{
-	Ok:                "success",
+	Ok:                "返回成功",
 	BusinessDataError: "业务逻辑错误 {ERRMSG}",
 
-	BadRequest:              "Bad Request",
-	Forbidden:               "Forbidden",
-	InternalServerError:     "Server Internal Error",
+	BadRequest:              "错误的请求",
+	Forbidden:               "表示资源不可用",
+	InternalServerError:     "服务器服务错误",
 	ExternalDependencyError: "依赖其他项目错误 {ERRMSG}",
 	ValidateError:           "参数验证错误 {ERRMSG}",
 }

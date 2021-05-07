@@ -2,6 +2,7 @@ package errtype
 
 import (
 	"errors"
+	"time"
 )
 
 var (
@@ -32,23 +33,37 @@ var (
 
 //错误基类
 type ErrorBase struct {
-	LogId       string
+	Message     string
 	OriginError error
 	Code        int
+	Time        time.Time
 }
 
-func NewError(logId string, code int, err error) ErrorBase {
-	return ErrorBase{
-		LogId:       logId,
+func NewError(code int, err error, message ...string) ErrorBase {
+	errBase := ErrorBase{
 		Code:        code,
 		OriginError: err,
+		Time:        time.Now(),
 	}
+	if len(message) == 1 {
+		errBase.Message = message[0]
+	}
+	return errBase
+}
+
+func (err ErrorBase) Error() string {
+	return err.OriginError.Error()
+}
+
+func (err ErrorBase) ToString() string {
+	time := err.Time.Format("2006年01月02日 15:04:05")
+	return time + " " + err.Message + " " + err.OriginError.Error()
 }
 
 //服务器内部错误
 func NewInternalServelError(logId string, code int, err error) InternalError {
 	return InternalError{
-		ErrorBase{LogId: logId,
+		ErrorBase{
 			Code:        code,
 			OriginError: err,
 		},
@@ -62,7 +77,7 @@ type InternalError struct {
 //业务参数校验错误
 func NewBusinessDataError(logId string, code int, err error) BusinessDataError {
 	return BusinessDataError{
-		ErrorBase{LogId: logId,
+		ErrorBase{
 			Code:        code,
 			OriginError: err,
 		},
@@ -76,7 +91,7 @@ type BusinessDataError struct {
 //调用外部依赖错误
 func NewExternalDependencyError(logId string, code int, err error) ExternalDependencyError {
 	return ExternalDependencyError{
-		ErrorBase{LogId: logId,
+		ErrorBase{
 			Code:        code,
 			OriginError: err,
 		},
@@ -90,7 +105,7 @@ type ExternalDependencyError struct {
 //外部依赖返回拒绝执行
 func NewExternalDependencyRejectError(logId string, code int, err error, rawReturn interface{}) ExternalDependencyRejectError {
 	return ExternalDependencyRejectError{
-		ErrorBase: ErrorBase{LogId: logId,
+		ErrorBase: ErrorBase{
 			Code:        code,
 			OriginError: err,
 		},
