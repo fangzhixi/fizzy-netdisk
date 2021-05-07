@@ -1,712 +1,493 @@
-﻿
-
-<!doctype html>
-<html lang="en">
-  <head>
+﻿<!doctype html>
+<html lang="zh">
+<head>
     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>CloudBOX | Responsive Bootstrap 4 Admin Dashboard Template</title>
-      
-      <!-- Favicon -->
-      <link rel="shortcut icon" href="assets/images/favicon.ico" />
-      
-      <link rel="stylesheet" href="assets/css/backend.min.css">
-      <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-      <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
-      <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">
-      
-      <!-- Viewer Plugin -->
-        <!--PDF-->
-        <link rel="stylesheet" href="assets/vendor/doc-viewer/include/pdf/pdf.viewer.css">
-        <!--Docs-->
-        <!--PPTX-->
-        <link rel="stylesheet" href="assets/vendor/doc-viewer/include/PPTXjs/css/pptxjs.css">
-        <link rel="stylesheet" href="assets/vendor/doc-viewer/include/PPTXjs/css/nv.d3.min.css">
-        <!--All Spreadsheet -->
-        <link rel="stylesheet" href="assets/vendor/doc-viewer/include/SheetJS/handsontable.full.min.css">
-        <!--Image viewer-->
-        <link rel="stylesheet" href="assets/vendor/doc-viewer/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
-        <!--officeToHtml-->
-        <link rel="stylesheet" href="assets/vendor/doc-viewer/include/officeToHtml/officeToHtml.css">  </head>
-  <body class="  ">
-    <!-- loader Start -->
-    <div id="loading">
-          <div id="loading-center">
-          </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>网盘盒子</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/css/backend.min.css">
+    <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/vendor/line-awesome/dist/line-awesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="assets/vendor/remixicon/fonts/remixicon.css">
+
+    <!-- Viewer Plugin -->
+    <!--PDF-->
+    <link rel="stylesheet" href="assets/vendor/doc-viewer/include/pdf/pdf.viewer.css">
+    <!--Docs-->
+    <!--PPTX-->
+    <link rel="stylesheet" href="assets/vendor/doc-viewer/include/PPTXjs/css/pptxjs.css">
+    <link rel="stylesheet" href="assets/vendor/doc-viewer/include/PPTXjs/css/nv.d3.min.css">
+    <!--All Spreadsheet -->
+    <link rel="stylesheet" href="assets/vendor/doc-viewer/include/SheetJS/handsontable.full.min.css">
+    <!--Image viewer-->
+    <link rel="stylesheet" href="assets/vendor/doc-viewer/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
+    <!--officeToHtml-->
+    <link rel="stylesheet" href="assets/vendor/doc-viewer/include/officeToHtml/officeToHtml.css">  </head>
+<body class="  ">
+<!-- loader Start -->
+<div id="loading">
+    <div id="loading-center">
     </div>
-    <!-- loader END -->
-    <!-- Wrapper Start -->
-    <div class="wrapper">
-      
-      <div class="iq-sidebar  sidebar-default ">
-          <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
-              <a href="index.html" class="header-logo">
-                  <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
-                  <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
-              </a>
-              <div class="iq-menu-bt-sidebar">
-                  <i class="las la-bars wrapper-menu"></i>
-              </div>
-          </div>
-          <div class="data-scrollbar" data-scroll="1">
-              <div class="new-create select-dropdown input-prepend input-append">
-                  <div class="btn-group">
-                      <label data-toggle="dropdown">
-                      <div class="search-query selet-caption"><i class="las la-plus pr-2"></i>Create New</div><span class="search-replace"></span>
-                      <span class="caret"><!--icon--></span>
-                      </label>
-                      <ul class="dropdown-menu">
-                          <li><div class="item"><i class="ri-folder-add-line pr-3"></i>New Folder</div></li>
-                          <li><div class="item"><i class="ri-file-upload-line pr-3"></i>Upload Files</div></li>
-                          <li><div class="item"><i class="ri-folder-upload-line pr-3"></i>Upload Folders</div></li>
-                      </ul>
-                  </div>
-              </div>
-              <nav class="iq-sidebar-menu">
-                  <ul id="iq-sidebar-toggle" class="iq-menu">
-                       <li class=" ">
-                              <a href="index.html" class="">
-                                  <i class="las la-home iq-arrow-left"></i><span>Dashboard</span>
-                              </a>
-                          <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          </ul>
-                       </li>
-                       <li class=" ">
-                          <a href="#mydrive" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                              <i class="las la-hdd"></i><span>My Drive</span>
-                              <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                              <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                          </a>
-                          <ul id="mydrive" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                                  <li class=" ">
-                                          <a href="page-alexa.html">
-                                              <i class="lab la-blogger-b"></i><span>Alexa Workshop</span>
-                                          </a>
-                                  </li>
-                                  <li class=" ">
-                                          <a href="page-android.html">
-                                              <i class="las la-share-alt"></i><span>Android</span>
-                                          </a>
-                                  </li>
-                                  <li class=" ">
-                                          <a href="page-brightspot.html">
-                                              <i class="las la-icons"></i><span>Brightspot</span>
-                                          </a>
-                                  </li>
-                                  <li class=" ">
-                                          <a href="page-ionic.html">
-                                              <i class="las la-icons"></i><span>Ionic Chat App</span>
-                                          </a>
-                                  </li>
-                          </ul>
-                       </li>
-                       <li class=" ">
-                              <a href="page-files.html" class="">
-                                  <i class="lar la-file-alt iq-arrow-left"></i><span>Files</span>
-                              </a>
-                          <ul id="page-files" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          </ul>
-                       </li>
-                       <li class=" ">
-                              <a href="page-folders.html" class="">
-                                  <i class="las la-stopwatch iq-arrow-left"></i><span>Recent</span>
-                              </a>
-                          <ul id="page-folders" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          </ul>
-                       </li>
-                       <li class=" ">
-                              <a href="page-favourite.html" class="">
-                                  <i class="lar la-star"></i><span>Favourite</span>
-                              </a>
-                          <ul id="page-fevourite" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          </ul>
-                       </li>
-                       <li class=" ">
-                              <a href="page-delete.html" class="">
-                                  <i class="las la-trash-alt iq-arrow-left"></i><span>Trash</span>
-                              </a>
-                          <ul id="page-delete" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                          </ul>
-                       </li>
-                       <li class=" ">
-                          <a href="#otherpage" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                              <i class="lab la-wpforms iq-arrow-left"></i><span>other page</span>
-                              <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                              <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                          </a>
-                          <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                                  <li class=" ">
-                                      <a href="#user" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                          <i class="las la-user-cog"></i><span>User Details</span>
-                                          <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                                          <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                                      </a>
-                                      <ul id="user" class="iq-submenu collapse" data-parent="#otherpage">
-                                              <li class=" ">
-                                                  <a href="user-profile.html">
-                                                      <i class="las la-id-card"></i><span>User Profile</span>
-                                                  </a>
-                                              </li>
-                                              <li class="active">
-                                                  <a href="user-add.html">
-                                                      <i class="las la-user-plus"></i><span>User Add</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="user-list.html">
-                                                      <i class="las la-list-alt"></i><span>User List</span>
-                                                  </a>
-                                              </li>
-                                      </ul>
-                                  </li>
-                                  <li class=" ">
-                                      <a href="#ui" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                          <i class="lab la-uikit iq-arrow-left"></i><span>UI Elements</span>
-                                          <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                                          <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                                      </a>
-                                      <ul id="ui" class="iq-submenu collapse" data-parent="#otherpage">
-                                              <li class=" ">
-                                                  <a href="ui-avatars.html">
-                                                      <i class="las la-user-tie"></i><span>Avatars</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-alerts.html">
-                                                      <i class="las la-exclamation-triangle"></i><span>Alerts</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-badges.html">
-                                                      <i class="las la-id-badge"></i><span>Badges</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-breadcrumb.html">
-                                                      <i class="las la-ellipsis-h"></i><span>Breadcrumb</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-buttons.html">
-                                                      <i class="las la-ticket-alt"></i><span>Buttons</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-buttons-group.html">
-                                                      <i class="las la-object-group"></i><span>Buttons Group</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-boxshadow.html">
-                                                      <i class="las la-boxes"></i><span>Box Shadow</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-colors.html">
-                                                      <i class="las la-brush"></i><span>Colors</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-cards.html">
-                                                      <i class="las la-credit-card"></i><span>Cards</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-carousel.html">
-                                                      <i class="las la-sliders-h"></i><span>Carousel</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-grid.html">
-                                                      <i class="las la-th-large"></i><span>Grid</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-helper-classes.html">
-                                                      <i class="las la-hands-helping"></i><span>Helper classes</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-images.html">
-                                                      <i class="las la-image"></i><span>Images</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-list-group.html">
-                                                      <i class="las la-list-alt"></i><span>list Group</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-media-object.html">
-                                                      <i class="las la-photo-video"></i><span>Media</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-modal.html">
-                                                      <i class="las la-columns"></i><span>Modal</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-notifications.html">
-                                                      <i class="las la-bell"></i><span>Notifications</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-pagination.html">
-                                                      <i class="las la-ellipsis-h"></i><span>Pagination</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-popovers.html">
-                                                      <i class="las la-spinner"></i><span>Popovers</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-progressbars.html">
-                                                      <i class="las la-heading"></i><span>Progressbars</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-typography.html">
-                                                      <i class="las la-tablet"></i><span>Typography</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-tabs.html">
-                                                      <i class="las la-tablet"></i><span>Tabs</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-tooltips.html">
-                                                      <i class="las la-magnet"></i><span>Tooltips</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="ui-embed-video.html">
-                                                      <i class="las la-play-circle"></i><span>Video</span>
-                                                  </a>
-                                              </li>
-                                      </ul>
-                                  </li>
-                                  <li class=" ">
-                                      <a href="#auth" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                          <i class="las la-torah iq-arrow-left"></i><span>Authentication</span>
-                                          <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                                          <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                                      </a>
-                                      <ul id="auth" class="iq-submenu collapse" data-parent="#otherpage">
-                                              <li class=" ">
-                                                  <a href="auth-sign-in.html">
-                                                      <i class="las la-sign-in-alt"></i><span>Login</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="auth-sign-up.html">
-                                                      <i class="las la-registered"></i><span>Register</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="auth-recoverpw.html">
-                                                      <i class="las la-unlock-alt"></i><span>Recover Password</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="auth-confirm-mail.html">
-                                                      <i class="las la-envelope-square"></i><span>Confirm Mail</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="auth-lock-screen.html">
-                                                      <i class="las la-lock"></i><span>Lock Screen</span>
-                                                  </a>
-                                              </li>
-                                      </ul>
-                                  </li>
-                                  <li class=" ">
-                                      <a href="#pricing" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                          <i class="las la-coins"></i><span>Pricing</span>
-                                          <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                                          <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                                      </a>
-                                      <ul id="pricing" class="iq-submenu collapse" data-parent="#otherpage">
-                                              <li class=" ">
-                                                  <a href="pricing.html">
-                                                      <i class="las la-weight"></i><span>Pricing 1</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="pricing-2.html">
-                                                      <i class="las la-dna"></i><span>Pricing 2</span>
-                                                  </a>
-                                              </li>
-                                      </ul>
-                                  </li>
-                                  <li class=" ">
-                                      <a href="#pages-error" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                                          <i class="las la-exclamation-triangle"></i><span>Error</span>
-                                          <i class="las la-angle-right iq-arrow-right arrow-active"></i>
-                                          <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
-                                      </a>
-                                      <ul id="pages-error" class="iq-submenu collapse" data-parent="#otherpage">
-                                              <li class=" ">
-                                                  <a href="pages-error.html">
-                                                      <i class="las la-bomb"></i><span>Error 404</span>
-                                                  </a>
-                                              </li>
-                                              <li class=" ">
-                                                  <a href="pages-error-500.html">
-                                                      <i class="las la-exclamation-circle"></i><span>Error 500</span>
-                                                  </a>
-                                              </li>
-                                      </ul>
-                                  </li>
-                                  <li class=" ">
-                                          <a href="pages-blank-page.html">
-                                              <i class="las la-pager"></i><span>Blank Page</span>
-                                          </a>
-                                  </li>
-                                  <li class=" ">
-                                          <a href="pages-maintenance.html">
-                                              <i class="las la-cubes"></i><span>Maintenance</span>
-                                          </a>
-                                  </li>
-                          </ul>
-                       </li>
-                  </ul>
-              </nav>
-              <div class="sidebar-bottom">
-                  <h4 class="mb-3"><i class="las la-cloud mr-2"></i>Storage</h4>
-                  <p>17.1 / 20 GB Used</p>
-                  <div class="iq-progress-bar mb-3">
+</div>
+<!-- loader END -->
+<!-- Wrapper Start -->
+<div class="wrapper">
+
+    <div class="iq-sidebar  sidebar-default ">
+        <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+            <a href="index.html" class="header-logo">
+                <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
+            </a>
+            <div class="iq-menu-bt-sidebar">
+                <i class="las la-bars wrapper-menu"></i>
+            </div>
+        </div>
+        <div class="data-scrollbar" data-scroll="1">
+            <nav class="iq-sidebar-menu">
+                <ul id="iq-sidebar-toggle" class="iq-menu">
+                    <li class="">
+                        <a href="index.html" class="">
+                            <i class="las la-home iq-arrow-left"></i><span>首页</span>
+                        </a>
+                        <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="#files-list" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                            <i class="lar la-file-alt iq-arrow-left"></i><span>文件分类</span>
+                            <i class="las la-angle-right iq-arrow-right arrow-active"></i>
+                            <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                        </a>
+                        <ul id="files-list" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                            <li class=" ">
+                                <a href="page-alexa.html">
+                                    <span class="icon iconfont iconword"></span><span>Word&nbsp;文档</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-android.html">
+                                    <span class="icon iconfont iconexcel"></span><span>Excel&nbsp;表格</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-brightspot.html">
+                                    <span class="icon iconfont iconpptx"></span><span>PPT&nbsp;幻灯片</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-ionic.html">
+                                    <span class="icon iconfont iconpdf"></span><span>PDF&nbsp;电子书</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-ionic.html">
+                                    <span class="icon iconfont iconmedia-photo"></span><span>Photo&nbsp;照片</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-ionic.html">
+                                    <span class="icon iconfont iconmedia"></span><span>Media&nbsp;视频</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-ionic.html">
+                                    <span class="icon iconfont iconaudio"></span><span>Audio&nbsp;音乐</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-ionic.html">
+                                    <span class="icon iconfont iconzip"></span><span>ZIP&nbsp;压缩包</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="page-ionic.html">
+                                    <span class="icon iconfont iconfolder"></span><span>Folder&nbsp;文件夹</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="page-folders.html" class="">
+                            <i class="las la-stopwatch iq-arrow-left"></i><span>历史记录</span>
+                        </a>
+                        <ul id="page-folders" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="page-favourite.html" class="">
+                            <i class="lar la-star"></i><span>我的收藏</span>
+                        </a>
+                        <ul id="page-fevourite" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="#user" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                            <i class="las la-user-cog"></i><span>用户中心</span>
+                            <i class="las la-angle-right iq-arrow-right arrow-active"></i>
+                            <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                        </a>
+                        <ul id="user" class="iq-submenu collapse" data-parent="#otherpage">
+                            <li class=" ">
+                                <a href="user-profile.html">
+                                    <i class="las la-id-card"></i><span>个人信息</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="user-add.html">
+                                    <i class="las la-user-plus"></i><span>添加好友</span>
+                                </a>
+                            </li>
+                            <li class=" ">
+                                <a href="user-list.html">
+                                    <i class="las la-list-alt"></i><span>好友列表</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="pages-maintenance.html">
+                            <i class="las la-cubes"></i><span>文件共享</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="page-delete.html" class="">
+                            <i class="las la-trash-alt iq-arrow-left"></i><span>回收站</span>
+                        </a>
+                        <ul id="page-delete" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="#otherpage" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                            <i class="lab la-wpforms iq-arrow-left"></i><span>发现</span>
+                            <i class="las la-angle-right iq-arrow-right arrow-active"></i>
+                            <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                        </a>
+                        <ul id="otherpage" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                            <li class=" ">
+                                <a href="#auth" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                                    <i class="las la-torah iq-arrow-left"></i><span>账号设置</span>
+                                    <i class="las la-angle-right iq-arrow-right arrow-active"></i>
+                                    <i class="las la-angle-down iq-arrow-right arrow-hover"></i>
+                                </a>
+                                <ul id="auth" class="iq-submenu collapse" data-parent="#otherpage">
+                                    <li class=" ">
+                                        <a href="auth-recoverpw.html">
+                                            <i class="las la-unlock-alt"></i><span>重设密码</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="auth-confirm-mail.html">
+                                            <i class="las la-envelope-square"></i><span>邮箱绑定</span>
+                                        </a>
+                                    </li>
+                                    <li class=" ">
+                                        <a href="auth-lock-screen.html">
+                                            <i class="las la-lock"></i><span>锁定账号</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class=" ">
+                                <a href="https://www.speedtest.net/" class="" target="_blank">
+                                    <span class="iconfont icondashboard"></span><span>网速测试</span>
+                                </a>
+                                <ul id="page-speed" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-bottom">
+                <h4 class="mb-3"><i class="las la-cloud mr-2"></i>云端盒子</h4>
+                <p>17.1 GB / 20 GB 容量</p>
+                <div class="iq-progress-bar mb-3">
                       <span class="bg-primary iq-progress progress-1" data-percent="67">
                       </span>
-                  </div>
-                  <p>75% Full - 3.9 GB Free</p>
-                  <a href="#" class="btn btn-outline-primary view-more mt-4">Buy Storage</a>
-              </div>
-              <div class="p-3"></div>
-          </div>
-          </div>       <div class="iq-top-navbar">
-          <div class="iq-navbar-custom">
-              <nav class="navbar navbar-expand-lg navbar-light p-0">
-              <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
-                  <i class="ri-menu-line wrapper-menu"></i>
-                  <a href="index.html" class="header-logo">
-                      <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
-                      <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
-                  </a>
-              </div>
-                  <div class="iq-search-bar device-search">
-                      
-                      <form>
-                          <div class="input-prepend input-append">
-                              <div class="btn-group">
-                                  <label class="dropdown-toggle searchbox" data-toggle="dropdown">
-                                  <input class="dropdown-toggle search-query text search-input" type="text"  placeholder="Type here to search..."><span class="search-replace"></span>
-                                  <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                                  <span class="caret"><!--icon--></span>
-                                  </label>
-                                  <ul class="dropdown-menu">
-                                      <li><a href="#"><div class="item"><i class="far fa-file-pdf bg-info"></i>PDFs</div></a></li>
-                                      <li><a href="#"><div class="item"><i class="far fa-file-alt bg-primary"></i>Documents</div></a></li>
-                                      <li><a href="#"><div class="item"><i class="far fa-file-excel bg-success"></i>Spreadsheet</div></a></li>
-                                      <li><a href="#"><div class="item"><i class="far fa-file-powerpoint bg-danger"></i>Presentation</div></a></li>
-                                      <li><a href="#"><div class="item"><i class="far fa-file-image bg-warning"></i>Photos & Images</div></a></li>
-                                      <li><a href="#"><div class="item"><i class="far fa-file-video bg-info"></i>Videos</div></a></li>
-                                  </ul>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-      
-                  <div class="d-flex align-items-center">
-                      <div class="change-mode">
-                          <div class="custom-control custom-switch custom-switch-icon custom-control-inline">
-                              <div class="custom-switch-inner">
-                                  <p class="mb-0"> </p>
-                                  <input type="checkbox" class="custom-control-input" id="dark-mode" data-active="true">
-                                  <label class="custom-control-label" for="dark-mode" data-mode="toggle">
-                                      <span class="switch-icon-left"><i class="a-left"></i></span>
-                                      <span class="switch-icon-right"><i class="a-right"></i></span>
-                                  </label>
-                              </div>
-                          </div>
-                      </div>
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
-                      <i class="ri-menu-3-line"></i>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                          <ul class="navbar-nav ml-auto navbar-list align-items-center">
-                          <li class="nav-item nav-icon search-content">
-                              <a href="#" class="search-toggle rounded" id="dropdownSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <i class="ri-search-line"></i>
-                              </a>
-                              <div class="iq-search-bar iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownSearch">
-                                  <form action="#" class="searchbox p-2">
-                                      <div class="form-group mb-0 position-relative">
-                                      <input type="text" class="text search-input font-size-12" placeholder="type here to search...">
-                                      <a href="#" class="search-link"><i class="las la-search"></i></a> 
-                                      </div>
-                                  </form>
-                              </div>
-                          </li> 
-                          <li class="nav-item nav-icon dropdown">
-                              <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="ri-question-line"></i>
-                              </a>
-                              <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton01">
-                                  <div class="card shadow-none m-0">
-                                      <div class="card-body p-0 ">
-                                          <div class="p-3">
-                                              <a href="#" class="iq-sub-card pt-0"><i class="ri-questionnaire-line"></i>Help</a>
-                                              <a href="#" class="iq-sub-card"><i class="ri-recycle-line"></i>Training</a>
-                                              <a href="#" class="iq-sub-card"><i class="ri-refresh-line"></i>Updates</a>
-                                              <a href="#" class="iq-sub-card"><i class="ri-service-line"></i>Terms and Policy</a>
-                                              <a href="#" class="iq-sub-card"><i class="ri-feedback-line"></i>Send Feedback</a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                          <li class="nav-item nav-icon dropdown"> 
-                              <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                              <i class="ri-settings-3-line"></i>
-                              </a>
-                              <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton02">
-                                  <div class="card shadow-none m-0">
-                                      <div class="card-body p-0 ">
-                                          <div class="p-3">
-                                              <a href="#" class="iq-sub-card pt-0"><i class="ri-settings-3-line"></i> Settings</a>
-                                              <a href="#" class="iq-sub-card"><i class="ri-hard-drive-line"></i> Get Drive for desktop</a>
-                                              <a href="#" class="iq-sub-card"><i class="ri-keyboard-line"></i> Keyboard Shortcuts</a>
-                                          </div>                                
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                          <li class="nav-item nav-icon dropdown caption-content">
-                              <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                  <div class="caption bg-primary line-height">P</div>
-                              </a>
-                              <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton03">
-                                  <div class="card mb-0">
-                                      <div class="card-header d-flex justify-content-between align-items-center mb-0">
-                                      <div class="header-title">
-                                          <h4 class="card-title mb-0">Profile</h4>
-                                      </div>
-                                      <div class="close-data text-right badge badge-primary cursor-pointer "><i class="ri-close-fill"></i></div>
-                                      </div>
-                                      <div class="card-body">
-                                          <div class="profile-header">
-                                              <div class="cover-container text-center">
-                                                  <div class="rounded-circle profile-icon bg-primary mx-auto d-block">
-                                                      P                                                    
-                                                      <a href="">
-                                                          
-                                                      </a>
-                                                  </div>
-                                                  <div class="profile-detail mt-3">
-                                                  <h5><a href="user-profile-edit.html">Panny Marco</a></h5>
-                                                  <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c9b9a8a7a7b0a4a8bbaaa689aea4a8a0a5e7aaa6a4">[email&#160;protected]</a></p>
-                                                  </div>
-                                                  <a href="auth-sign-in.html" class="btn btn-primary">Sign Out</a>
-                                              </div>
-                                              <div class="profile-details mt-4 pt-4 border-top">
-                                                  <div class="media align-items-center mb-3">
-                                                      <div class="rounded-circle iq-card-icon-small bg-primary">
-                                                          A
-                                                      </div>
-                                                      <div class="media-body ml-3">
-                                                          <div class="media justify-content-between">
-                                                              <h6 class="mb-0">Anna Mull</h6>
-                                                              <p class="mb-0 font-size-12"><i>Signed Out</i></p>
-                                                          </div>
-                                                          <p class="mb-0 font-size-12"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="44252a2a2529312828042329252d286a272b29">[email&#160;protected]</a></p>
-                                                      </div>                                                 
-                                                  </div>
-                                                  <div class="media align-items-center mb-3">
-                                                      <div class="rounded-circle iq-card-icon-small bg-success">
-                                                          K
-                                                      </div>
-                                                      <div class="media-body ml-3">
-                                                          <div class="media justify-content-between">
-                                                              <h6 class="mb-0">King Poilin</h6>
-                                                              <p class="mb-0 font-size-12"><i>Signed Out</i></p>
-                                                          </div>
-                                                          <p class="mb-0 font-size-12"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ce7e5e2ebfce3e5e0e5e2ccebe1ede5e0a2efe3e1">[email&#160;protected]</a></p>
-                                                      </div>
-                                                  </div>
-                                                  <div class="media align-items-center">
-                                                      <div class="rounded-circle iq-card-icon-small bg-danger">
-                                                          D
-                                                      </div>
-                                                      <div class="media-body ml-3">
-                                                          <div class="media justify-content-between">
-                                                              <h6 class="mb-0">Devid Worner</h6>
-                                                              <p class="mb-0 font-size-12"><i>Signed Out</i></p>
-                                                          </div>
-                                                          <p class="mb-0 font-size-12"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="701415061914071f021e150230171d11191c5e131f1d">[email&#160;protected]</a></p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </li>
-                          </ul>                     
-                      </div> 
-                  </div>
-              </nav>
-          </div>
-      </div>
+                </div>
+                <p>75% 已用 - 31.9 GB 空闲</p>
+            </div>
+            <div class="p-3"></div>
+        </div>
+    </div>       <div class="iq-top-navbar">
+    <div class="iq-navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-light p-0">
+            <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                <i class="ri-menu-line wrapper-menu"></i>
+                <a href="index.html" class="header-logo">
+                    <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
+                    <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
+                </a>
+            </div>
+            <div class="iq-search-bar device-search">
+
+                <form>
+                    <div class="input-prepend input-append">
+                        <div class="btn-group">
+                            <label class="dropdown-toggle searchbox" data-toggle="dropdown">
+                                <input class="dropdown-toggle search-query text search-input" type="text"  placeholder="搜点什么吧..."><span class="search-replace"></span>
+                                <a class="search-link" href="#"><i class="ri-search-line"></i></a>
+                                <span class="caret"><!--icon--></span>
+                            </label>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><div class="item"><i class="far fa-file-pdf bg-info"></i>PDF电子书</div></a></li>
+                                <li><a href="#"><div class="item"><i class="far fa-file-alt bg-primary"></i>文档</div></a></li>
+                                <li><a href="#"><div class="item"><i class="far fa-file-excel bg-success"></i>表格</div></a></li>
+                                <li><a href="#"><div class="item"><i class="far fa-file-powerpoint bg-danger"></i>幻灯片</div></a></li>
+                                <li><a href="#"><div class="item"><i class="far fa-file-image bg-warning"></i>图片</div></a></li>
+                                <li><a href="#"><div class="item"><i class="far fa-file-video bg-info"></i>视频</div></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <div class="change-mode">
+                    <div class="custom-control custom-switch custom-switch-icon custom-control-inline">
+                        <div class="custom-switch-inner">
+                            <p class="mb-0"> </p>
+                            <input type="checkbox" class="custom-control-input" id="dark-mode" data-active="true">
+                            <label class="custom-control-label" for="dark-mode" data-mode="toggle">
+                                <span class="switch-icon-left"><i class="a-left"></i></span>
+                                <span class="switch-icon-right"><i class="a-right"></i></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-list align-items-center">
+                        <li class="nav-item nav-icon search-content">
+                            <a href="#" class="search-toggle rounded" id="dropdownSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-search-line"></i>
+                            </a>
+                            <div class="iq-search-bar iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownSearch">
+                                <form action="#" class="searchbox p-2">
+                                    <div class="form-group mb-0 position-relative">
+                                        <input type="text" class="text search-input font-size-12" placeholder="type here to search...">
+                                        <a href="#" class="search-link"><i class="las la-search"></i></a>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-icon dropdown">
+                            <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-question-line"></i>
+                            </a>
+                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton01">
+                                <div class="card shadow-none m-0">
+                                    <div class="card-body p-0 ">
+                                        <div class="p-3">
+                                            <a href="#" class="iq-sub-card"><i class="ri-refresh-line"></i>检查更新</a>
+                                            <a href="#" class="iq-sub-card"><i class="ri-feedback-line"></i>反馈</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-icon dropdown">
+                            <a href="#" class="" id="dropdownMenuButton02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                <i class="ri-settings-3-line"></i>
+                            </a>
+                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton02">
+                                <div class="card shadow-none m-0">
+                                    <div class="card-body p-0 ">
+                                        <div class="p-3">
+                                            <a href="#" class="iq-sub-card pt-0"><i class="ri-settings-3-line"></i> 设置</a>
+                                            <a href="#" class="iq-sub-card"><i class="ri-hard-drive-line"></i> 设置桌面快捷图标</a>
+                                        </div>search-toggle dropdown-toggle
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-icon dropdown caption-content">
+                            <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                <div class="caption bg-primary line-height">P</div>
+                            </a>
+                            <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton03">
+                                <div class="card mb-0">
+                                    <div class="card-header d-flex justify-content-between align-items-center mb-0">
+                                        <div class="close-data text-right badge badge-primary cursor-pointer "><i class="ri-close-fill"></i></div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="profile-header">
+                                            <div class="cover-container text-center">
+                                                <div class="rounded-circle profile-icon bg-primary mx-auto d-block">
+                                                    P
+                                                    <a href="">
+
+                                                    </a>
+                                                </div>
+                                                <div class="profile-detail mt-3">
+                                                    <h5><a href="user-profile-edit.html">Panny Marco</a></h5>
+                                                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6c7d727265717d6e7f735c7b717d7570327f7371">邮箱&#160;尚未绑定</a></p>
+                                                </div>
+                                                <a href="auth-sign-in.html" class="btn btn-primary">登出</a>
+                                            </div>
+                                            <div class="profile-details mt-4 pt-4 border-top">
+                                                <div class="media align-items-center mb-3">
+                                                    <div class="rounded-circle iq-card-icon-small bg-primary">
+                                                        A
+                                                    </div>
+                                                    <div class="media-body ml-3">
+                                                        <div class="media justify-content-between">
+                                                            <h6 class="mb-0">Anna Mull</h6>
+                                                            <a href="index.html" class="mb-0 font-size-12"><i>切换账户</i></a>
+                                                        </div>
+                                                        <p class="mb-0 font-size-12" style="color: #8f93f6;">[email&#160;protected]</p>
+                                                    </div>
+                                                </div>
+                                                <div class="media align-items-center mb-3">
+                                                    <div class="rounded-circle iq-card-icon-small bg-success">
+                                                        K
+                                                    </div>
+                                                    <div class="media-body ml-3">
+                                                        <div class="media justify-content-between">
+                                                            <h6 class="mb-0">King Poilin</h6>
+                                                            <a href="index.html" class="mb-0 font-size-12"><i>切换账户</i></a>
+                                                        </div>
+                                                        <p class="mb-0 font-size-12" style="color: #8f93f6;">[email&#160;protected]</p>
+                                                    </div>
+                                                </div>
+                                                <div class="media align-items-center">
+                                                    <div class="rounded-circle iq-card-icon-small bg-danger">
+                                                        D
+                                                    </div>
+                                                    <div class="media-body ml-3">
+                                                        <div class="media justify-content-between">
+                                                            <h6 class="mb-0">Devid Worner</h6>
+                                                            <a href="index.html" class="mb-0 font-size-12"><i>切换账户</i></a>
+                                                        </div>
+                                                        <p class="mb-0 font-size-12" style="color: #8f93f6;">[email&#160;protected]</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
       <div class="content-page">
       <div class="container-fluid">
          <div class="row">
-            <div class="col-xl-3 col-lg-4">
+            <div class="col-xl-12 col-lg-8">
                   <div class="card">
                      <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                           <h4 class="card-title">Add New User</h4>
-                        </div>
-                     </div>
-                     <div class="card-body">
-                        <form>
-                           <div class="form-group text-center">
-                              <div class="d-flex justify-content-center">
-                                 <div class="crm-profile-img-edit position-relative">
-                                    <img class="crm-profile-pic rounded-circle avatar-100" src="assets/images/user/11.png" alt="profile-pic">
-                                    <div class="crm-p-image bg-primary">
-                                       <i class="las la-pen upload-button"></i>
-                                       <input class="file-upload" type="file" accept="image/*">
-                                    </div>
-                                 </div>
-                              </div>
-                           <div class="img-extension mt-3">
-                              <div class="d-inline-block align-items-center">
-                                    <span>Only</span>
-                                 <a href="javascript:void();">.jpg</a>
-                                 <a href="javascript:void();">.png</a>
-                                 <a href="javascript:void();">.jpeg</a>
-                                 <span>allowed</span>
-                              </div>
-                           </div>
-                           </div>
-                           <div class="form-group">
-                              <label>User Role:</label>
-                              <select class="form-control" id="selectuserrole">
-                                 <option>Select</option>
-                                 <option>Web Designer</option>
-                                 <option>Web Developer</option>
-                                 <option>Tester</option>
-                                 <option>Php Developer</option>
-                                 <option>Ios Developer </option>
-                              </select>
-                           </div>
-                           <div class="form-group">
-                              <label for="furl">Facebook Url:</label>
-                              <input type="text" class="form-control" id="furl" placeholder="Facebook Url">
-                           </div>
-                           <div class="form-group">
-                              <label for="turl">Twitter Url:</label>
-                              <input type="text" class="form-control" id="turl" placeholder="Twitter Url">
-                           </div>
-                           <div class="form-group">
-                              <label for="instaurl">Instagram Url:</label>
-                              <input type="text" class="form-control" id="instaurl" placeholder="Instagram Url">
-                           </div>
-                           <div class="form-group">
-                              <label for="lurl">Linkedin Url:</label>
-                              <input type="text" class="form-control" id="lurl" placeholder="Linkedin Url">
-                           </div>
-                        </form>
-                     </div>
-                  </div>
-            </div>
-            <div class="col-xl-9 col-lg-8">
-                  <div class="card">
-                     <div class="card-header d-flex justify-content-between">
-                        <div class="header-title">
-                           <h4 class="card-title">New User Information</h4>
+                           <h4 class="card-title">添加好友</h4>
                         </div>
                      </div>
                      <div class="card-body">
                         <div class="new-user-info">
                            <form>
                               <div class="row">
-                                 <div class="form-group col-md-6">
-                                    <label for="fname">First Name:</label>
-                                    <input type="text" class="form-control" id="fname" placeholder="First Name">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="lname">Last Name:</label>
-                                    <input type="text" class="form-control" id="lname" placeholder="Last Name">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="add1">Street Address 1:</label>
-                                    <input type="text" class="form-control" id="add1" placeholder="Street Address 1">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="add2">Street Address 2:</label>
-                                    <input type="text" class="form-control" id="add2" placeholder="Street Address 2">
-                                 </div>
-                                 <div class="form-group col-md-12">
-                                    <label for="cname">Company Name:</label>
-                                    <input type="text" class="form-control" id="cname" placeholder="Company Name">
-                                 </div>
-                                 <div class="form-group col-sm-12">
-                                    <label>Country:</label>
-                                    <select class="form-control" id="selectcountry">
-                                       <option>Select Country</option>
-                                       <option>Caneda</option>
-                                       <option>Noida</option>
-                                       <option >USA</option>
-                                       <option>India</option>
-                                       <option>Africa</option>
-                                    </select>
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="mobno">Mobile Number:</label>
-                                    <input type="text" class="form-control" id="mobno" placeholder="Mobile Number">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="altconno">Alternate Contact:</label>
-                                    <input type="text" class="form-control" id="altconno" placeholder="Alternate Contact">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Email">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="pno">Pin Code:</label>
-                                    <input type="text" class="form-control" id="pno" placeholder="Pin Code">
-                                 </div>
-                                 <div class="form-group col-md-12">
-                                    <label for="city">Town/City:</label>
-                                    <input type="text" class="form-control" id="city" placeholder="Town/City">
-                                 </div>
+                                  <div class="form-group col-md-9">
+                                      <input type="text" class="form-control" id="user_info" placeholder="账号 / 手机 / 邮箱">
+                                  </div>
+                                  <div class="form-group col-md-3">
+                                      <button type="submit" class="btn btn-primary col-md-12">搜索</button>
+                                  </div>
                               </div>
-                              <hr>
-                              <h5 class="mb-3">Security</h5>
-                              <div class="row">
-                                 <div class="form-group col-md-12">
-                                    <label for="uname">User Name:</label>
-                                    <input type="text" class="form-control" id="uname" placeholder="User Name">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="pass">Password:</label>
-                                    <input type="password" class="form-control" id="pass" placeholder="Password">
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                    <label for="rpass">Repeat Password:</label>
-                                    <input type="password" class="form-control" id="rpass" placeholder="Repeat Password ">
-                                 </div>
-                              </div>
-                              <div class="checkbox">
-                                 <label><input class="mr-2" type="checkbox">Enable Two-Factor-Authentication</label>
-                              </div>
-                              <button type="submit" class="btn btn-primary">Add New User</button>
                            </form>
+                              <hr>
+                              <h5 class="mb-3">用户信息</h5>
+                            <div class="table-responsive">
+                                <table id="user-list-table" class="table table-striped table-bordered mt-4 " role="grid" aria-describedby="user-list-page-info">
+                                    <thead>
+                                    <tr>
+                                        <th class="shield" scope="col" width="8%" style="text-align: center">头像</th>
+                                        <th class="shield" scope="col" width="20%">账号</th>
+                                        <th class="shield" scope="col" width="18%">名字</th>
+                                        <th class="shield" scope="col" width="34%">个性签名</th>
+                                        <th class="shield" scope="col" width="8%" style="text-align: center">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center"><img class="rounded img-fluid avatar-40" src="assets/images/user/01.jpg" alt="profile"></td>
+                                        <td><a href="user-profile.html">Anna Sthesia</a></td>
+                                        <td>(760) 756 7568</td>
+                                        <td>USA</td>
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="添加" href="#" style="text-align: center;display:block"><i class="ri-user-add-line"></i></a>
+                                             </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><img class="rounded img-fluid avatar-40" src="assets/images/user/02.jpg" alt="profile"></td>
+                                        <td><a href="user-profile.html">Anna Sthesia</a></td>
+                                        <td>+62 5689 458 658</td>
+                                        <td>Soylent Corp</td>
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add" href="#" style="text-align: center;display:block"><i class="ri-user-add-line"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><img class="rounded img-fluid avatar-40" src="assets/images/user/01.jpg" alt="profile"></td>
+                                        <td><a href="user-profile.html">Anna Sthesia</a></td>
+                                        <td>(760) 756 7568</td>
+                                        <td>USA</td>
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="添加" href="#" style="text-align: center;display:block"><i class="ri-user-add-line"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><img class="rounded img-fluid avatar-40" src="assets/images/user/02.jpg" alt="profile"></td>
+                                        <td><a href="user-profile.html">Anna Sthesia</a></td>
+                                        <td>+62 5689 458 658</td>
+
+                                        <td>Soylent Corp</td>
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add" href="#" style="text-align: center;display:block"><i class="ri-user-add-line"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><img class="rounded img-fluid avatar-40" src="assets/images/user/01.jpg" alt="profile"></td>
+                                        <td><a href="user-profile.html">Anna Sthesia</a></td>
+                                        <td>(760) 756 7568</td>
+                                        <td>USA</td>
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="添加" href="#" style="text-align: center;display:block"><i class="ri-user-add-line"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center"><img class="rounded img-fluid avatar-40" src="assets/images/user/02.jpg" alt="profile"></td>
+                                        <td><a href="user-profile.html">Anna Sthesia</a></td>
+                                        <td>+62 5689 458 658</td>
+
+                                        <td>Soylent Corp</td>
+                                        <td>
+                                            <div class="flex align-items-center list-user-action">
+                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add" href="#" style="text-align: center;display:block"><i class="ri-user-add-line"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                      </div>
                   </div>
