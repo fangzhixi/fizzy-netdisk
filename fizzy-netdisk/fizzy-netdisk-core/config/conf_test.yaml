@@ -1,0 +1,16 @@
+env: test
+app_name:fizzy-disk
+nacos:
+  ip: http://localhost.com
+  port: 80
+  group: fizzy
+
+remote_conf:
+  log_level: 5
+  log_path: logger/
+  db_log_enable: true
+  gin_host: 8080
+  sentry_dsn: ""
+  public_key_path: config/public.key
+  private_key_path: config/private.key
+  root_path_name: fizzy-netdisk
