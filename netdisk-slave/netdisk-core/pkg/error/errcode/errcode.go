@@ -34,6 +34,7 @@ const (
 
 var ErrorMsg = map[Code]string{
 	Ok:                "返回成功",
+	Undefine:          "未定义",
 	BusinessDataError: "业务逻辑错误 {ERRMSG}",
 
 	BadRequest:              "错误的请求",

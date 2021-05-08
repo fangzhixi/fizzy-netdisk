@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package grpc;
+option go_package = ".;grpc";
+
+import "annotations.proto";
+
+message UploadFileReq{
+    string file_path_name = 1; //上传文件存放位置及文件名
+    bytes data = 6; //文件内容
+}
+
+message UploadFileRsp{
+    int32 code = 1; //0 成功 非0 失败
+    string message = 2; //错误信息
+}

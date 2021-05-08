@@ -9,17 +9,13 @@ import (
 func main() {
 
 	flagMap := config.FlagInit()
-	configFilePath := flagMap["configYamlPath"]
-	fmt.Println("configYamlPath: ", configFilePath)
 
-	fmt.Println("\nconfigPath: ", flagMap["configYamlPath"])
-	yamlPath := config.GetConfigPath(flagMap["configYamlPath"])
-
-	err := config.Newconfig(yamlPath).ConfigInit()
+	err := config.Newconfig(flagMap["env"]).ConfigInit()
 	if err != nil {
 		fmt.Println("初始化失败: ", err)
 		panic(err)
 	}
-	fmt.Println("服务已启动", config.Config)
+	fmt.Println("server is starting...")
 	fmt.Println("Hello World!")
+
 }

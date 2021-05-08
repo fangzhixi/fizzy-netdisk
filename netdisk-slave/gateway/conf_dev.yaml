@@ -1,0 +1,9 @@
+env: dev
+app_name: warning-gateway
+log_path: /work/logs
+log_level: 5
+mode: debug
+db_log_enable: false
+api_grpc_url: warning-center-strategic-svr.dev.svc.cluster.local:50009  #对外暴露的rpc地址
+gateway_url: :8080
+jaeger_agent_uri: 10.21.32.2:6831
