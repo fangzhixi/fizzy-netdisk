@@ -3,10 +3,6 @@ package config
 import (
 	"flag"
 	"fmt"
-
-	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/error/errcode"
-	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/error/errtype"
-	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/utils/yaml"
 )
 
 var (
@@ -38,10 +34,10 @@ func Newconfig(path string) Configuration {
 func (config Configuration) ConfigInit() error {
 	LogID = "123321321"
 	fmt.Println("Yaml Path: ", config.ConfigYamlPath)
-	err := yaml.ReadYaml(config.ConfigYamlPath, &Config)
-	if err != nil {
-		return errtype.NewError(errcode.BUSINESS_DATA_ERROR, err, "yaml读取失败")
-	}
+	// err := yaml.ReadYaml(config.ConfigYamlPath, &Config)
+	// if err != nil {
+	// 	return errtype.NewError(errcode.BUSINESS_DATA_ERROR, err, "yaml读取失败")
+	// }
 	fmt.Println("config.Configuration: ", Config)
 	return nil
 }
@@ -61,15 +57,15 @@ func GetConfigPath(env string) string {
 	switch env {
 	case "prod":
 		fmt.Println("启动环境: ", env)
-		return "./config/conf_prod.yaml"
+		return "./conf_prod.yaml"
 	case "dev":
 		fmt.Println("启动环境: ", env)
-		return "./config/conf_env.yaml"
+		return "./conf_env.yaml"
 	case "test":
 		fmt.Println("启动环境: ", env)
-		return "./config/conf_test.yaml"
+		return "./conf_test.yaml"
 	default:
 		fmt.Println("启动环境: dev")
-		return "./config/conf.yaml"
+		return "./conf.yaml"
 	}
 }

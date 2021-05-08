@@ -1,0 +1,14 @@
+env: prod
+app_name: fizzy-disk
+log_level: 5
+log_path: logger/
+listen_address: 50009
+public_key_path: config/public.key
+private_key_path: config/private.key
+root_path_name: fizzy-netdisk
+
+# 主服务器设置
+remote_conf: 
+  ip: http://localhost.com
+  port: 80
+  group: fizzy
