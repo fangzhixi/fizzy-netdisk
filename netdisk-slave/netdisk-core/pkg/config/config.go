@@ -3,6 +3,8 @@ package config
 import (
 	"flag"
 	"fmt"
+
+	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/utils/yaml"
 )
 
 var (
@@ -27,17 +29,18 @@ type Configuration struct {
 	} `yaml:"remote_conf"`
 }
 
-func Newconfig(path string) Configuration {
-	return Configuration{ConfigYamlPath: path}
+func Newconfig(yamlPath string) Configuration {
+	LogID = "123321321"
+	return Configuration{ConfigYamlPath: yamlPath}
 }
 
 func (config Configuration) ConfigInit() error {
-	LogID = "123321321"
 	fmt.Println("Yaml Path: ", config.ConfigYamlPath)
-	// err := yaml.ReadYaml(config.ConfigYamlPath, &Config)
-	// if err != nil {
-	// 	return errtype.NewError(errcode.BUSINESS_DATA_ERROR, err, "yaml读取失败")
-	// }
+	err := yaml.ReadYaml(config.ConfigYamlPath, &Config)
+	if err != nil {
+		fmt.Println("Assert读取文件失败: ", err)
+		panic(err)
+	}
 	fmt.Println("config.Configuration: ", Config)
 	return nil
 }
@@ -57,15 +60,15 @@ func GetConfigPath(env string) string {
 	switch env {
 	case "prod":
 		fmt.Println("启动环境: ", env)
-		return "./conf_prod.yaml"
+		return "resource/config/conf_prod.yaml"
 	case "dev":
 		fmt.Println("启动环境: ", env)
-		return "./conf_env.yaml"
+		return "resource/config/conf_dev.yaml"
 	case "test":
 		fmt.Println("启动环境: ", env)
-		return "./conf_test.yaml"
+		return "resource/config/conf_test.yaml"
 	default:
 		fmt.Println("启动环境: dev")
-		return "./conf.yaml"
+		return "resource/config/conf.yaml"
 	}
 }
