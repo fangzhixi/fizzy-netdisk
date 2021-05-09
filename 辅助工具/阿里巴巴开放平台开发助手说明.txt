@@ -1,0 +1,13 @@
+使用支付宝开放平台开发助手来帮助生成java\go端私钥公钥转译文件
+
+在线转译:https://miniu.alipay.com/keytool/create
+
+地址:https://opendocs.alipay.com/open/291/introduce
+
+java适用密钥格式(PKCS8):    -----BEGIN PRIVATE KEY-----
+                           xxx
+                           -----END PRIVATE KEY-----
+                           
+非java适用密钥格式(PKCS1):  -----BEGIN RSA PRIVATE KEY-----
+                           xxx
+                           -----END RSA PRIVATE KEY-----

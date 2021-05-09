@@ -4,29 +4,26 @@ package com.fizzy.util.sdk;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
-
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-import java.util.Base64;
-import java.util.Base64.Decoder;
 
-public class Encryption extends Token{
+//签名认证
+public class autograph extends RSAEncryption {
 
     private String signature;//加密后得到的签名串
 
-    public Encryption() {
+    public autograph() {
         signature = "";
     }
 
-    public Encryption(String algorithm, String userID, Integer nonce, Integer timestamp) {
-        super(algorithm, userID, nonce, timestamp);
+    public autograph(String algorithm, String userID, Integer nonce, Integer timestamp, String masterKey) {
+        super(algorithm, userID, nonce, timestamp, masterKey);
         signature = "";
     }
 
     public String format(){
         String encryption = super.format();
         if (signature != "")
-            encryption += "|signature=" + getSignature();
+            encryption += ",signature=" + getSignature();
         return encryption;
     }
 
@@ -67,14 +64,14 @@ public class Encryption extends Token{
             MessageDigest md    = MessageDigest.getInstance("MD5");
             byte[]        input = src.getBytes();
             byte[]        buff  = md.digest(input);
-            md5str = ToHex(buff);
+            md5str = toHex(buff);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return md5str;
     }
 
-    private static String ToHex(byte[] arr) {
+    private static String toHex(byte[] arr) {
         StringBuilder md5str = new StringBuilder();
         int           digital;
         for (byte anArr : arr) {

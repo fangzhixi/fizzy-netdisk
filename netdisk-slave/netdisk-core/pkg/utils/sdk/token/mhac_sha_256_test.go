@@ -8,14 +8,14 @@ import (
 )
 
 func TestToken(t *testing.T) {
-	originStr := "userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=-----BEGIN MASTER KEY-----BUXIENYA/t9BvCH8H3Lp+LDvB23oPOxoarea0PX/a8+7ac2G+wCb6XJ4QPj+meSve1pZJiEqxTyRfpdPF8CpItInaA6VHf7sWyBA0seEl23pKfa21uD4c-----END MASTER KEY-----"
+	originStr := "algorithm=HMAC-SHA256,userID=gd_abcdefghijklmn,nonce=398888,timestamp=1590719810,masterKey=-BEGIN MASTER KEY-X3gTwDsH0e0CeGH6DQ099UT3XJLL/zewIDAQABAoIBf1ZwF23mGcvfvNKM9dltM5BpxvaPGUWOpBqLln75NJVuTJKMD4Lh63mP2tWEmMTVezEowawEt1jK-END MASTER KEY-"
 	fmt.Println("原始的数据:", originStr)
-	data, err := token.RsaEncryptOutBase64([]byte(originStr)) //加密
+	data, err := token.RsaEncryptOutBase64(&originStr) //加密
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	fmt.Printf("经过base64转义过后的SHA-256加密:\n%s\n", *data)
-	origData, err := token.RsaDecryptByBase64(*data) //解密
+	origData, err := token.RsaDecryptByBase64(data) //解密
 	if err != nil {
 		fmt.Println(err.Error())
 	}
@@ -23,8 +23,8 @@ func TestToken(t *testing.T) {
 }
 
 func TestTokenInvoice(t *testing.T) {
-	originStr := "F1Luvm/gebE4yv1q615jFzZEuzrti0jVDXFuExFKJdwooLeJHXCjAA0mDSeor72INwGaWtZ9MdigVmR7s86flambypTE1JPvYe/uPhnT5gYxCeU99JRh96vwAIvFt6q+SJ8Sh6pExEUJkj3LPgBaawx0+yuQYiLHyAXS9LLxPZi5qZEK7DlB9sMEfKsw3s1k7HOqDkg9toldL76YbeE9/8AdIhm2dtUo482GrCOVTt6B6IEW4j00yCoA2E/8vR7bHSeRpJTiNx877wpcOqvcfm1jNF6RActM6JWPet4Key3La3PFn9j7yj+0AFKz846wHxSgeSX9rNl0W0060j9Lqw=="
+	originStr := "DWosD6K3J/Qtl8rQfjTZN4dLGmRyqT4LrWc0xKglGpdsM/sBeyaqUsL2/bL/JHk7WlRwOnlR9IAynYcVJcVbE0APJfWHl6NkwfUjIuXTMNjZSsSELEUR+/LNFBHuyvhT2CyftutaQz254q2MPpCP/f6Wlsc8W98iHJaftIBl48bqFqMvYBgN7Heu/zTtrIqSXxheXVI2kI8XHfbV86GanILpkN53gY2Vxb1pfabQ6wOiKl6ojVQ1wnSIxjHuOcBNPXkMeY2YttSzIFtbdOem+CGbB57VYvIzi7usIQoTDF4PLgJAm6exaNENyOyfPerMPoGwiqACVNpZRMQbVTVpqA=="
 	fmt.Println("原始的数据:", originStr)
-	isPass, err := token.TokenInvoice(originStr)
+	isPass, err := token.TokenInvoice(&originStr)
 	fmt.Println("Token身份是否通过: ", isPass, err)
 }

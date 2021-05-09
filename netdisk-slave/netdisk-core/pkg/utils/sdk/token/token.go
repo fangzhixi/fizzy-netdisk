@@ -8,9 +8,9 @@ import (
 	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/error/errtype"
 )
 
-/**签名验证(true通过,false不通过)[只支持MHAC-SHA-256解密]
-Token按照以下方式排列: userID=用户ID,nonce=随机数字(6位),timestamp=时间戳(10位),masterKey=主机认证口令
-样例: 				  userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
+/**签名验证(true通过,false不通过)[以MHAC-SHA-256解密方式为例]
+Token按照以下方式排列: algorithm=解密方式,userID=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),masterKey=主机认证口令
+样例: 				  algorithm=HMAC-SHA256,userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
 
 加密后的token格式:     Base64格式密码串
 样例:				  nft7AMsMTUguKohIzIccGD6wNMnDCPeGfxHMAEHmSfGA
@@ -22,8 +22,11 @@ Token按照以下方式排列: userID=用户ID,nonce=随机数字(6位),timestam
 	3.比对主机认证口令与本机储存主机认证口令是否一致
 	4.所有认证均符合则通过，反之则不通过
 */
-func TokenInvoice(token string) (bool, error) {
-	if len(token) <= 0 {
+func TokenInvoice(token *string) (bool, error) {
+	//数据验证
+	if token == nil {
+		return false, nil
+	} else if len(*token) <= 0 {
 		fmt.Println("Token内容为空,校验不通过")
 		return false, nil
 	}
@@ -33,6 +36,7 @@ func TokenInvoice(token string) (bool, error) {
 	message, err := RsaDecryptByBase64(token) //解密
 	if err != nil {
 		fmt.Println(err.Error())
+		return false, nil
 	} else if message == nil {
 		fmt.Println("解密信息为空,校验不通过")
 		return false, nil

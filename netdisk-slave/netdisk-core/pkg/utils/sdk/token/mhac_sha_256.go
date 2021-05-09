@@ -19,7 +19,13 @@ import (
 //openssl rsa -in rsa_private_key.pem -pubout -out public.key
 
 // 加密
-func RsaEncryptOutBase64(origData []byte) (*string, error) {
+func RsaEncryptOutBase64(originData *string) (*string, error) {
+
+	//数据验证
+	if originData == nil {
+		return nil, nil
+	}
+
 	//解密pem格式的公钥
 	publicKeyByte, err := getPublicKey()
 	if err != nil {
@@ -39,7 +45,7 @@ func RsaEncryptOutBase64(origData []byte) (*string, error) {
 	// 类型断言
 	pub := pubInterface.(*rsa.PublicKey)
 	//加密
-	bytes, err := rsa.EncryptPKCS1v15(rand.Reader, pub, origData)
+	bytes, err := rsa.EncryptPKCS1v15(rand.Reader, pub, []byte(*originData))
 	if err != nil {
 		return nil, errtype.NewError(errcode.BUSINESS_DATA_ERROR, err, "加密失败")
 	}
@@ -48,7 +54,13 @@ func RsaEncryptOutBase64(origData []byte) (*string, error) {
 }
 
 // 解密
-func RsaDecryptByBase64(cipherBase64 string) (*string, error) {
+func RsaDecryptByBase64(cipherBase64 *string) (*string, error) {
+
+	//数据验证
+	if cipherBase64 == nil {
+		return nil, nil
+	}
+
 	//解密
 	privateKeyByte, err := getPrivateKey()
 	if err != nil {
@@ -60,13 +72,15 @@ func RsaDecryptByBase64(cipherBase64 string) (*string, error) {
 	if block == nil {
 		return nil, errtype.NewError(errcode.BUSINESS_DATA_ERROR, err, "私钥不可用(私钥格式不符合业务需求)")
 	}
+
 	//解析PKCS1格式的私钥
 	priv, err := x509.ParsePKCS1PrivateKey(block.Bytes)
 	if err != nil {
 		return nil, err
 	}
+
 	// 解密
-	ciphertext, err := base64.StdEncoding.DecodeString(cipherBase64)
+	ciphertext, err := base64.StdEncoding.DecodeString(*cipherBase64)
 	if err != nil {
 		errtype.NewError(errcode.BUSINESS_DATA_ERROR, err, "base64转义失败")
 	}

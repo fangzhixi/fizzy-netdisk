@@ -1,74 +1,79 @@
 package com.fizzy.util.sdk;
 
-public class Token {
 
-    private String algorithm;//加密规则(HMAC-SHA256、MD5)
-    private String userID;//用户名
-    private Integer nonce;//随机数(推荐6位随机数字)
-    private Integer timestamp;//时间戳
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import javax.xml.bind.DatatypeConverter;
 
-    public Token() {
+import java.security.MessageDigest;
+
+//Token认证
+public class Token extends RSAEncryption {
+
+    private String signature;//加密后得到的签名串
+
+    public Token(String algorithm, String userID, Integer nonce, Integer timestamp, String masterKey) {
+        super(algorithm, userID, nonce, timestamp, masterKey);
+        signature = "";
     }
 
-    public Token(String algorithm, String userID, Integer nonce, Integer timestamp) {
-        this.algorithm = algorithm;
-        this.userID = userID;
-        this.nonce = nonce;
-        this.timestamp = timestamp;
-    }
-
-    /**格式化输出
-     *
-     * @return signature
-     */
-    public String format() {
-        String signature =
-                "algorithm=" + getAlgorithm()
-                        + "|userID=" + getUserID()
-                        + "|nonce=" + getNonce()
-                        + "|timestamp=" + getTimestamp();
+    public String getSignature() {
         return signature;
     }
 
-    public String getAlgorithm() {
-        return algorithm;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 
-    public void setAlgorithm(String algorithm) {
-        this.algorithm = algorithm;
+    /**
+     * sha256_HMAC加密方式
+     * @param message 消息
+     * @param secretKey  秘钥
+     * @return 加密后字符串
+     */
+    public static String sha256_HMAC(String message, String secretKey) {
+        System.out.println("待SHA签名串："+message);
+        String result = "";
+        try
+        {
+            Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
+            SecretKeySpec secret_key = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");
+            sha256_HMAC.init(secret_key);
+            byte[] bytes = sha256_HMAC.doFinal(message.getBytes("utf-8"));
+            result = DatatypeConverter.printBase64Binary(bytes);
+        } catch (Exception e)
+        {
+            System.out.println(" HmacSHA256 签名失败 ===========" + e.getMessage());
+        }
+        return result;
     }
 
-    public String getUserID() {
-        return userID;
+    public static String md5(String src) {
+        String md5str = "";
+        try {
+            MessageDigest md    = MessageDigest.getInstance("MD5");
+            byte[]        input = src.getBytes();
+            byte[]        buff  = md.digest(input);
+            md5str = toHex(buff);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return md5str;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public Integer getNonce() {
-        return nonce;
-    }
-
-    public void setNonce(Integer nonce) {
-        this.nonce = nonce;
-    }
-
-    public Integer getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Integer timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    @Override
-    public String toString() {
-        return "Token{" +
-                ", algorithm='" + algorithm + '\'' +
-                ", userID='" + userID + '\'' +
-                ", nonce=" + nonce +
-                ", timestamp=" + timestamp +
-                '}';
+    private static String toHex(byte[] arr) {
+        StringBuilder md5str = new StringBuilder();
+        int           digital;
+        for (byte anArr : arr) {
+            digital = anArr;
+            if (digital < 0) {
+                digital += 256;
+            }
+            if (digital < 16) {
+                md5str.append("0");
+            }
+            md5str.append(Integer.toHexString(digital));
+        }
+        return md5str.toString().toLowerCase();
     }
 }
