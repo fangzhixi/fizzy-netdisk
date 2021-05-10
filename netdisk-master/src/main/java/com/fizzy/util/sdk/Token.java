@@ -1,20 +1,23 @@
 package com.fizzy.util.sdk;
 
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
+import org.apache.ibatis.jdbc.Null;
 
-import java.security.MessageDigest;
+import java.util.*;
 
 //Token认证
 public class Token extends RSAEncryption {
 
     private String signature;//加密后得到的签名串
+    private final Long TIME_OUT = 1200L;//过期时间20分钟(1200毫秒)
 
-    public Token(String algorithm, String userID, Integer nonce, Integer timestamp, String masterKey) {
+    public Token(String signature) {
+        this.signature = signature;
+    }
+
+    public Token(String algorithm, String userID, Integer nonce, Long timestamp, String masterKey) {
         super(algorithm, userID, nonce, timestamp, masterKey);
-        signature = "";
+        this.signature = "";
     }
 
     public String getSignature() {
@@ -26,54 +29,69 @@ public class Token extends RSAEncryption {
     }
 
     /**
-     * sha256_HMAC加密方式
-     * @param message 消息
-     * @param secretKey  秘钥
-     * @return 加密后字符串
+     * 签名验证(true通过,false不通过)[以MHAC-SHA-256解密方式为例]
+     * Token按照以下方式排列: algorithm=解密方式,userID=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),masterKey=主机认证口令
+     * 样例: 				  algorithm=HMAC-SHA256,userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
+     * <p>
+     * 加密后的token格式:     Base64格式密码串
+     * 样例:				  nft7AMsMTUguKohIzIccGD6wNMnDCPeGfxHMAEHmSfGA
+     * |<---          Base64格式密码串          --->|
+     * <p>
+     * 认证逻辑:
+     * 1.将获取的token原始字符串用Base64解码
+     * 2.用密钥将token解密
+     * 3.比对主机认证口令与本机储存主机认证口令是否一致
+     * 4.所有认证均符合则通过，反之则不通过
      */
-    public static String sha256_HMAC(String message, String secretKey) {
-        System.out.println("待SHA签名串："+message);
-        String result = "";
-        try
-        {
-            Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-            SecretKeySpec secret_key = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");
-            sha256_HMAC.init(secret_key);
-            byte[] bytes = sha256_HMAC.doFinal(message.getBytes("utf-8"));
-            result = DatatypeConverter.printBase64Binary(bytes);
-        } catch (Exception e)
-        {
-            System.out.println(" HmacSHA256 签名失败 ===========" + e.getMessage());
-        }
-        return result;
-    }
+    public boolean tokenInvoice() {
 
-    public static String md5(String src) {
-        String md5str = "";
-        try {
-            MessageDigest md    = MessageDigest.getInstance("MD5");
-            byte[]        input = src.getBytes();
-            byte[]        buff  = md.digest(input);
-            md5str = toHex(buff);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return md5str;
-    }
+        Long now = new Date().getTime();//获取当前时间
 
-    private static String toHex(byte[] arr) {
-        StringBuilder md5str = new StringBuilder();
-        int           digital;
-        for (byte anArr : arr) {
-            digital = anArr;
-            if (digital < 0) {
-                digital += 256;
-            }
-            if (digital < 16) {
-                md5str.append("0");
-            }
-            md5str.append(Integer.toHexString(digital));
+        System.out.println("1.数据验证");
+        if ("".equals(this.getSignature())) {
+            return false;
         }
-        return md5str.toString().toLowerCase();
+
+        System.out.println("2.将获取的token原始字符串用Base64解码");
+        System.out.println("3.用密钥将token解密");
+        String message = rsaDecryptByBase64(this.signature); //解密
+        if (message == null || "".equals(message)) {
+            System.out.println("解密信息为空,校验不通过");
+            return false;
+        }
+        System.out.println("解密后的数据:" + message);
+
+        System.out.println("3-5.封装token信息");
+        String[] kVList = message.split(",");
+        Map<String, String> tokenMap = new HashMap<String, String>();
+        for (int i = 0; i < kVList.length; i++) {
+            String[] kVItem = kVList[i].split("=");
+            if (kVItem.length == 2) {
+                String key = kVItem[0];
+                String value = kVItem[1];
+                tokenMap.put(key, value);
+            } else {
+                return false;
+            }
+        }
+
+//        System.out.printf("4.比对token时间是否有效(默认过期时间:%d毫秒)\n",TIME_OUT);
+//        if (now > Long.parseLong(tokenMap.get("timestamp"))){
+//            System.out.println("当前时间已过期");
+//            return false;
+//        }
+
+        System.out.println("5.比对主机认证口令与本机储存主机认证口令是否一致");
+        String masterKey = Token.getMasterKey();
+        if (masterKey.equals(tokenMap.get("masterKey"))) {
+            System.out.println("5-5.验证通过,在token存放数据");
+            this.setAlgorithm(tokenMap.get("algorithm"));
+            this.setUserID(tokenMap.get("userID"));
+            this.setNonce(Integer.parseInt(tokenMap.get("nonce")));
+            this.setTimestamp(now + TIME_OUT);//设置过期时间 = 当前时间 + 过期时间
+            return true;
+        } else {
+            return false;
+        }
     }
 }

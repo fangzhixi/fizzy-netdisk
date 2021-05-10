@@ -15,7 +15,7 @@ public class autograph extends RSAEncryption {
         signature = "";
     }
 
-    public autograph(String algorithm, String userID, Integer nonce, Integer timestamp, String masterKey) {
+    public autograph(String algorithm, String userID, Integer nonce, Long timestamp, String masterKey) {
         super(algorithm, userID, nonce, timestamp, masterKey);
         signature = "";
     }

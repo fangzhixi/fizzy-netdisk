@@ -1,5 +1,5 @@
 env: dev
-app_name: warning-gateway
+app_name: inputbizapi-gateway
 log_path: /work/logs
 log_level: 5
 mode: debug

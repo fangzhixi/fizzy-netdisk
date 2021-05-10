@@ -13,9 +13,12 @@ import (
 	"google.golang.org/grpc/connectivity"
 
 	"github.com/golang/protobuf/proto"
+	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	gwruntime "github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"gitlab.yewifi.com/golden-cloud/common/tracer"
-	apipb "gitlab.yewifi.com/golden-cloud/protocol/grpc/warningcenter"
+
+	// "gitlab.yewifi.com/golden-cloud/common/tracer"
+
+	apipb "gitlab.yewifi.com/golden-cloud/protocol/grpc/inputbizapi"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
@@ -60,14 +63,16 @@ func preflightHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("preflight request for %s \n", r.URL.Path)
 }
 
-func CustomMatcher(key string) (string, bool) {
+func customMatcher(key string) (string, bool) {
 	switch key {
+	case "Appkey":
+		return key, true
 	case "Access-Token":
 		return key, true
 	case "Uber-Trace-Id":
 		return key, true
 	default:
-		return gwruntime.DefaultHeaderMatcher(key)
+		return runtime.DefaultHeaderMatcher(key)
 	}
 }
 
@@ -88,7 +93,7 @@ func filter(gwHandler http.Handler) http.HandlerFunc {
 func newGateway(ctx context.Context, conn *grpc.ClientConn, opts []gwruntime.ServeMuxOption) (http.Handler, error) {
 	mux := gwruntime.NewServeMux(opts...)
 	// ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn
-	err := apipb.RegisterWarningMsgApiHandler(ctx, mux, conn)
+	err := apipb.RegisterInputBizApiHandler(ctx, mux, conn)
 	if err != nil {
 		fmt.Println("注册服务失败:", err, config.Config.GatewayUrl)
 		return mux, err
@@ -243,9 +248,9 @@ func main() {
 
 	mux := http.NewServeMux()
 	var originMux []gwruntime.ServeMuxOption
-	originMux = append(originMux, gwruntime.WithIncomingHeaderMatcher(CustomMatcher))
 	originMux = append(originMux, gwruntime.WithMarshalerOption(gwruntime.MIMEWildcard, &gwruntime.JSONPb{OrigName: true, EmitDefaults: true}))
 	originMux = append(originMux, gwruntime.WithForwardResponseOption(endFilter))
+	originMux = append(originMux, gwruntime.WithIncomingHeaderMatcher(customMatcher))
 	gwMux, err := newGateway(ctx, conn, originMux)
 	if err != nil {
 		return
