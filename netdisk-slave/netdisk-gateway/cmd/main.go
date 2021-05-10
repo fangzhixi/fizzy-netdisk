@@ -18,7 +18,7 @@ import (
 
 	// "gitlab.yewifi.com/golden-cloud/common/tracer"
 
-	apipb "gitlab.yewifi.com/golden-cloud/protocol/grpc/inputbizapi"
+	apipb "github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/grpc"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

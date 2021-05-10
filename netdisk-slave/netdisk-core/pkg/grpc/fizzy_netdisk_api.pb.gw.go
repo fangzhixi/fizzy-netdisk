@@ -2,11 +2,11 @@
 // source: fizzy_netdisk_api.proto
 
 /*
-Package services is a reverse proxy.
+Package grpc is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package services
+package grpc
 
 import (
 	"context"
