@@ -22,8 +22,8 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
             return true;
         }else {
             System.out.println("CheckLoginInterceptor不放行");
-//            response.sendRedirect("/");
-            return true;
+            response.sendRedirect("/");
+            return false;
         }
     }
 }

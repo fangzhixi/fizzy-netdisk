@@ -22,7 +22,7 @@ public class SerurityInterceptor extends HandlerInterceptorAdapter {
             return true;
         }else {
             System.out.println("SerurityInterceptor不放行");
-            response.sendRedirect("/");
+            response.sendRedirect("/login");
             return false;
         }
     }
