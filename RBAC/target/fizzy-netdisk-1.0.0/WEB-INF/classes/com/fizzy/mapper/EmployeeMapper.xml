@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fizzy.mapper.EmployeeMapper">
+
+    <resultMap id="Employee" type="com.fizzy.pojo.Employee">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="email" column="email"/>
+        <result property="age" column="age"/>
+        <result property="admin" column="admin"/>
+        <association property="dept" javaType="com.fizzy.pojo.Department">
+            <id property="id" column="dept_id"/>
+            <result property="name" column="dept_name"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" parameterType="com.fizzy.query.EmployeeQueryObject" resultMap="Employee">
+        SELECT
+            e.`id`,
+            e.`name`,
+            e.`password`,
+            e.`email`,
+            e.`age`,
+            e.`admin`,
+            d.`id` AS dept_id,
+            d.`name` AS dept_name
+        FROM
+            `employee` e
+        LEFT JOIN department d ON d.id = e.dept_id
+        <trim prefix="WHERE" suffixOverrides="and">
+            <if test="deptId > 0 and deptId != ''">
+                e.dept_id = #{deptId} AND
+            </if>
+            <if test="keyword != null and keyword != ''">
+                (e.name LIKE CONCAT('%',#{keyword},'%') OR e.email LIKE CONCAT('%',#{keyword},'%')) AND
+            </if>
+        </trim>
+    </select>
+
+    <select id="selectEmployeeById" resultMap="Employee">
+        SELECT
+            e.`id`,
+            e.`name`,
+            e.`password`,
+            e.`email`,
+            e.`age`,
+            e.`admin`,
+            d.`id` AS dept_id,
+            d.`name` AS dept_name
+        FROM
+            `employee` e
+        LEFT JOIN department d ON d.id = e.dept_id
+        WHERE e.`id` = #{id}
+    </select>
+
+    <insert id="insertEmployee" keyProperty="id" useGeneratedKeys="true" parameterType="com.fizzy.pojo.Employee">
+        INSERT INTO employee
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">
+                `id`,
+            </if>
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="password != null and password != ''">
+                `password`,
+            </if>
+            <if test="email != null and email != ''">
+                `email`,
+            </if>
+            <if test="age != null and age != ''">
+                `age`,
+            </if>
+            <if test="admin != null and admin != ''">
+                `admin`,
+            </if>
+            <if test="dept.id != null and dept.id != ''">
+                `dept_id`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">
+                #{id},
+            </if>
+            <if test="name != null and name != ''">
+                #{name},
+            </if>
+            <if test="password != null and password != ''">
+                #{password},
+            </if>
+            <if test="email != null and email != ''">
+                #{email},
+            </if>
+            <if test="age != null and age != ''">
+                #{age},
+            </if>
+            <if test="admin != null and admin != ''">
+                #{admin},
+            </if>
+            <if test="dept.id != null and dept.id != ''">
+                #{dept.id},
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteById" parameterType="Integer">
+        delete from Employee where id = #{id};
+    </delete>
+
+    <delete id="deleteRoleByEmployeeId" parameterType="Integer">
+        delete from employee_role where employee_id = #{employee_id};
+    </delete>
+
+    <update id="updateEmployee" parameterType="com.fizzy.pojo.Employee">
+        UPDATE
+          `employee`
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="id != null and id != ''">
+                `id` = #{id},
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="password != null and password != ''">
+                `password` = #{password},
+            </if>
+            <if test="email != null and email != ''">
+                `email` = #{email},
+            </if>
+            <if test="age != null and age != ''">
+                `age` = #{age},
+            </if>
+            <if test="true">
+                `admin` = #{admin},
+            </if>
+            <if test="dept.id != null and dept.id != ''">
+                `dept_id` = #{dept.id},
+            </if>
+        </trim>
+        WHERE `id` = #{id}
+    </update>
+
+    <select id="selectEmployeeByUsernameAndPassword" resultMap="Employee">
+        select * from employee where name = #{username} and password = #{password}
+    </select>
+
+    <select id="selectEmployeeByRoleId" resultType="com.fizzy.pojo.Employee">
+        SELECT
+            e.id,
+            e.name
+        FROM
+            `employee` e
+        LEFT JOIN `employee_role` er ON e.id = er.`employee_id`
+        RIGHT JOIN `role` r ON er.`role_id` = r.`id`
+        WHERE r.`id` = #{role_id}
+    </select>
+</mapper>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fizzy.mapper.RoleMapper">
+    <select id="findAll" resultType="com.fizzy.pojo.Role">
+        select id,name,sn from role
+    </select>
+
+    <select id="selectPermissionById" resultType="com.fizzy.pojo.Permission">
+            SELECT `permission`.`id`,`permission`.`name` FROM `role_permission` LEFT JOIN `permission` ON role_permission.`permission_id` = `permission`.id WHERE `role_permission`.role_id = #{role_id}
+        </select>
+
+    <select id="selectRoleById" resultType="com.fizzy.pojo.Role">
+            select id,name,sn from role where id = #{id}
+        </select>
+
+        <select id="selectRoleByEmployeeId" resultType="com.fizzy.pojo.Role">
+            SELECT
+              e.`role_id` AS id,
+              r.`name`
+            FROM
+              `crm`.`employee_role` e
+              LEFT JOIN `role` r ON e.`role_id` = r.`id`
+             WHERE
+                e.employee_id = #{employeeId}
+        </select>
+    
+        <insert id="insertRole" keyProperty="id" useGeneratedKeys="true" parameterType="com.fizzy.pojo.Role">
+            INSERT INTO role (`name`, `sn`) VALUES(#{name}, #{sn});
+        </insert>
+
+        <insert id="insertRoleByEmployeeId" parameterType="com.fizzy.pojo.Role">
+            INSERT INTO `employee_role` (`employee_id`, `role_id`)
+            VALUES  (#{employee_id}, #{role_id}) ;
+        </insert>
+    
+        <delete id="deleteById" parameterType="Integer">
+            delete from role where id = #{id};
+        </delete>
+
+        <delete id="deleteRoleByEmployeeId" parameterType="Integer">
+            delete from employee_role where employee_id = #{employee_id};
+        </delete>
+    
+        <update id="updateRole" parameterType="com.fizzy.pojo.Role">
+            UPDATE `Role` SET `name` = #{name},`sn` = #{sn} WHERE `id` = #{id};
+        </update>
+</mapper>
+

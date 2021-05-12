@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fizzy.mapper.DepartmentMapper">
+    <select id="findAll" resultType="com.fizzy.pojo.Department">
+        select id,name,sn from department
+    </select>
+
+    <select id="selectDepartmentById" resultType="com.fizzy.pojo.Department">
+        select id,name,sn from department where id = #{id}
+    </select>
+
+    <insert id="insertDepartment" keyProperty="id" useGeneratedKeys="true" parameterType="com.fizzy.pojo.Department">
+        INSERT INTO department (`name`, `sn`) VALUES(#{name}, #{sn});
+    </insert>
+
+    <delete id="deleteById" parameterType="Integer">
+        delete from department where id = #{id};
+    </delete>
+
+    <update id="updateDepartment" parameterType="com.fizzy.pojo.Department">
+        UPDATE `crm`.`department` SET `name` = #{name},`sn` = #{sn} WHERE `id` = #{id};
+    </update>
+</mapper>
+

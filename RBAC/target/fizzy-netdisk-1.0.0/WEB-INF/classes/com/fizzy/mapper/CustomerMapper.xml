@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fizzy.mapper.CustomerMapper">
+    <resultMap id="Customer" type="com.fizzy.pojo.Customer">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="genderStr" column="gender"/>
+        <result property="age" column="age"/>
+        <result property="tel" column="tel"/>
+        <result property="qq" column="qq"/>
+        <result property="statusStr" column="status"/>
+        <result property="input_time" column="input_time"/>
+        <association property="job" javaType="com.fizzy.pojo.Job">
+            <result property="title" column="job"/>
+        </association>
+        <association property="source" javaType="com.fizzy.pojo.Source">
+            <result property="title" column="source"/>
+        </association>
+        <association property="seller" javaType="com.fizzy.pojo.Seller">
+            <result property="name" column="seller"/>
+        </association>
+    </resultMap>
+
+    <select id="selectCustomer" parameterType="String" resultMap="Customer">
+        SELECT
+            c.`id`,
+            c.`name`,
+            c.`age`,
+            c.`gender`,
+            c.`tel`,
+            c.`qq`,
+            sdi1.`title`AS job,
+            sdi2.`title` AS source ,
+            emp.name seller,
+            c.`status`,
+            c.input_time
+        FROM
+            customer c
+        INNER JOIN systemdictionaryitem sdi1 ON c.`job_id`=sdi1.`id`
+        INNER JOIN systemdictionaryitem sdi2 ON c.`source_id`=sdi2.`id`
+        INNER JOIN employee emp ON emp.`id`=c.`seller_id`
+        INNER JOIN role r ON r.`id`=emp.`dept_id`
+        INNER JOIN STATUS s ON s.`id`=c.`status`
+        <trim prefix="WHERE" suffixOverrides="and">
+            <if test="status != null and status != -1">
+                c.status = #{status} AND
+            </if>
+            <if test="keyword != null and keyword != ''">
+                c.name LIKE CONCAT('%',#{keyword},'%')
+                OR c.tel LIKE CONCAT('%',#{keyword},'%') AND
+            </if>
+            <if test="sellerId != null and sellerId != -1">
+                emp.`id` = #{sellerId} AND
+            </if>
+            </trim>
+    </select>
+</mapper>
+
