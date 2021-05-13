@@ -38,6 +38,8 @@
    </div>
    <!-- loader END -->
 
+
+
    <div class="wrapper">
       <section class="login-content">
          <div class="container h-100">
@@ -48,17 +50,17 @@
                      <img src="/assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo logo"
                         alt="logo">
                      <h3 class="mb-3">登入</h3>
-                     <form>
+                     <form id="loginForm" name="loginForm" action="AmainPage" method="post">
                         <div class="row">
                            <div class="col-lg-12">
                               <div class="floating-label form-group">
-                                 <input class="floating-input form-control" type="text" placeholder="">
+                                 <input id="user_id" class="text floating-input form-control" type="text" placeholder="">
                                  <label>邮箱 / 电话</label>
                               </div>
                            </div>
                            <div class="col-lg-12">
                               <div class="floating-label form-group">
-                                 <input class="floating-input form-control" type="password" placeholder="">
+                                 <input id="password" class="text floating-input form-control" type="password" placeholder="">
                                  <label>密码</label>
                               </div>
                            </div>
@@ -72,7 +74,7 @@
                               <a href="auth-recoverpw.html" class="text-primary float-right">忘记密码?</a>
                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">登录</button>
+                        <a id="submit" class="act-but submit btn btn-primary btn-block" onclick="submit()" target="_self" style="color: #FFFFFF">登录</a>
                         <p class="mt-3">
                            创建一个帐户 <a href="/register" class="text-primary">注册</a>
                         </p>
@@ -83,6 +85,8 @@
          </div>
       </section>
    </div>
+   <!-- Jquery JavaScript -->
+   <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 
    <!-- Backend Bundle JavaScript -->
    <script src="/assets/js/backend-bundle.min.js"></script>
@@ -114,6 +118,85 @@
    <script src="/assets/js/doc-viewer.js"></script>
    <!-- app JavaScript -->
    <script src="/assets/js/app.js"></script>
+
+   <script type="text/javascript">
+      var int;//定时器
+
+      document.getElementById("user_id").addEventListener("keyup", function(event) {
+         event.preventDefault();
+         if (event.keyCode === 13) {
+            document.getElementById("submit").click();
+         }
+      });
+      document.getElementById("password").addEventListener("keyup", function(event) {
+         event.preventDefault();
+         if (event.keyCode === 13) {
+            document.getElementById("submit").click();
+         }
+      });
+
+      function submit(){
+         var user_id = document.getElementById("user_id");
+         var password = document.getElementById("password");
+         var submit = document.getElementById("submit")
+         if(user_id.value.length <= 0){
+            clearInterval(int);
+            submit.style.background = "#eb445a";
+            submit.style.borderColor = "#eb445a";
+            submit.innerHTML = "账号不能为空";
+            int = setInterval(function() {
+               submit.style.background = "#8f93f6";
+               submit.style.borderColor = "#8f93f6";
+               submit.innerHTML = "登陆";
+            }, 2000)
+         }
+         else if(password.value.length <= 0){
+            clearInterval(int);
+            submit.style.background = "#eb445a";
+            submit.style.borderColor = "#eb445a";
+            submit.innerHTML = "密码不能为空";
+            int = setInterval(function() {
+               submit.style.background = "#8f93f6";
+               submit.style.borderColor = "#8f93f6";
+               submit.innerHTML = "登陆";
+            }, 2000)
+         }
+         //进行表单数据校验，校验成功提交到登录servlet，校验失败不提交
+         else{
+            sessionStorage.clear();
+            sessionStorage.setItem("punch_app_user_id", user_id.value);
+            sessionStorage.setItem("punch_app_password", password.value);
+            var cookieValue = "user_id=" + sessionStorage.getItem("punch_app_user_id") + "; password=" + sessionStorage.getItem("punch_app_password");
+            //alert("punch_app_user_id" + sessionStorage.getItem("punch_app_user_id") + "\npunch_app_password" + sessionStorage.getItem("punch_app_password") + "\nuser_id" + user_id.value + "\npassword" + password.value  + "\ncookieValue" + cookieValue);
+
+            document.cookie = "user_id=" + sessionStorage.getItem("punch_app_user_id");
+            document.cookie = "password=" + sessionStorage.getItem("punch_app_password");
+            $("#loginForm").submit();//使用jQuery提交表单
+         }
+      }
+
+      window.onload = function(){
+         var phone_input = document.getElementById("user_id");
+         var password = document.getElementById("password");
+         var submit = document.getElementById("submit")
+         var user_id = null;
+         var notPass = false;
+         // ${user_id }
+         // ${notPass }
+         if(notPass){
+            phone_input.value = user_id;
+            clearInterval(int);
+            submit.style.background = "#eb445a";
+            submit.style.borderColor = "#eb445a";
+            submit.innerHTML = "账号或密码不正确";
+            int = setInterval(function() {
+               submit.style.background = "#8f93f6";
+               submit.style.borderColor = "#8f93f6";
+               submit.innerHTML = "登陆";
+            }, 2000)
+         }
+      }
+   </script>
 </body>
 
 </html>
