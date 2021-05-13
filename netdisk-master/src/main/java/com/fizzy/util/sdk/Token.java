@@ -31,7 +31,7 @@ public class Token extends RSAEncryption {
     /**
      * 签名验证(true通过,false不通过)[以MHAC-SHA-256解密方式为例]
      * Token按照以下方式排列: algorithm=解密方式,userID=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),masterKey=主机认证口令
-     * 样例: 				  algorithm=HMAC-SHA256,userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
+     * 样例: 				  algorithm=RSA-SHA256,userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
      * <p>
      * 加密后的token格式:     Base64格式密码串
      * 样例:				  nft7AMsMTUguKohIzIccGD6wNMnDCPeGfxHMAEHmSfGA

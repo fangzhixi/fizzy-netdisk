@@ -1,0 +1,81 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2517598 */
+  src: url('iconfont.woff2?t=1620011190079') format('woff2'),
+       url('iconfont.woff?t=1620011190079') format('woff'),
+       url('iconfont.ttf?t=1620011190079') format('truetype');
+}
+
+.iconfont {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  margin: 4px 10px 0px 0px;
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconwenhao:before {
+  content: "\e602";
+}
+
+.iconsetting:before {
+  content: "\e63e";
+}
+
+.iconlingdang:before {
+  content: "\e86a";
+}
+
+.iconexcel:before {
+  content: "\e62b";
+}
+
+.iconword:before {
+  content: "\e69e";
+}
+
+.iconpptx:before {
+  content: "\e6dc";
+}
+
+.iconpdf:before {
+  content: "\e665";
+}
+
+.iconaudio:before {
+  content: "\e678";
+}
+
+.iconmedia:before {
+  content: "\e637";
+}
+
+.iconfolder:before {
+  content: "\e6aa";
+}
+
+.iconmedia-photo:before {
+  content: "\e8f2";
+}
+
+.icondashboard:before {
+  content: "\e603";
+}
+
+.iconzip:before {
+  content: "\e604";
+}
+
+.iconlingdang, .iconwenhao{
+  margin: 0px;
+  font-size: 22px;
+}
+
+.iconsetting{
+  margin: 0px;
+  font-size: 24.2px;
+}
+

@@ -13,7 +13,7 @@ public class CheckLoginInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
         //Header token 范例  Access-Token: v2fHgKa784YJE3SKVkv44lBoJisMxmdk1154752643
-        Token token = new Token(request.getHeader("Access-Token"));
+        Token token = new Token(request.getAttribute("Access-Token").toString());
         System.out.println("Access-Token:  "+ request.getHeader("Access-Token"));
         System.out.println("Host:  "+ request.getHeader("Host"));
         if (token.tokenInvoice()){

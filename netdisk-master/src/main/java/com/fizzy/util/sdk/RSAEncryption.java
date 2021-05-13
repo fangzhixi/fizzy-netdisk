@@ -4,15 +4,12 @@ import org.apache.commons.codec.binary.Base64;
 import org.springframework.core.io.ClassPathResource;
 
 import javax.crypto.*;
-import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -166,19 +163,37 @@ public class RSAEncryption {
      * RSA公钥加密
      *
      * @param originData 加密源数据
-     * @return 加密后的base64转译数据
      * @throws Exception 加密过程中的异常信息
+     * @return
      */
-    public static String rsaEncryptOutBase64(String originData) throws Exception {
+    public static String rsaEncryptOutBase64(String originData) {
         //base64编码的公钥
-        byte[] decoded = Base64.decodeBase64(getPublicKey());
-        RSAPublicKey pubKey = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(decoded));
-        //RSA加密
-        Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.ENCRYPT_MODE, pubKey);
-        String outStr = Base64.encodeBase64String(cipher.doFinal(originData.getBytes("UTF-8")));
+        String outStr = "";
+        try {
+            byte[] decoded = Base64.decodeBase64(getPublicKey());
+            RSAPublicKey pubKey = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(decoded));
+            //RSA加密
+            Cipher cipher = Cipher.getInstance("RSA");
+            cipher.init(Cipher.ENCRYPT_MODE, pubKey);
+            outStr = Base64.encodeBase64String(cipher.doFinal(originData.getBytes("UTF-8")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchPaddingException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (IllegalBlockSizeException e) {
+            e.printStackTrace();
+        } catch (BadPaddingException e) {
+            e.printStackTrace();
+        }
         return outStr;
     }
+
 
     /**
      * RSA私钥解密
