@@ -39,7 +39,7 @@ public class UserController {
         User user = null;
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("user_id", userId);
-        List<User> userList = userService.selectUser(map);
+        List<User> userList = userService.selectUser(userId);
         if (userList.size() > 0)
             user = userList.get(0);
         if (user != null && user.getPassword().equals(password)) {

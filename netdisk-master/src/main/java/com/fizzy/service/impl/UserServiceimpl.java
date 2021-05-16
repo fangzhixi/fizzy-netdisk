@@ -16,7 +16,22 @@ public class UserServiceimpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
-    public List<User> selectUser(Map<String, Object> map) {
-        return userMapper.selectUser(map);
+    public List<User> selectUser(String userId) {
+        return userMapper.selectUser(userId);
+    }
+
+    @Override
+    public Integer insertUser() {
+        return userMapper.insertUser(map);
+    }
+
+    @Override
+    public Integer updateUser(String userId) {
+        return userMapper.updateUser();
+    }
+
+    @Override
+    public Integer deleteUser(String userId) {
+        return userMapper.deleteUser();
     }
 }

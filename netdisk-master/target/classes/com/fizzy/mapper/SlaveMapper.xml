@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fizzy.mapper.SlaveMapper">
+    <select id="selectSlave" parameterType="com.fizzy.pojo.Slave" resultType="com.fizzy.pojo.Slave">
+        SELECT
+            `address`,
+            `used_space`,
+            `free_space`,
+            `master_key`,
+            `create_time`,
+            `update_time`
+        FROM
+        `netdisk`.`user`
+        <trim prefix="WHERE" suffixOverrides="AND">
+            <if test="id != null and id != ''">
+                id = #{id} AND
+            </if>
+            <if test="user_id != null and user_id != ''">
+                address = #{address} AND
+            </if>
+        </trim>
+        LIMIT 0, 1000 ;
+    </select>
+
+    <insert id="insertSlave" parameterType="com.fizzy.pojo.Slave">
+        INSERT INTO `netdisk`.`slave` (
+          `address`,
+          `master_key`,
+          `create_time`
+        )
+        VALUES
+        (
+          #{address},
+          #{master_key},
+          #{create_time}
+        )
+    </insert>
+
+    <update id="updateSlave" parameterType="com.fizzy.pojo.Slave">
+        UPDATE
+        `netdisk`.`slave`
+        <trim prefix="SET(" suffix=")" suffixOverrides=",">
+            <if test="address != null and address != ''">
+                `address` = #{address},
+            </if>
+            <if test="used_space != null and used_space != ''">
+                `used_space` = #{used_space},
+            </if>
+            <if test="free_space != null and free_space != ''">
+                `free_space` = #{free_space},
+            </if>
+            <if test="master_key != null and master_key != }'">
+                `master_key` = #{master_key},
+            </if>
+            <if test="create_time != null and create_time != ''">
+                `create_time` = #{create_time},
+            </if>
+            <if test="update_time != null and update_time != ''">
+                `update_time` = #{update_time},
+            </if>
+        </trim>
+        WHERE `id` = #{id}
+    </update>
+
+    <delete id="deleteSlave" parameterType="Integer">
+        DELETE FROM `netdisk`.`slave` WHERE `id` = #{id}
+    </delete>
+</mapper>

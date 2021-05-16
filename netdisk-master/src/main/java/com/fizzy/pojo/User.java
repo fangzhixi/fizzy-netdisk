@@ -8,14 +8,11 @@ public class User {
     private String name;
     private Integer sex;
     private String phone;
-    private String mail;
+    private String email;
     private String user_Photo;
     private Integer type;
     private Date createDate;
     private Date updateDate;
-
-    public void User() {
-    }
 
     public String getUserId() {
         return userId;
@@ -57,12 +54,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUser_Photo() {
@@ -105,7 +102,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
                 ", phone='" + phone + '\'' +
-                ", mail='" + mail + '\'' +
+                ", email='" + email + '\'' +
                 ", user_Photo='" + user_Photo + '\'' +
                 ", type=" + type +
                 ", createDate=" + createDate +

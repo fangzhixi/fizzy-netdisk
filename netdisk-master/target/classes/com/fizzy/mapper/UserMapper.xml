@@ -11,7 +11,7 @@
           `name`,
           `sex`,
           `phone`,
-          `mail`,
+          `email`,
           `user_photo`,
           `type`,
           `create_date`,
@@ -22,7 +22,119 @@
             <if test="user_id != null and user_id != ''">
                 user_id = #{user_id} AND
             </if>
+            <if test="user_id != null and user_id != ''">
+                LIMIT 1
+            </if>
         </trim>
-        LIMIT 0, 1000 ;
-</select>
+    </select>
+
+    <insert id="insertUser" parameterType="com.fizzy.pojo.User">
+        INSERT INTO `netdisk`.`user`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null and user_id != ''">
+                `user_id`,
+            </if>
+            <if test="password != null and password != ''">
+                `password`,
+            </if>
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="sex != null and sex != ''">
+                `sex`,
+            </if>
+            <if test="phone != null and phone != ''">
+                `phone`,
+            </if>
+            <if test="email != null and email != ''">
+                `email`,
+            </if>
+            <if test="user_photo != null and user_photo != ''">
+                `user_photo`,
+            </if>
+            <if test="type != null and type != ''">
+                `type`,
+            </if>
+            <if test="create_date != null and create_date != ''">
+                `create_date`,
+            </if>
+            <if test="update_date != null and update_date != ''">
+                `update_date`
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null and user_id != ''">
+                #{user_id},
+            </if>
+            <if test="password != null and password != ''">
+                #{password},
+            </if>
+            <if test="name != null and name != ''">
+                #{name},
+            </if>
+            <if test="sex != null and sex != ''">
+                #{sex},
+            </if>
+            <if test="phone != null and phone != ''">
+                #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                #{email},
+            </if>
+            <if test="user_photo != null and user_photo != ''">
+                #{user_photo},
+            </if>
+            <if test="type != null and type != ''">
+                #{type},
+            </if>
+            <if test="create_date != null and create_date != ''">
+                #{create_date},
+            </if>
+            <if test="update_date != null and update_date != ''">
+                #{update_date},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUser" parameterType="com.fizzy.pojo.User">
+        UPDATE
+        `netdisk`.`slave`
+        <trim prefix="SET(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null and user_id != ''">
+                `user_id` = #{user_id},
+            </if>
+            <if test="password != null and password != ''">
+                `password` = #{password},
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="sex != null and sex != ''">
+                `sex` = #{sex},
+            </if>
+            <if test="phone != null and phone != ''">
+                `phone` = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                `email` = #{email},
+            </if>
+            <if test="user_photo != null and user_photo != ''">
+                `user_photo` = #{user_photo},
+            </if>
+            <if test="type != null and type != ''">
+                `type` = #{type},
+            </if>
+            <if test="create_date != null and create_date != ''">
+                `create_date` = #{create_date},
+            </if>
+            <if test="update_date != null and update_date != ''">
+                `update_date` = #{update_date},
+            </if>
+        </trim>
+        WHERE `id` = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="Integer">
+        DELETE FROM `netdisk`.`slave` WHERE `id` = #{id}
+    </delete>
 </mapper>
