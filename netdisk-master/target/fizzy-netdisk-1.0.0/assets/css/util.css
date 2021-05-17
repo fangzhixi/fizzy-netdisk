@@ -1,9 +1,0 @@
-.min-size{
-    min-height: 195px;
-}
-
-.shield{
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
