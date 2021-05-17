@@ -10,27 +10,9 @@ public interface UserMapper {
 
     List<User> selectUser(@Param("user_id") String userId);
 
-    Integer insertUser(@Param("user_id") String userId,
-                       @Param("password") String password,
-                       @Param("name") String name,
-                       @Param("sex") String sex,
-                       @Param("phone") String phone,
-                       @Param("email") String email,
-                       @Param("user_photo") String userPhoto,
-                       @Param("type") String type,
-                       @Param("create_date") String createDate,
-                       @Param("update_date") String updateDate);
+    Integer insertUser(Map<String,Object> map);
 
-    Integer updateUser(@Param("user_id") String userId,
-                       @Param("password") String password,
-                       @Param("name") String name,
-                       @Param("sex") String sex,
-                       @Param("phone") String phone,
-                       @Param("email") String email,
-                       @Param("user_photo") String userPhoto,
-                       @Param("type") String type,
-                       @Param("create_date") String createDate,
-                       @Param("update_date") String updateDate);
+    Integer updateUser(Map<String,Object> map);
 
-    Integer deleteUser(@Param("update_date") Integer id);
+    Integer deleteUser(@Param("user_id") String user_id);
 }

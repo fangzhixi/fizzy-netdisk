@@ -3,26 +3,156 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fizzy.mapper.UserMapper">
-    <select id="selectUser" parameterType="com.fizzy.pojo.User" resultType="com.fizzy.pojo.User">
+
+    <resultMap id="user" type="com.fizzy.pojo.User">
+        <result property="userId" column="user_id"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="userPhoto" column="user_photo"/>
+        <result property="type" column="type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <select id="selectUser" parameterType="com.fizzy.pojo.User" resultMap="user">
         SELECT
-          `id`,
-          `user_id`,
-          `password`,
-          `name`,
-          `sex`,
-          `phone`,
-          `mail`,
-          `user_photo`,
-          `type`,
-          `create_date`,
-          `update_date`
+        `id`,
+        `user_id`,
+        `password`,
+        `name`,
+        `sex`,
+        `phone`,
+        `email`,
+        `user_photo`,
+        `type`,
+        `create_time`,
+        `update_time`
         FROM
-          `netdisk`.`user`
+        `netdisk`.`user`
         <trim prefix="WHERE" suffixOverrides="AND">
             <if test="user_id != null and user_id != ''">
                 user_id = #{user_id} AND
             </if>
         </trim>
-        LIMIT 0, 1000 ;
-</select>
+        <trim>
+            <if test="user_id != null and user_id != ''">
+                LIMIT 1
+            </if>
+        </trim>
+    </select>
+
+    <insert id="insertUser" parameterType="com.fizzy.pojo.User">
+        INSERT INTO `netdisk`.`user`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null and user_id != ''">
+                `user_id`,
+            </if>
+            <if test="password != null and password != ''">
+                `password`,
+            </if>
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="sex != null and sex != ''">
+                `sex`,
+            </if>
+            <if test="phone != null and phone != ''">
+                `phone`,
+            </if>
+            <if test="email != null and email != ''">
+                `email`,
+            </if>
+            <if test="user_photo != null and user_photo != ''">
+                `user_photo`,
+            </if>
+            <if test="type != null and type != ''">
+                `type`,
+            </if>
+            <if test="create_time != null and create_time != ''">
+                `create_time`,
+            </if>
+            <if test="update_time != null and update_time != ''">
+                `update_time`
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null and user_id != ''">
+                #{user_id},
+            </if>
+            <if test="password != null and password != ''">
+                #{password},
+            </if>
+            <if test="name != null and name != ''">
+                #{name},
+            </if>
+            <if test="sex != null and sex != ''">
+                #{sex},
+            </if>
+            <if test="phone != null and phone != ''">
+                #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                #{email},
+            </if>
+            <if test="user_photo != null and user_photo != ''">
+                #{user_photo},
+            </if>
+            <if test="type != null and type != ''">
+                #{type},
+            </if>
+            <if test="create_time != null and create_time != ''">
+                #{create_time},
+            </if>
+            <if test="update_time != null and update_time != ''">
+                #{update_time},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUser" parameterType="com.fizzy.pojo.User">
+        UPDATE
+        `netdisk`.`slave`
+        <trim prefix="SET(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null and user_id != ''">
+                `user_id` = #{user_id},
+            </if>
+            <if test="password != null and password != ''">
+                `password` = #{password},
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="sex != null and sex != ''">
+                `sex` = #{sex},
+            </if>
+            <if test="phone != null and phone != ''">
+                `phone` = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                `email` = #{email},
+            </if>
+            <if test="user_photo != null and user_photo != ''">
+                `user_photo` = #{user_photo},
+            </if>
+            <if test="type != null and type != ''">
+                `type` = #{type},
+            </if>
+            <if test="create_time != null and create_time != ''">
+                `create_time` = #{create_time},
+            </if>
+            <if test="update_time != null and update_time != ''">
+                `update_time` = #{update_time},
+            </if>
+        </trim>
+        WHERE `id` = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="Integer">
+
+                DELETE FROM `netdisk`.`slave` WHERE `id` = #{id}
+
+    </delete>
 </mapper>

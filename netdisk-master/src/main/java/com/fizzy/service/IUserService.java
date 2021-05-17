@@ -9,9 +9,9 @@ public interface IUserService {
 
     List<User> selectUser(String userId);
 
-    Integer insertUser(String userId);
+    Integer insertUser(User user);
 
-    Integer updateUser(String userId);
+    Integer updateUser(User user);
 
     Integer deleteUser(String userId);
 }

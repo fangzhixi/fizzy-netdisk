@@ -34,7 +34,6 @@ public class UserController {
     @RequestMapping(value = "/sign-in")
     public String AmainPage(@CookieValue(value = "user_id", required = true) String userId,
                             @CookieValue(value = "password", required = true) String password,
-                            HttpServletResponse response,
                             Model model) {
         User user = null;
         Map<String, Object> map = new HashMap<String, Object>();
@@ -48,7 +47,6 @@ public class UserController {
             String signature = token.rsaEncryptOutBase64(token.format());
             System.out.println("Access-Token:  "+ signature);
             model.addAttribute("token", signature);
-//
             return "main.jsp";
         } else {
             model.addAttribute("user_id", "user_id = '" + userId + "';");

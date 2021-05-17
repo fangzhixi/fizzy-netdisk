@@ -1,6 +1,8 @@
 package com.fizzy.pojo;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
     private String userId;
@@ -9,10 +11,26 @@ public class User {
     private Integer sex;
     private String phone;
     private String email;
-    private String user_Photo;
+    private String userPhoto;
     private Integer type;
-    private Date createDate;
-    private Date updateDate;
+    private Date createTime;
+    private Date updateTime;
+
+    public User() {
+    }
+
+    public User(User User) {
+        this.userId = User.userId;
+        this.password = User.password;
+        this.name = User.name;
+        this.sex = User.sex;
+        this.phone = User.phone;
+        this.email = User.email;
+        this.userPhoto = User.userPhoto;
+        this.type = User.type;
+        this.createTime = User.createTime;
+        this.updateTime = User.updateTime;
+    }
 
     public String getUserId() {
         return userId;
@@ -20,6 +38,11 @@ public class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public User buildUserId(String userId) {
+        this.userId = userId;
+        return this;
     }
 
     public String getPassword() {
@@ -30,12 +53,22 @@ public class User {
         this.password = password;
     }
 
+    public User buildPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public User buildName(String name) {
+        this.name = name;
+        return this;
     }
 
     public Integer getSex() {
@@ -46,12 +79,22 @@ public class User {
         this.sex = sex;
     }
 
+    public User buildSex(Integer sex) {
+        this.sex = sex;
+        return this;
+    }
+
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public User buildPhone(String phone) {
+        this.phone = phone;
+        return this;
     }
 
     public String getEmail() {
@@ -62,12 +105,22 @@ public class User {
         this.email = email;
     }
 
-    public String getUser_Photo() {
-        return user_Photo;
+    public User buildEmail(String email) {
+        this.email = email;
+        return this;
     }
 
-    public void setUser_Photo(String user_Photo) {
-        this.user_Photo = user_Photo;
+    public String getUserPhoto() {
+        return userPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        this.userPhoto = userPhoto;
+    }
+
+    public User buildUserPhoto(String userPhoto) {
+        this.userPhoto = userPhoto;
+        return this;
     }
 
     public Integer getType() {
@@ -78,20 +131,54 @@ public class User {
         this.type = type;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public User buildType(Integer type) {
+        this.type = type;
+        return this;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public Date getUpdateDate() {
-        return updateDate;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public void setUpdateDate(Date updateDate) {
-        this.updateDate = updateDate;
+    public User buildCreateTime(Date createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public User buildUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+        return this;
+    }
+
+    public User build(){
+        return new User(this);
+    }
+
+    public Map<String,Object> getMap(){
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("user_id",getUserId());
+        map.put("password",getPassword());
+        map.put("name",getName());
+        map.put("sex",getSex());
+        map.put("phone",getPhone());
+        map.put("email",getEmail());
+        map.put("user_photo",getUserPhoto());
+        map.put("type",getType());
+        map.put("create_time",getCreateTime());
+        map.put("update_time",getUpdateTime());
+        return map;
     }
 
     @Override
@@ -103,10 +190,10 @@ public class User {
                 ", sex=" + sex +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", user_Photo='" + user_Photo + '\'' +
+                ", userPhoto='" + userPhoto + '\'' +
                 ", type=" + type +
-                ", createDate=" + createDate +
-                ", updateDate=" + updateDate +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
                 '}';
     }
 }

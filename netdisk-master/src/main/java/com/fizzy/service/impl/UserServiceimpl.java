@@ -6,6 +6,7 @@ import com.fizzy.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,22 +22,17 @@ public class UserServiceimpl implements IUserService {
     }
 
     @Override
-    public Integer insertUser(String userId,
-                              String password,
-                              String name,
-                              String sex,
-
-
-                              String phone, String email, String userPhoto, String type, String createDate, String updateDate) {
-        return userMapper.insertUser( userId,  password,  name,  sex,  phone,  email,  userPhoto,  type,  createDate,  updateDate);
+    public Integer insertUser(User user) {
+        return userMapper.insertUser(user.getMap());
     }
 
     @Override
-    public Integer updateUser(String userId, String password, String name, String sex, String phone, String email, String userPhoto, String type, String createDate, String updateDate) {
-        return userMapper.updateUser(userId, password, name, sex, phone, email, userPhoto, type, createDate, updateDate);
+    public Integer updateUser(User user) {
+        return userMapper.updateUser(user.getMap());
     }
+
     @Override
     public Integer deleteUser(String userId) {
-        return userMapper.deleteUser();
+        return userMapper.deleteUser(userId);
     }
 }
