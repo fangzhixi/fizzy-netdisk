@@ -6,6 +6,7 @@ import com.fizzy.service.ISlaveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,22 +17,47 @@ public class SlaveServiceimpl implements ISlaveService {
     @Autowired
     SlaveMapper slaveMapper;
 
-    public List<Slave> selectSlave(Slave slave) {
-        Map<String, Object> map = new HashMap<String,Object>();
-        return slaveMapper.selectSlave(map);
+    @Override
+    public List<Slave> selectSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime, Date updateTime) {
+        Slave slave = new Slave()
+                .buildAddress(address)
+                .buildUsedSpace(usedSpace)
+                .buildFreeSpace(freeSpace)
+                .buildMasterKey(masterKey)
+                .buildCreateTime(createTime)
+                .buildUpdateTime(updateTime)
+                .build();
+        return slaveMapper.selectSlave(slave.getMap());
     }
 
-    public Integer insertSlave(Slave slave) {
-        Map<String, Object> map = new HashMap<String,Object>();
-        return slaveMapper.insertSlave(map);
+    @Override
+    public Integer insertSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime, Date updateTime) {
+        Slave slave = new Slave()
+                .buildAddress(address)
+                .buildUsedSpace(usedSpace)
+                .buildFreeSpace(freeSpace)
+                .buildMasterKey(masterKey)
+                .buildCreateTime(createTime)
+                .buildUpdateTime(updateTime)
+                .build();
+        return slaveMapper.insertSlave(slave.getMap());
     }
 
-    public Integer updateSlave(Slave slave) {
-        Map<String, Object> map = new HashMap<String,Object>();
-        return slaveMapper.updateSlave(map);
+    @Override
+    public Integer updateSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime, Date updateTime) {
+        Slave slave = new Slave()
+                .buildAddress(address)
+                .buildUsedSpace(usedSpace)
+                .buildFreeSpace(freeSpace)
+                .buildMasterKey(masterKey)
+                .buildCreateTime(createTime)
+                .buildUpdateTime(updateTime)
+                .build();
+        return slaveMapper.updateSlave(slave.getMap());
     }
 
-    public Integer deleteSlave(Integer id) {
-        return slaveMapper.deleteSlave(id);
+    @Override
+    public Integer deleteSlave(String address) {
+        return slaveMapper.deleteSlave(address);
     }
 }

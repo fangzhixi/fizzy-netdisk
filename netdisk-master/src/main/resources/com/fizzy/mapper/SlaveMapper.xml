@@ -26,16 +26,46 @@
 
     <insert id="insertSlave" parameterType="com.fizzy.pojo.Slave">
         INSERT INTO `netdisk`.`slave` (
-          `address`,
-          `master_key`,
-          `create_time`
-        )
-        VALUES
-        (
-          #{address},
-          #{master_key},
-          #{create_time}
-        )
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="address != null and address != ''">
+                `address`,
+            </if>
+            <if test="used_space != null and used_space != ''">
+                `used_space`,
+            </if>
+            <if test="free_space != null and free_space != ''">
+                `free_space`,
+            </if>
+            <if test="master_key != null and master_key != ''">
+                `master_key`,
+            </if>
+            <if test="create_time != null and create_time != ''">
+                `create_time`,
+            </if>
+            <if test="update_time != null and update_time != ''">
+                `update_time`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="address != null and address != ''">
+                #{address},
+            </if>
+            <if test="used_space != null and used_space != ''">
+                #{used_space},
+            </if>
+            <if test="free_space != null and free_space != ''">
+                #{free_space},
+            </if>
+            <if test="master_key != null and master_key != ''">
+                #{master_key},
+            </if>
+            <if test="create_time != null and create_time != ''">
+                #{create_time},
+            </if>
+            <if test="update_time != null and update_time != ''">
+                #{update_time},
+            </if>
+        </trim>
     </insert>
 
     <update id="updateSlave" parameterType="com.fizzy.pojo.Slave">
@@ -65,6 +95,6 @@
     </update>
 
     <delete id="deleteSlave" parameterType="Integer">
-        DELETE FROM `netdisk`.`slave` WHERE `id` = #{id}
+        DELETE FROM `netdisk`.`slave` WHERE `address` = #{address}
     </delete>
 </mapper>

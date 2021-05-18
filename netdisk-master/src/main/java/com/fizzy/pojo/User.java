@@ -19,11 +19,11 @@ public class User {
     }
 
     public User(User User) {
+        this.phone = User.phone;
+        this.email = User.email;
         this.password = User.password;
         this.name = User.name;
         this.sex = User.sex;
-        this.phone = User.phone;
-        this.email = User.email;
         this.userPhoto = User.userPhoto;
         this.type = User.type;
         this.createTime = User.createTime;
@@ -168,11 +168,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
                 ", userPhoto='" + userPhoto + '\'' +
                 ", type=" + type +
                 ", createTime=" + createTime +

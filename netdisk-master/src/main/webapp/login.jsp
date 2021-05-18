@@ -53,7 +53,7 @@
                         <div class="row">
                            <div class="col-lg-12">
                               <div class="floating-label form-group">
-                                 <input id="user_id" class="text floating-input form-control" type="text" placeholder="">
+                                 <input id="account" class="text floating-input form-control" type="text" placeholder="">
                                  <label>邮箱 / 电话</label>
                               </div>
                            </div>
@@ -121,7 +121,7 @@
    <script type="text/javascript">
       var int;//定时器
 
-      document.getElementById("user_id").addEventListener("keyup", function(event) {
+      document.getElementById("account").addEventListener("keyup", function(event) {
          event.preventDefault();
          if (event.keyCode === 13) {
             document.getElementById("submit").click();
@@ -135,10 +135,10 @@
       });
 
       function submit(){
-         var user_id = document.getElementById("user_id");
+         var account = document.getElementById("account");
          var password = document.getElementById("password");
          var submit = document.getElementById("submit")
-         if(user_id.value.length <= 0){
+         if(account.value.length <= 0){
             clearInterval(int);
             submit.style.background = "#eb445a";
             submit.style.borderColor = "#eb445a";
@@ -163,27 +163,27 @@
          //进行表单数据校验，校验成功提交到登录servlet，校验失败不提交
          else{
             sessionStorage.clear();
-            sessionStorage.setItem("fizzy_netdisk_user_id", user_id.value);
+            sessionStorage.setItem("fizzy_netdisk_account", account.value);
             sessionStorage.setItem("fizzy_netdisk_password", password.value);
-            var cookieValue = "user_id=" + sessionStorage.getItem("fizzy_netdisk_user_id") + "; password=" + sessionStorage.getItem("fizzy_netdisk_password");
-            //alert("fizzy_netdisk_user_id" + sessionStorage.getItem("fizzy_netdisk_user_id") + "\nfizzy_netdisk_password" + sessionStorage.getItem("fizzy_netdisk_password") + "\nuser_id" + user_id.value + "\npassword" + password.value  + "\ncookieValue" + cookieValue);
+            var cookieValue = "account=" + sessionStorage.getItem("fizzy_netdisk_account") + "; password=" + sessionStorage.getItem("fizzy_netdisk_password");
+            //alert("fizzy_netdisk_account" + sessionStorage.getItem("fizzy_netdisk_account") + "\nfizzy_netdisk_password" + sessionStorage.getItem("fizzy_netdisk_password") + "\naccount" + account.value + "\npassword" + password.value  + "\ncookieValue" + cookieValue);
 
-            document.cookie = "user_id=" + sessionStorage.getItem("fizzy_netdisk_user_id");
+            document.cookie = "account=" + sessionStorage.getItem("fizzy_netdisk_account");
             document.cookie = "password=" + sessionStorage.getItem("fizzy_netdisk_password");
             $("#loginForm").submit();//使用jQuery提交表单
          }
       }
 
       window.onload = function(){
-         var phone_input = document.getElementById("user_id");
+         var phone_input = document.getElementById("account");
          var password = document.getElementById("password");
          var submit = document.getElementById("submit")
-         var user_id = null;
+         var account = null;
          var notPass = false;
-         ${user_id }
+         ${account }
          ${notPass }
          if(notPass){
-            phone_input.value = user_id;
+            phone_input.value = account;
             clearInterval(int);
             submit.style.background = "#eb445a";
             submit.style.borderColor = "#eb445a";

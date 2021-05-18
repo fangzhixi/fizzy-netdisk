@@ -8,11 +8,11 @@ import java.util.Map;
 
 public interface UserMapper {
 
-    List<User> selectUser(@Param("user_id") String userId);
+    List<User> selectUser(@Param("phone") String phone, @Param("email") String email);
 
-    Integer insertUser(Map<String,Object> map);
+    Integer insertUser(Map<String, Object> map);
 
-    Integer updateUser(Map<String,Object> map);
+    Integer updateUser(Map<String, Object> map);
 
-    Integer deleteUser(@Param("user_id") String user_id);
+    Integer deleteUser(@Param("phone") String phone, @Param("email") String email);
 }

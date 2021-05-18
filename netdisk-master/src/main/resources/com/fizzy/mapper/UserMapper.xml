@@ -5,12 +5,11 @@
 <mapper namespace="com.fizzy.mapper.UserMapper">
 
     <resultMap id="user" type="com.fizzy.pojo.User">
-        <result property="userId" column="user_id"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
         <result property="password" column="password"/>
         <result property="name" column="name"/>
         <result property="sex" column="sex"/>
-        <result property="phone" column="phone"/>
-        <result property="email" column="email"/>
         <result property="userPhoto" column="user_photo"/>
         <result property="type" column="type"/>
         <result property="createTime" column="create_time"/>
@@ -19,36 +18,38 @@
 
     <select id="selectUser" parameterType="com.fizzy.pojo.User" resultMap="user">
         SELECT
-        `id`,
-        `user_id`,
-        `password`,
-        `name`,
-        `sex`,
-        `phone`,
-        `email`,
-        `user_photo`,
-        `type`,
-        `create_time`,
-        `update_time`
+            `phone`,
+            `email`,
+            `password`,
+            `name`,
+            `sex`,
+            `user_photo`,
+            `type`,
+            `create_time`,
+            `update_time`
         FROM
-        `netdisk`.`user`
-        <trim prefix="WHERE" suffixOverrides="AND">
-            <if test="user_id != null and user_id != ''">
-                user_id = #{user_id} AND
-            </if>
-        </trim>
-        <trim>
-            <if test="user_id != null and user_id != ''">
+            `netdisk`.`user`
+            <trim prefix="WHERE" suffixOverrides="OR">
+                <if test="phone != null and phone != ''">
+                    phone = #{phone} OR
+                </if>
+                <if test="email != null and email != ''">
+                    email = #{email} OR
+                </if>
+            </trim>
+            <if test="(phone != null and phone != '') or (email != null and email != '')">
                 LIMIT 1
             </if>
-        </trim>
     </select>
 
     <insert id="insertUser" parameterType="com.fizzy.pojo.User">
         INSERT INTO `netdisk`.`user`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="user_id != null and user_id != ''">
-                `user_id`,
+            <if test="phone != null and phone != ''">
+                `phone`,
+            </if>
+            <if test="email != null and email != ''">
+                `email`,
             </if>
             <if test="password != null and password != ''">
                 `password`,
@@ -58,12 +59,6 @@
             </if>
             <if test="sex != null and sex != ''">
                 `sex`,
-            </if>
-            <if test="phone != null and phone != ''">
-                `phone`,
-            </if>
-            <if test="email != null and email != ''">
-                `email`,
             </if>
             <if test="user_photo != null and user_photo != ''">
                 `user_photo`,
@@ -79,8 +74,11 @@
             </if>
         </trim>
         <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
-            <if test="user_id != null and user_id != ''">
-                #{user_id},
+            <if test="phone != null and phone != ''">
+                #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                #{email},
             </if>
             <if test="password != null and password != ''">
                 #{password},
@@ -90,12 +88,6 @@
             </if>
             <if test="sex != null and sex != ''">
                 #{sex},
-            </if>
-            <if test="phone != null and phone != ''">
-                #{phone},
-            </if>
-            <if test="email != null and email != ''">
-                #{email},
             </if>
             <if test="user_photo != null and user_photo != ''">
                 #{user_photo},
@@ -116,8 +108,11 @@
         UPDATE
         `netdisk`.`slave`
         <trim prefix="SET(" suffix=")" suffixOverrides=",">
-            <if test="user_id != null and user_id != ''">
-                `user_id` = #{user_id},
+            <if test="phone != null and phone != ''">
+                `phone` = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                `email` = #{email},
             </if>
             <if test="password != null and password != ''">
                 `password` = #{password},
@@ -127,12 +122,6 @@
             </if>
             <if test="sex != null and sex != ''">
                 `sex` = #{sex},
-            </if>
-            <if test="phone != null and phone != ''">
-                `phone` = #{phone},
-            </if>
-            <if test="email != null and email != ''">
-                `email` = #{email},
             </if>
             <if test="user_photo != null and user_photo != ''">
                 `user_photo` = #{user_photo},
@@ -151,8 +140,14 @@
     </update>
 
     <delete id="deleteUser" parameterType="Integer">
-
-                DELETE FROM `netdisk`.`slave` WHERE `id` = #{id}
-
+        DELETE FROM `netdisk`.`slave`
+        <trim prefix="WHERE" suffixOverrides="OR">
+            <if test="phone != null and phone != ''">
+                phone = #{phone} OR
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email} OR
+            </if>
+        </trim>
     </delete>
 </mapper>
