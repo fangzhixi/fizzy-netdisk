@@ -7,7 +7,7 @@ import java.util.Map;
 public class Slave {
 
     private String address;//网络地址(ipv4、ipv6、域名)
-    private Long usedSpace;//已用空间
+    private  Long usedSpace;//已用空间
     private Long freeSpace;//剩余空间
     private String masterKey;//主机验证口令
     private Date createTime;//创建时间

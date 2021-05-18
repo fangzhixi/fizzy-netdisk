@@ -34,6 +34,7 @@ public class UserController {
     @RequestMapping(value = "/sign-in")
     public String AmainPage(@CookieValue(value = "user_id", required = true) String userId,
                             @CookieValue(value = "password", required = true) String password,
+                            HttpServletResponse response,
                             Model model) {
         User user = null;
         Map<String, Object> map = new HashMap<String, Object>();

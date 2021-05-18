@@ -5,22 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private String userId;
-    private String password;
-    private String name;
-    private Integer sex;
-    private String phone;
-    private String email;
-    private String userPhoto;
-    private Integer type;
-    private Date createTime;
-    private Date updateTime;
+    private String phone;//大陆手机号(账号)
+    private String email;//邮箱(账号)
+    private String password;//密码
+    private String name;//名字
+    private Integer sex;//0:女 1:男
+    private String userPhoto;//用户头像
+    private Integer type;//0:超级管理员 1:用户 2:管理员
+    private Date createTime;//创建时间
+    private Date updateTime;//更新时间
 
     public User() {
     }
 
     public User(User User) {
-        this.userId = User.userId;
         this.password = User.password;
         this.name = User.name;
         this.sex = User.sex;
@@ -32,16 +30,29 @@ public class User {
         this.updateTime = User.updateTime;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public User buildUserId(String userId) {
-        this.userId = userId;
+    public User buildPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User buildEmail(String email) {
+        this.email = email;
         return this;
     }
 
@@ -81,32 +92,6 @@ public class User {
 
     public User buildSex(Integer sex) {
         this.sex = sex;
-        return this;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public User buildPhone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public User buildEmail(String email) {
-        this.email = email;
         return this;
     }
 
@@ -168,12 +153,11 @@ public class User {
 
     public Map<String,Object> getMap(){
         Map<String,Object> map = new HashMap<String,Object>();
-        map.put("user_id",getUserId());
+        map.put("phone",getPhone());
+        map.put("email",getEmail());
         map.put("password",getPassword());
         map.put("name",getName());
         map.put("sex",getSex());
-        map.put("phone",getPhone());
-        map.put("email",getEmail());
         map.put("user_photo",getUserPhoto());
         map.put("type",getType());
         map.put("create_time",getCreateTime());
@@ -184,7 +168,6 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userId='" + userId + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
