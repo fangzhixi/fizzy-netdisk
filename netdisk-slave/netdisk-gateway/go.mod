@@ -3,6 +3,7 @@ module github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-gateway
 go 1.16
 
 require (
+	github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core v0.0.0-20210518035414-d99629bdafda
 	github.com/golang/protobuf v1.5.2
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	golang.org/x/net v0.0.0-20210510120150-4163338589ed

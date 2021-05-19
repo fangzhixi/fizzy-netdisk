@@ -6,9 +6,10 @@ import java.util.Map;
 
 public class Slave {
 
+    private String uuid;//从机通用唯一识别码
     private String address;//网络地址(ipv4、ipv6、域名)
+    private Long totalSpace;//总空间
     private Long usedSpace;//已用空间
-    private Long freeSpace;//剩余空间
     private String masterKey;//主机验证口令
     private Date createTime;//创建时间
     private Date updateTime;//更新时间
@@ -17,6 +18,25 @@ public class Slave {
     }
 
     public Slave(Slave slaveBuilder) {
+        this.uuid = slaveBuilder.uuid;
+        this.address = slaveBuilder.address;
+        this.totalSpace = slaveBuilder.totalSpace;
+        this.usedSpace = slaveBuilder.usedSpace;
+        this.masterKey = slaveBuilder.masterKey;
+        this.createTime = slaveBuilder.createTime;
+        this.updateTime = slaveBuilder.updateTime;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+    public Slave buildUuid(String uuid) {
+        this.uuid = uuid;
+        return this;
     }
 
     public String getAddress() {
@@ -32,6 +52,19 @@ public class Slave {
         return this;
     }
 
+    public Long getTotalSpace() {
+        return totalSpace;
+    }
+
+    public void setTotalSpace(Long totalSpace) {
+        this.totalSpace = totalSpace;
+    }
+
+    public Slave buildTotalSpace(Long totalSpace) {
+        this.totalSpace = totalSpace;
+        return this;
+    }
+
     public Long getUsedSpace() {
         return usedSpace;
     }
@@ -42,19 +75,6 @@ public class Slave {
 
     public Slave buildUsedSpace(Long usedSpace) {
         this.usedSpace = usedSpace;
-        return this;
-    }
-
-    public Long getFreeSpace() {
-        return freeSpace;
-    }
-
-    public void setFreeSpace(Long freeSpace) {
-        this.freeSpace = freeSpace;
-    }
-
-    public Slave buildFreeSpace(Long freeSpace) {
-        this.freeSpace = freeSpace;
         return this;
     }
 
@@ -97,27 +117,30 @@ public class Slave {
         return this;
     }
 
-    public Slave build(){
+    public Slave build() {
+        System.out.println("build data: " + this.toString());
         return new Slave(this);
     }
 
-    public Map<String,Object> getMap(){
-        Map<String,Object> map = new HashMap<String,Object>();
-        map.put("address",getAddress());
-        map.put("used_space",getUsedSpace());
-        map.put("free_space",getFreeSpace());
-        map.put("master_key",getMasterKey());
-        map.put("create_time",getCreateTime());
-        map.put("update_time",getUpdateTime());
+    public Map<String, Object> getMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("uuid", getUuid());
+        map.put("address", getAddress());
+        map.put("total_space", getTotalSpace());
+        map.put("used_space", getUsedSpace());
+        map.put("master_key", getMasterKey());
+        map.put("create_time", getCreateTime());
+        map.put("update_time", getUpdateTime());
         return map;
     }
 
     @Override
     public String toString() {
         return "Slave{" +
+                "uuid='" + uuid + '\'' +
                 ", address='" + address + '\'' +
+                ", totalSpace=" + totalSpace +
                 ", usedSpace=" + usedSpace +
-                ", freeSpace=" + freeSpace +
                 ", masterKey='" + masterKey + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +

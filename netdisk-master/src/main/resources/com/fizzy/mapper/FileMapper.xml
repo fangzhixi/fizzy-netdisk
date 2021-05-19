@@ -16,25 +16,25 @@
         FROM
             `netdisk`.`file`
         <trim prefix="WHERE" suffixOverrides="AND">
-            <if test="element_id != null and element_id != ''">
+            <if test="element_id != null and element_id > 0">
                 element_id = #{element_id} AND
             </if>
-            <if test="parent_element_id != null and parent_element_id != ''">
+            <if test="parent_element_id != null and parent_element_id > 0">
                 parent_element_id = #{parent_element_id} AND
             </if>
-            <if test="user_id != null and user_id != ''">
+            <if test="user_id != null and user_id > 0">
                 user_id = #{user_id} AND
             </if>
             <if test="file_name != null and file_name != ''">
                 file_name = #{file_name} AND
             </if>
-            <if test="file_size != null and file_size != ''">
+            <if test="file_size != null and file_size > 0">
                 file_size = #{file_size} AND
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="create_time != null">
                 create_time = #{create_time} AND
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 update_time = #{update_time} AND
             </if>
         </trim>
@@ -46,48 +46,48 @@
     <insert id="insertFile" parameterType="com.fizzy.pojo.File">
         INSERT INTO `netdisk`.`file`
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="element_id != null and element_id != ''">
+            <if test="element_id != null and element_id > 0">
                 `element_id`,
             </if>
-            <if test="parent_element_id != null and parent_element_id != ''">
+            <if test="parent_element_id != null and parent_element_id > 0">
                 `parent_element_id`,
             </if>
-            <if test="user_id != null and user_id != ''">
+            <if test="user_id != null and user_id > 0">
                 `user_id`,
             </if>
             <if test="file_name != null and file_name != ''">
                 `file_name`,
             </if>
-            <if test="file_size != null and file_size != ''">
+            <if test="file_size != null and file_size > 0">
                 `file_size`,
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="create_time != null">
                 `create_time`,
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 `update_time`,
             </if>
         </trim>
         <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
-            <if test="element_id != null and element_id != ''">
+            <if test="element_id != null and element_id > 0">
                 #{element_id},
             </if>
-            <if test="parent_element_id != null and parent_element_id != ''">
+            <if test="parent_element_id != null and parent_element_id > 0">
                 #{parent_element_id},
             </if>
-            <if test="user_id != null and user_id != ''">
+            <if test="user_id != null and user_id > 0">
                 #{user_id},
             </if>
             <if test="file_name != null and file_name != ''">
                 #{file_name},
             </if>
-            <if test="file_size != null and file_size != ''">
+            <if test="file_size != null and file_size > 0">
                 #{file_size},
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="create_time != null">
                 #{create_time},
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 #{update_time},
             </if>
         </trim>
@@ -97,10 +97,10 @@
         UPDATE
         `netdisk`.`File`
         <trim prefix="SET(" suffix=")" suffixOverrides=",">
-            <if test="element_id != null and element_id != ''">
+            <if test="element_id != null and element_id > 0">
                 `element_id` = #{element_id},
             </if>
-            <if test="parent_element_id != null and parent_element_id != ''">
+            <if test="parent_element_id != null and parent_element_id > 0">
                 `parent_element_id` = #{parent_element_id},
             </if>
             <if test="user_id != null and user_id != ''">
@@ -109,13 +109,13 @@
             <if test="file_name != null and file_name != ''">
                 `file_name` =#{file_name},
             </if>
-            <if test="file_size != null and file_size != ''">
+            <if test="file_size != null and file_size > 0">
                 `file_size` =#{file_size},
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="create_time != null">
                 `create_time` = #{create_time},
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 `update_time` = #{update_time},
             </if>
         </trim>

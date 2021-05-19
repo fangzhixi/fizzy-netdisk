@@ -2,19 +2,15 @@ package com.fizzy.controller;
 
 import com.fizzy.pojo.User;
 import com.fizzy.service.IUserService;
-import com.fizzy.util.sdk.RSAEncryption;
 import com.fizzy.util.sdk.Token;
-import com.fizzy.util.sdk.regular_expression.Verification;
+import com.fizzy.util.sdk.regular.Verification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class UserController {

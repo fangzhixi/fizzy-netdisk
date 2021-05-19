@@ -22,9 +22,13 @@ type Configuration struct {
 	RootPathName   string `yaml:"root_path_name"`
 	RemoteConfig   struct {
 		Ip    string `yaml:"ip"`
-		Port  int8   `yaml:"port"`
 		Group string `yaml:"group"`
+		UUID  string //主机返回的通用唯一识别码
 	} `yaml:"remote_conf"`
+	LocalConfig struct {
+		LocalPath  string `yaml:"local_path"`  //空间存储位置
+		TotalSpace int64  `yaml:"total_space"` //总容量(单位:字节)
+	} `yaml:"local_conf"`
 }
 
 func Newconfig(env string) Configuration {

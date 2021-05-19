@@ -1,16 +1,25 @@
-package token
+package autograph
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/error/errcode"
 	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/error/errtype"
 )
 
+type Token struct {
+	Algorithm string
+	UserID    string
+	Nonce     int64
+	Timestamp int64
+	MasterKey string
+}
+
 /**签名验证(true通过,false不通过)[以MHAC-SHA-256解密方式为例]
-Token按照以下方式排列: algorithm=解密方式,userID=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),masterKey=主机认证口令
-样例: 				  algorithm=HMAC-SHA256,userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
+Token按照以下方式排列: algorithm=解密方式,user_id=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),master_key=主机认证口令
+样例: 				  algorithm=HMAC-SHA256,user_id=17820478359,nonce=169081,timestamp=1620454429,master_key=KohIzIccGD6wNMnDCPeGf
 
 加密后的token格式:     Base64格式密码串
 样例:				  nft7AMsMTUguKohIzIccGD6wNMnDCPeGfxHMAEHmSfGA
@@ -22,7 +31,7 @@ Token按照以下方式排列: algorithm=解密方式,userID=用户ID,nonce=随�
 	3.比对主机认证口令与本机储存主机认证口令是否一致
 	4.所有认证均符合则通过，反之则不通过
 */
-func TokenInvoice(token *string) (bool, error) {
+func (t *Token) TokenInvoice(token *string) (bool, error) {
 	//数据验证
 	if token == nil {
 		return false, nil
@@ -58,12 +67,27 @@ func TokenInvoice(token *string) (bool, error) {
 	}
 
 	fmt.Println("3.比对主机认证口令与本机储存主机认证口令是否一致")
-	masterKey, err := getMasterKey()
+	masterKey, err := GetMasterKey()
 	if err != nil {
 		fmt.Println(masterKey, "主机认证口令读取失败(文件不存在)")
 		return false, errtype.NewError(errcode.BUSINESS_DATA_ERROR, err, "主机认证口令读取失败(文件不存在)")
 	}
-	if masterKey != nil && *masterKey == tokenMap["masterKey"] {
+	if masterKey != nil && *masterKey == tokenMap["master_key"] {
+		//封装数据
+		nonce, err := strconv.ParseInt(tokenMap["nonce"], 10, 64)
+		if err != nil {
+			return false, err
+		}
+		timestamp, err := strconv.ParseInt(tokenMap["timestamp"], 10, 64)
+		if err != nil {
+			return false, err
+		}
+
+		t.Algorithm = tokenMap["algorithm"]
+		t.UserID = tokenMap["user_id"]
+		t.Nonce = nonce
+		t.Timestamp = timestamp
+		t.MasterKey = tokenMap["master_key"]
 		return true, nil
 	} else {
 		return false, nil

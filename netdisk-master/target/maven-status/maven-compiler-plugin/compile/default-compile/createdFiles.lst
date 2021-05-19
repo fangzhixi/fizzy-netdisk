@@ -1,0 +1,3 @@
+com\fizzy\controller\SlaveController.class
+com\fizzy\service\impl\SlaveServiceimpl.class
+com\fizzy\pojo\Slave.class

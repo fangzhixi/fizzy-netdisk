@@ -15,6 +15,6 @@ public interface SlaveMapper {
 
     Integer updateSlave(Map<String, Object> map);
 
-    Integer deleteSlave(@Param("address") String address);
+    Integer deleteSlave(@Param("uuid") String uuid);
 
 }

@@ -61,9 +61,9 @@
 			<tx:method name="select*" read-only="true"/>
 			<tx:method name="query*" read-only="true"/>
 			<tx:method name="check*" read-only="true"/>
-			<tx:method name="insert*" read-only="true"/>
-			<tx:method name="update*" read-only="true"/>
-			<tx:method name="delete*" read-only="true"/>
+			<tx:method name="insert*" />
+			<tx:method name="update*" />
+			<tx:method name="delete*"/>
 			<tx:method name="*" propagation="REQUIRED"/>
 		</tx:attributes>
 	</tx:advice>

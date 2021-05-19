@@ -1,3 +1,4 @@
+F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\util\sdk\regular\Verification.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\service\IFileService.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\service\ISlaveService.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\util\sdk\RSAEncryption.java
@@ -12,7 +13,6 @@ F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\pojo\Slave.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\service\impl\SlaveServiceimpl.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\util\sdk\Token.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\mapper\UserMapper.java
-F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\util\sdk\regular_expression\Verification.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\interceptor\SerurityInterceptor.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\mapper\FileMapper.java
 F:\fizzy-netdisk\netdisk-master\src\main\java\com\fizzy\mapper\SlaveMapper.java

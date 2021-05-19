@@ -8,6 +8,11 @@ import java.util.*;
 //Token认证
 public class Token extends RSAEncryption {
 
+    private String algorithm;//加密规则(HMAC-SHA256、MD5)
+    private String userID;//用户名
+    private Integer nonce;//随机数(推荐6位随机数字)
+    private Long timestamp;//到期时间戳(10位数字)
+    private String masterKey;//主机认证口令
     private String signature;//加密后得到的签名串
     private final Long TIME_OUT = 1200L;//过期时间20分钟(1200毫秒)
 
@@ -16,8 +21,47 @@ public class Token extends RSAEncryption {
     }
 
     public Token(String algorithm, String userID, Integer nonce, Long timestamp, String masterKey) {
-        super(algorithm, userID, nonce, timestamp, masterKey);
-        this.signature = "";
+        this.algorithm = algorithm;
+        this.userID = userID;
+        this.nonce = nonce;
+        this.timestamp = timestamp;
+        this.masterKey = masterKey;
+    }
+
+    public String getAlgorithm() {
+        return algorithm;
+    }
+
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public Integer getNonce() {
+        return nonce;
+    }
+
+    public void setNonce(Integer nonce) {
+        this.nonce = nonce;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setMasterKey(String masterKey) {
+        this.masterKey = masterKey;
     }
 
     public String getSignature() {
@@ -32,11 +76,11 @@ public class Token extends RSAEncryption {
      * 签名验证(true通过,false不通过)[以MHAC-SHA-256解密方式为例]
      * Token按照以下方式排列: algorithm=解密方式,userID=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),masterKey=主机认证口令
      * 样例: 				  algorithm=RSA-SHA256,userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
-     * <p>
+     *
      * 加密后的token格式:     Base64格式密码串
      * 样例:				  nft7AMsMTUguKohIzIccGD6wNMnDCPeGfxHMAEHmSfGA
-     * |<---          Base64格式密码串          --->|
-     * <p>
+     *                   |<---          Base64格式密码串           --->|
+     *
      * 认证逻辑:
      * 1.将获取的token原始字符串用Base64解码
      * 2.用密钥将token解密
@@ -89,9 +133,37 @@ public class Token extends RSAEncryption {
             this.setUserID(tokenMap.get("userID"));
             this.setNonce(Integer.parseInt(tokenMap.get("nonce")));
             this.setTimestamp(now + TIME_OUT);//设置过期时间 = 当前时间 + 过期时间
+            this.setMasterKey(tokenMap.get("masterKey"));
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * 格式化输出
+     *
+     * @return signature
+     */
+    public String format() {
+        String signature =
+                "algorithm=" + getAlgorithm()
+                        + ",userID=" + getUserID()
+                        + ",nonce=" + getNonce()
+                        + ",timestamp=" + getTimestamp()
+                        + ",masterKey=" + getMasterKey();
+        return signature;
+    }
+
+    @Override
+    public String toString() {
+        return "Token{" +
+                "algorithm='" + algorithm + '\'' +
+                ", userID='" + userID + '\'' +
+                ", nonce=" + nonce +
+                ", timestamp=" + timestamp +
+                ", masterKey='" + masterKey + '\'' +
+                ", signature='" + signature + '\'' +
+                '}';
     }
 }

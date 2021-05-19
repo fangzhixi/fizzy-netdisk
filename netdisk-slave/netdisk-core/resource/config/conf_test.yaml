@@ -9,6 +9,12 @@ root_path_name: fizzy-netdisk
 
 # 主服务器设置
 remote_conf: 
-  ip: http://localhost.com
-  port: 80
+  #例ip:  http://127.0.0.1:8080
+  ip: http://localhost
   group: fizzy
+
+local_conf:
+  # 空间存储位置
+  local_path: ./fizzy-netdisk/
+  # 单位Byte: 总容量 5GB
+  total_space: 5368709120

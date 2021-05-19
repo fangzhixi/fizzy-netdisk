@@ -10,11 +10,11 @@ import java.util.Map;
 
 public interface ISlaveService {
 
-    List<Slave> selectSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime,Date updateTime);
+    List<Slave> selectSlave(String uuid, String address, Long totalSpace, Long usedSpace, String masterKey, Date createTime, Date updateTime);
 
-    Integer insertSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime,Date updateTime);
+    Integer insertSlave(String uuid, String address, Long totalSpace, Long usedSpace, String masterKey, Date createTime, Date updateTime);
 
-    Integer updateSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime,Date updateTime);
+    Integer updateSlave(String uuid, String address, Long totalSpace, Long usedSpace, String masterKey, Date createTime, Date updateTime);
 
-    Integer deleteSlave(String address);
+    Integer deleteSlave(String uuid);
 }

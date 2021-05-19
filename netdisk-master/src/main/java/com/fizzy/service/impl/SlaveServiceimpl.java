@@ -18,11 +18,12 @@ public class SlaveServiceimpl implements ISlaveService {
     SlaveMapper slaveMapper;
 
     @Override
-    public List<Slave> selectSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime, Date updateTime) {
+    public List<Slave> selectSlave(String uuid,String address, Long totalSpace, Long usedSpace, String masterKey, Date createTime, Date updateTime) {
         Slave slave = new Slave()
+                .buildUuid(uuid)
                 .buildAddress(address)
+                .buildTotalSpace(totalSpace)
                 .buildUsedSpace(usedSpace)
-                .buildFreeSpace(freeSpace)
                 .buildMasterKey(masterKey)
                 .buildCreateTime(createTime)
                 .buildUpdateTime(updateTime)
@@ -31,24 +32,28 @@ public class SlaveServiceimpl implements ISlaveService {
     }
 
     @Override
-    public Integer insertSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime, Date updateTime) {
-        Slave slave = new Slave()
+    public Integer insertSlave(String uuid,String address, Long totalSpace, Long usedSpace, String masterKey, Date createTime, Date updateTime) {
+        Slave slave = new Slave().buildAddress(address)
+                .buildUuid(uuid)
                 .buildAddress(address)
+                .buildTotalSpace(totalSpace)
                 .buildUsedSpace(usedSpace)
-                .buildFreeSpace(freeSpace)
                 .buildMasterKey(masterKey)
                 .buildCreateTime(createTime)
                 .buildUpdateTime(updateTime)
                 .build();
+        System.out.println("slave" + slave.toString());
         return slaveMapper.insertSlave(slave.getMap());
+//        return 0;
     }
 
     @Override
-    public Integer updateSlave(String address, Long usedSpace, Long freeSpace, String masterKey, Date createTime, Date updateTime) {
+    public Integer updateSlave(String uuid,String address,Long totalSpace, Long usedSpace, String masterKey, Date createTime, Date updateTime) {
         Slave slave = new Slave()
+                .buildUuid(uuid)
                 .buildAddress(address)
+                .buildTotalSpace(totalSpace)
                 .buildUsedSpace(usedSpace)
-                .buildFreeSpace(freeSpace)
                 .buildMasterKey(masterKey)
                 .buildCreateTime(createTime)
                 .buildUpdateTime(updateTime)
@@ -57,7 +62,7 @@ public class SlaveServiceimpl implements ISlaveService {
     }
 
     @Override
-    public Integer deleteSlave(String address) {
-        return slaveMapper.deleteSlave(address);
+    public Integer deleteSlave(String uuid) {
+        return slaveMapper.deleteSlave(uuid);
     }
 }

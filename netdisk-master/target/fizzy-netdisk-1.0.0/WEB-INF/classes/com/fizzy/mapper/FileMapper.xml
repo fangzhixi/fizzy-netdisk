@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.fizzy.mapper.FileMapper">
+
     <select id="selectFile" parameterType="com.fizzy.pojo.File" resultType="com.fizzy.pojo.File">
         SELECT
             `element_id`,
@@ -15,20 +16,26 @@
         FROM
             `netdisk`.`file`
         <trim prefix="WHERE" suffixOverrides="AND">
-            <if test="element_id != null and element_id != ''">
+            <if test="element_id != null and element_id > 0">
                 element_id = #{element_id} AND
             </if>
-            <if test="parent_element_id != null and parent_element_id != ''">
+            <if test="parent_element_id != null and parent_element_id > 0">
                 parent_element_id = #{parent_element_id} AND
             </if>
-            <if test="user_id != null and user_id != ''">
+            <if test="user_id != null and user_id > 0">
                 user_id = #{user_id} AND
             </if>
             <if test="file_name != null and file_name != ''">
                 file_name = #{file_name} AND
             </if>
-            <if test="file_size != null and file_size != ''">
+            <if test="file_size != null and file_size > 0">
                 file_size = #{file_size} AND
+            </if>
+            <if test="create_time != null">
+                create_time = #{create_time} AND
+            </if>
+            <if test="update_time != null">
+                update_time = #{update_time} AND
             </if>
         </trim>
         <if test="element_id != null and element_id != ''">
@@ -37,39 +44,78 @@
     </select>
 
     <insert id="insertFile" parameterType="com.fizzy.pojo.File">
-        INSERT INTO `netdisk`.`File` (
-          `address`,
-          `master_key`,
-          `create_time`
-        )
-        VALUES
-        (
-          #{address},
-          #{master_key},
-          #{create_time}
-        )
+        INSERT INTO `netdisk`.`file`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="element_id != null and element_id > 0">
+                `element_id`,
+            </if>
+            <if test="parent_element_id != null and parent_element_id > 0">
+                `parent_element_id`,
+            </if>
+            <if test="user_id != null and user_id > 0">
+                `user_id`,
+            </if>
+            <if test="file_name != null and file_name != ''">
+                `file_name`,
+            </if>
+            <if test="file_size != null and file_size > 0">
+                `file_size`,
+            </if>
+            <if test="create_time != null">
+                `create_time`,
+            </if>
+            <if test="update_time != null">
+                `update_time`,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="element_id != null and element_id > 0">
+                #{element_id},
+            </if>
+            <if test="parent_element_id != null and parent_element_id > 0">
+                #{parent_element_id},
+            </if>
+            <if test="user_id != null and user_id > 0">
+                #{user_id},
+            </if>
+            <if test="file_name != null and file_name != ''">
+                #{file_name},
+            </if>
+            <if test="file_size != null and file_size > 0">
+                #{file_size},
+            </if>
+            <if test="create_time != null">
+                #{create_time},
+            </if>
+            <if test="update_time != null">
+                #{update_time},
+            </if>
+        </trim>
     </insert>
 
     <update id="updateFile" parameterType="com.fizzy.pojo.File">
         UPDATE
         `netdisk`.`File`
         <trim prefix="SET(" suffix=")" suffixOverrides=",">
-            <if test="address != null and address != ''">
-                `address` = #{address},
+            <if test="element_id != null and element_id > 0">
+                `element_id` = #{element_id},
             </if>
-            <if test="used_space != null and used_space != ''">
-                `used_space` = #{used_space},
+            <if test="parent_element_id != null and parent_element_id > 0">
+                `parent_element_id` = #{parent_element_id},
             </if>
-            <if test="free_space != null and free_space != ''">
-                `free_space` = #{free_space},
+            <if test="user_id != null and user_id != ''">
+                `user_id` = #{user_id},
             </if>
-            <if test="master_key != null and master_key != }'">
-                `master_key` = #{master_key},
+            <if test="file_name != null and file_name != ''">
+                `file_name` =#{file_name},
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="file_size != null and file_size > 0">
+                `file_size` =#{file_size},
+            </if>
+            <if test="create_time != null">
                 `create_time` = #{create_time},
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 `update_time` = #{update_time},
             </if>
         </trim>
@@ -77,6 +123,6 @@
     </update>
 
     <delete id="deleteFile" parameterType="Integer">
-        DELETE FROM `netdisk`.`File` WHERE `id` = #{id}
+        DELETE FROM `netdisk`.`file` WHERE `element_id` = #{element_id}
     </delete>
 </mapper>

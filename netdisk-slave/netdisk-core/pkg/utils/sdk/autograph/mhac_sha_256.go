@@ -1,4 +1,4 @@
-package token
+package autograph
 
 import (
 	"crypto/rand"
@@ -116,7 +116,7 @@ func getPrivateKey() (*[]byte, error) {
 /**读取主机认证私钥文件
 此文件用来认证是否为主服务器发出来的信息
 */
-func getMasterKey() (*string, error) {
+func GetMasterKey() (*string, error) {
 	masterKeyPath := "resource/keystore/master-attestation.key"
 	bytes, err := bindata.Asset(masterKeyPath)
 	if err != nil {

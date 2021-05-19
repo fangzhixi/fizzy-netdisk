@@ -20,55 +20,6 @@ import java.security.spec.X509EncodedKeySpec;
 //加密实现类(父类)
 public class RSAEncryption {
 
-    private String algorithm;//加密规则(HMAC-SHA256、MD5)
-    private String userID;//用户名
-    private Integer nonce;//随机数(推荐6位随机数字)
-    private Long timestamp;//到期时间戳(10位数字)
-    private String masterKey;//主机认证口令
-
-    public RSAEncryption() {
-    }
-
-    public RSAEncryption(String algorithm, String userID, Integer nonce, Long timestamp, String masterKey) {
-        this.algorithm = algorithm;
-        this.userID = userID;
-        this.nonce = nonce;
-        this.timestamp = timestamp;
-        this.masterKey = masterKey;
-    }
-
-    public String getAlgorithm() {
-        return algorithm;
-    }
-
-    public void setAlgorithm(String algorithm) {
-        this.algorithm = algorithm;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-    public Integer getNonce() {
-        return nonce;
-    }
-
-    public void setNonce(Integer nonce) {
-        this.nonce = nonce;
-    }
-
-    public Long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
-    }
-
     /**
      * 获取主机口令文件内容
      * (口令文件位置:classpath:keystore/master-attestation.key)
@@ -96,21 +47,6 @@ public class RSAEncryption {
         }
         System.out.println("使用的主机口令内容为:\n" + content.toString());
         return content.toString();
-    }
-
-    /**
-     * 格式化输出
-     *
-     * @return signature
-     */
-    public String format() {
-        String signature =
-                "algorithm=" + getAlgorithm()
-                        + ",userID=" + getUserID()
-                        + ",nonce=" + getNonce()
-                        + ",timestamp=" + getTimestamp()
-                        + ",masterKey=" + getMasterKey();
-        return signature;
     }
 
     /**
@@ -235,16 +171,5 @@ public class RSAEncryption {
             e.printStackTrace();
         }
         return outStr;
-    }
-
-    @Override
-    public String toString() {
-        return "Token{" +
-                "algorithm='" + algorithm + '\'' +
-                ", userID='" + userID + '\'' +
-                ", nonce=" + nonce +
-                ", timestamp=" + timestamp +
-                ", masterKey='" + masterKey + '\'' +
-                '}';
     }
 }

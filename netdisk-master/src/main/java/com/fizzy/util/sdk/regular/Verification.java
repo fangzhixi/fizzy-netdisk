@@ -1,5 +1,6 @@
-package com.fizzy.util.sdk.regular_expression;
+package com.fizzy.util.sdk.regular;
 
+//正则表达式验证
 public class Verification {
 
     private static final String REGEX_MOBILE = "^1[3|4|5|7|8][0-9]\\d{4,8}$";

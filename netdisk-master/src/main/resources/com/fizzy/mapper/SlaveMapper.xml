@@ -5,9 +5,10 @@
 <mapper namespace="com.fizzy.mapper.SlaveMapper">
     <select id="selectSlave" parameterType="com.fizzy.pojo.Slave" resultType="com.fizzy.pojo.Slave">
         SELECT
+            `uuid`,
             `address`,
+            `total_space`,
             `used_space`,
-            `free_space`,
             `master_key`,
             `create_time`,
             `update_time`
@@ -17,6 +18,9 @@
             <if test="id != null and id != ''">
                 id = #{id} AND
             </if>
+            <if test="uuid != null and uuid != ''">
+                uuid = #{uuid} AND
+            </if>
             <if test="user_id != null and user_id != ''">
                 address = #{address} AND
             </if>
@@ -25,44 +29,51 @@
     </select>
 
     <insert id="insertSlave" parameterType="com.fizzy.pojo.Slave">
-        INSERT INTO `netdisk`.`slave` (
+        INSERT INTO `netdisk`.`slave`
         <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null and uuid != ''">
+                `uuid`,
+            </if>
             <if test="address != null and address != ''">
                 `address`,
             </if>
-            <if test="used_space != null and used_space != ''">
-                `used_space`,
+            <if test="total_space != null and total_space > 0">
+                `total_space`,
             </if>
-            <if test="free_space != null and free_space != ''">
-                `free_space`,
+            <if test="used_space != null and used_space > 0">
+                `used_space`,
             </if>
             <if test="master_key != null and master_key != ''">
                 `master_key`,
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="create_time != null">
                 `create_time`,
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 `update_time`,
             </if>
         </trim>
         <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null and uuid != ''">
+                #{uuid},
+            </if>
             <if test="address != null and address != ''">
                 #{address},
             </if>
-            <if test="used_space != null and used_space != ''">
-                #{used_space},
+
+            <if test="total_space != null and total_space > 0">
+                #{total_space},
             </if>
-            <if test="free_space != null and free_space != ''">
-                #{free_space},
+            <if test="used_space != null and used_space > 0">
+                #{used_space},
             </if>
             <if test="master_key != null and master_key != ''">
                 #{master_key},
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="create_time != null">
                 #{create_time},
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 #{update_time},
             </if>
         </trim>
@@ -72,29 +83,32 @@
         UPDATE
         `netdisk`.`slave`
         <trim prefix="SET(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null and uuid != ''">
+                `uuid` = #{uuid},
+            </if>
             <if test="address != null and address != ''">
                 `address` = #{address},
             </if>
-            <if test="used_space != null and used_space != ''">
-                `used_space` = #{used_space},
+            <if test="total_space != null and total_space > 0">
+                `total_space` = #{total_space},
             </if>
-            <if test="free_space != null and free_space != ''">
-                `free_space` = #{free_space},
+            <if test="used_space != null and used_space > 0">
+                `used_space` = #{used_space},
             </if>
             <if test="master_key != null and master_key != }'">
                 `master_key` = #{master_key},
             </if>
-            <if test="create_time != null and create_time != ''">
+            <if test="create_time != null">
                 `create_time` = #{create_time},
             </if>
-            <if test="update_time != null and update_time != ''">
+            <if test="update_time != null">
                 `update_time` = #{update_time},
             </if>
         </trim>
         WHERE `id` = #{id}
     </update>
 
-    <delete id="deleteSlave" parameterType="Integer">
-        DELETE FROM `netdisk`.`slave` WHERE `address` = #{address}
+    <delete id="deleteSlave" parameterType="java.lang.String">
+        DELETE FROM `netdisk`.`slave` WHERE `uuid` = #{uuid}
     </delete>
 </mapper>
