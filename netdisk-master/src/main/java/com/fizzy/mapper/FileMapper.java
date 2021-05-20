@@ -15,6 +15,6 @@ public interface FileMapper {
 
     Integer updateFile(Map<String, Object> map);
 
-    Integer deleteFile(@Param("element_id") String elementId);
+    Integer deleteFile(@Param("element_id") Integer elementId);
 
 }

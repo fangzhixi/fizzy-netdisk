@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
+    private Integer userId;//用户编号
     private String phone;//大陆手机号(账号)
     private String email;//邮箱(账号)
     private String password;//密码
@@ -19,6 +20,7 @@ public class User {
     }
 
     public User(User User) {
+        this.userId = User.userId;
         this.phone = User.phone;
         this.email = User.email;
         this.password = User.password;
@@ -28,6 +30,19 @@ public class User {
         this.type = User.type;
         this.createTime = User.createTime;
         this.updateTime = User.updateTime;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public User buildUserId(Integer userId) {
+        this.userId = userId;
+        return this;
     }
 
     public String getPhone() {
@@ -153,6 +168,7 @@ public class User {
 
     public Map<String,Object> getMap(){
         Map<String,Object> map = new HashMap<String,Object>();
+        map.put("user_id",getUserId());
         map.put("phone",getPhone());
         map.put("email",getEmail());
         map.put("password",getPassword());
@@ -168,6 +184,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
+                "userId=" + userId +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

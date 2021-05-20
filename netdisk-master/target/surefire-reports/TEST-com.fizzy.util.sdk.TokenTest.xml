@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.fizzy.util.sdk.TokenTest" time="0.008" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.fizzy.util.sdk.TokenTest" time="0.01" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_231\jre\bin"/>
@@ -17,6 +17,7 @@
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="F:\fizzy-netdisk\netdisk-master"/>
+    <property name="intellij.debug.agent" value="true"/>
     <property name="java.runtime.version" value="1.8.0_231-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_231\jre\lib\endorsed"/>
@@ -31,6 +32,7 @@
     <property name="classworlds.conf" value="D:\IntelliJ IDEA 2020.1.1\plugins\maven\lib\maven3\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="GBK"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_231\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Android;C:\Windows\System32;D:\Apache\apache-maven-3.6.2\bin;D:\Apache\apache-tomcat-8.5.54\bin;D:\node.js\;D:\Linux远程链接\Xshell\;D:\Android\gradle\gradle-5.6\bin;%ANDROID_HOME%\platform-tools;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files\Go\bin;D:\Git\cmd;C:\Users\95100\Linux code;D:\proto 3.15\bin;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\95100\AppData\Roaming\npm;C:\Users\95100\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\95100\go\bin;D:\Microsoft VS Code\bin;C:\Users\95100\AppData\Local\Microsoft\WindowsApps;;D:\WebStorm 2020.1\bin;;."/>
+    <property name="jboss.modules.system.pkgs" value="com.intellij.rt"/>
     <property name="maven.conf" value="D:\IntelliJ IDEA 2020.1.1\plugins\maven\lib\maven3/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
@@ -42,7 +44,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="95100"/>
-    <property name="java.class.path" value="D:\IntelliJ IDEA 2020.1.1\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;D:\IntelliJ IDEA 2020.1.1\plugins\maven\lib\maven3\boot\plexus-classworlds.license;D:\IntelliJ IDEA 2020.1.1\lib\idea_rt.jar"/>
+    <property name="java.class.path" value="D:\IntelliJ IDEA 2020.1.1\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;D:\IntelliJ IDEA 2020.1.1\plugins\maven\lib\maven3\boot\plexus-classworlds.license;D:\IntelliJ IDEA 2020.1.1\lib\idea_rt.jar;C:\Users\95100\AppData\Local\JetBrains\IntelliJIdea2020.1\captureAgent\debugger-agent.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_231\jre"/>
@@ -64,5 +66,54 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.fizzy.util.sdk.TokenTest" name="tokenInvoice" time="0.008"/>
+  <testcase classname="com.fizzy.util.sdk.TokenTest" name="tokenInvoice" time="0.01">
+    <error type="java.lang.NumberFormatException:">java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at com.fizzy.util.sdk.Token.tokenInvoice(Token.java:133)
+	at com.fizzy.util.sdk.TokenTest.tokenInvoice(TokenTest.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>��֤ǰ����: Token{algorithm=&apos;null&apos;, userId=&apos;null&apos;, nonce=null, timestamp=null, masterKey=&apos;null&apos;, signature=&apos;DWosD6K3J/Qtl8rQfjTZN4dLGmRyqT4LrWc0xKglGpdsM/sBeyaqUsL2/bL/JHk7WlRwOnlR9IAynYcVJcVbE0APJfWHl6NkwfUjIuXTMNjZSsSELEUR+/LNFBHuyvhT2CyftutaQz254q2MPpCP/f6Wlsc8W98iHJaftIBl48bqFqMvYBgN7Heu/zTtrIqSXxheXVI2kI8XHfbV86GanILpkN53gY2Vxb1pfabQ6wOiKl6ojVQ1wnSIxjHuOcBNPXkMeY2YttSzIFtbdOem+CGbB57VYvIzi7usIQoTDF4PLgJAm6exaNENyOyfPerMPoGwiqACVNpZRMQbVTVpqA==&apos;}
+1.������֤
+2.����ȡ��tokenԭʼ�ַ�����Base64����
+3.����Կ��token����
+ʹ�õ�˽Կ����Ϊ:
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDQj3pbU7QmABX8azUuEmd6ZEnl5lQwlArqhQA++HDIpSzZPvi8mYKFXGr0jLUQSXQuBSn9h8WoWKJfQzqIvIQEASLejZvrA0VgOj8jN46ivJxxoAsDGnN102l6okZeqYRQ4bPfH8Sc2u619+wOoWSgPdf6gHaA1gHKJ2jSwX/YVz3LLETeEqhboWbRLxJ7OOsqdg7Hhn6QLBZYXaCNM6rAjjsTkYwPWel6UOPD7axo5WAX3FOpAxdr2ZDHQVfYJp8jAZ85q5si5IHzXHt/gx9BoVnIpeM6IEkcOBwSj3FRL47Q5G6B5xhj8HvODTFV9LQ9KEaE996GXSm1KhuWD82xAgMBAAECggEAXiL02nYMkT5mrhmB1nrOJCtSQ6fUBl08FCDWPJYM6jPL638F7LLpe+J8EEfWjjRpcUA5dMssx1DCcXc523Ajsl8E6ylF4C0IymdgCjhQdFnnz02qysrMpLk5GfZXBvFC3PMTKjn/l8EmEBKIhQ4KCl3/t3z2gC6YfjONl9tpJi9iB8JM2bNhQj0i5SM3/KMASrUzAczMrXYA8GUxQhxM62tH4fjqckhqqrqS3OkHVesstgiaSIiGd/C5MNNfHgYmsvTNNqK0H24cW4kOSCJRQf++cmvPXJq1FsV92KKIcokznlXZApqPR4TP01amkILL+gYavCRcJhwyKbd1tRpCAQKBgQDoBkGWtQTQAOHISGGz4ueDY3mHYPF6h6HnRkx/Py3fP8DBZCx3V2mIkyb6PhJODlAlNHX35yOqWnifYoY5E0ilCE8GtWO5zy/9agSfCXw6owTAUG167YNii+4COAHQ6oByV0/MbuGGesLDcywx+otxEPNxCen9a7O4zBi8I93CoQKBgQDmHIdtutUH1+ks9ElUzLgj2lvkXTqDvb6HmYEKZPxuSofHyYGebl7rSoVCxzSrTrauhiF6FJmWK9vf8R1UHmayz137bjRiZQUrB3UUUEoW7Hk8C8ojLucElLcjfBkUZsYLJQH3om8toBEs86f1XmTNH0sp8Y4vG+wi+uYW6QtBEQKBgBSOKVVeqBR9X4NM1ksHeRcswuF5dysxxOgmVDSZtkim7z6yzzWratAMqVFWGm0L25HQOftCYOiAp1sHcXiw+qiUOdwQSct2TXwX3lzwjC7trkgTV/+h9xfN6cIMkCyf+c0nawxjbltpmMOT+oBa/+t+YvLKvA4VcpCWlEJmswjBAoGAaKdk+ITWSkDqLaXUjBqnTLcMv+meqTfspWMtCvsuy0JeSoDc0J9F0CEORnau/5JHB0y9gPZJe8DquQjB2/YPoxcomSdf77geB5nWp6x0ZcSaxrJd9m5oZu7z89GG3n53Z64nHOblRYzdAuK16qRJl/i5iJPxpH9AgBA4AQdwNOECgYEAiTPbnXdfAGgGP5xcbckPii9KNI+nAKEBUVv49FlYQ4Xg33X1MM5tfJvZkuL2dLogQyOVKGhIp+m5AVTIUiLVUl5vXq9X4z2JoAZSemJfi2QumwsHWwXcbb6FInhbAKluyFRGAsuj+XoTqf/ikAg+wKqBsBGeW/n5DCgYw7e7ads=
+���ܺ������:algorithm=HMAC-SHA256,userID=gd_abcdefghijklmn,nonce=398888,timestamp=1590719810,masterKey=-BEGIN MASTER KEY-X3gTwDsH0e0CeGH6DQ099UT3XJLL/zewIDAQABAoIBf1ZwF23mGcvfvNKM9dltM5BpxvaPGUWOpBqLln75NJVuTJKMD4Lh63mP2tWEmMTVezEowawEt1jK-END MASTER KEY-
+3-5.��װtoken��Ϣ
+5.�ȶ�������֤�����뱾������������֤�����Ƿ�һ��
+ʹ�õ�������������Ϊ:
+-BEGIN MASTER KEY-X3gTwDsH0e0CeGH6DQ099UT3XJLL/zewIDAQABAoIBf1ZwF23mGcvfvNKM9dltM5BpxvaPGUWOpBqLln75NJVuTJKMD4Lh63mP2tWEmMTVezEowawEt1jK-END MASTER KEY-
+5-5.��֤ͨ��,��token�������
+</system-out>
+  </testcase>
 </testsuite>

@@ -11,6 +11,9 @@ public class File {
     private Integer userId;//文件所属用户id
     private String fileName;//文件名
     private Integer fileSize;//文件大小
+    private Integer fileType;//文件类型
+    private String typeImageUrl;//文件类型图片
+    private String fileUrl;//文件地址
     private Date createTime;//创建时间
     private Date updateTime;//更新时间
 
@@ -23,6 +26,9 @@ public class File {
         this.userId = file.userId;
         this.fileName = file.fileName;
         this.fileSize = file.fileSize;
+        this.fileType = file.fileType;
+        this.typeImageUrl = file.typeImageUrl;
+        this.fileUrl = file.fileUrl;
         this.createTime = file.createTime;
         this.updateTime = file.updateTime;
     }
@@ -92,6 +98,45 @@ public class File {
         return this;
     }
 
+    public Integer getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(Integer fileType) {
+        this.fileType = fileType;
+    }
+
+    public File buildFileType(Integer fileType) {
+        this.fileType = fileType;
+        return this;
+    }
+
+    public String getTypeImageUrl() {
+        return typeImageUrl;
+    }
+
+    public void setTypeImageUrl(String typeImageUrl) {
+        this.typeImageUrl = typeImageUrl;
+    }
+
+    public File buildTypeImageUrl(String typeImageUrl) {
+        this.typeImageUrl = typeImageUrl;
+        return this;
+    }
+
+    public String getFileUrl() {
+        return fileUrl;
+    }
+
+    public void setFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+    }
+
+    public File buildFileUrl(String fileUrl) {
+        this.fileUrl = fileUrl;
+        return this;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -129,6 +174,9 @@ public class File {
         map.put("user_id", getUserId());
         map.put("file_name", getFileName());
         map.put("file_size", getFileSize());
+        map.put("file_type", getFileType());
+        map.put("type_image", getTypeImageUrl());
+        map.put("file_url", getFileUrl());
         map.put("create_time", getCreateTime());
         map.put("update_time", getUpdateTime());
         return map;
@@ -142,6 +190,9 @@ public class File {
                 ", userId=" + userId +
                 ", fileName='" + fileName + '\'' +
                 ", fileSize=" + fileSize +
+                ", fileType=" + fileType +
+                ", typeImageUrl='" + typeImageUrl + '\'' +
+                ", fileUrl='" + fileUrl + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';

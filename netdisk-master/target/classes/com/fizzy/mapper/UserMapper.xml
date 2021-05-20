@@ -5,6 +5,7 @@
 <mapper namespace="com.fizzy.mapper.UserMapper">
 
     <resultMap id="user" type="com.fizzy.pojo.User">
+        <result property="userId" column="user_id"/>
         <result property="phone" column="phone"/>
         <result property="email" column="email"/>
         <result property="password" column="password"/>
@@ -18,6 +19,7 @@
 
     <select id="selectUser" parameterType="com.fizzy.pojo.User" resultMap="user">
         SELECT
+            `user_id`,
             `phone`,
             `email`,
             `password`,

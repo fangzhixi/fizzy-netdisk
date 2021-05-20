@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!doctype html>
 <html lang="zh">
 <head>
     <meta charset="utf-8">
@@ -39,7 +42,7 @@
 
     <div class="iq-sidebar  sidebar-default ">
         <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
-            <a href="main.jsp" class="header-logo">
+            <a href="index.jsp" class="header-logo">
                 <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
                 <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
             </a>
@@ -51,7 +54,7 @@
             <nav class="iq-sidebar-menu">
                 <ul id="iq-sidebar-toggle" class="iq-menu">
                     <li class="">
-                        <a href="main.jsp" class="">
+                        <a href="index.jsp" class="">
                             <i class="las la-home iq-arrow-left"></i><span>首页</span>
                         </a>
                         <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
@@ -65,47 +68,47 @@
                         </a>
                         <ul id="files-list" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class="active">
-                                <a href="page-alexa.html?search=word">
+                                <a href="sort.jsp?search=word">
                                     <span class="icon iconfont iconword"></span><span>Word&nbsp;文档</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=excel">
+                                <a href="sort.jsp?search=excel">
                                     <span class="icon iconfont iconexcel"></span><span>Excel&nbsp;表格</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=ppt">
+                                <a href="sort.jsp?search=ppt">
                                     <span class="icon iconfont iconpptx"></span><span>PPT&nbsp;幻灯片</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=pdf">
+                                <a href="sort.jsp?search=pdf">
                                     <span class="icon iconfont iconpdf"></span><span>PDF&nbsp;电子书</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=photo">
+                                <a href="sort.jsp?search=photo">
                                     <span class="icon iconfont iconmedia-photo"></span><span>Photo&nbsp;照片</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=media">
+                                <a href="sort.jsp?search=media">
                                     <span class="icon iconfont iconmedia"></span><span>Media&nbsp;视频</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=audio">
+                                <a href="sort.jsp?search=audio">
                                     <span class="icon iconfont iconaudio"></span><span>Audio&nbsp;音乐</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=zip">
+                                <a href="sort.jsp?search=zip">
                                     <span class="icon iconfont iconzip"></span><span>ZIP&nbsp;压缩包</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="page-alexa.html?search=folder">
+                                <a href="sort.jsp?search=folder">
                                     <span class="icon iconfont iconfolder"></span><span>Folder&nbsp;文件夹</span>
                                 </a>
                             </li>
@@ -219,7 +222,7 @@
         <nav class="navbar navbar-expand-lg navbar-light p-0">
             <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
                 <i class="ri-menu-line wrapper-menu"></i>
-                <a href="main.jsp" class="header-logo">
+                <a href="index.jsp" class="header-logo">
                     <img src="assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
                     <img src="assets/images/logo-white.png" class="img-fluid rounded-normal darkmode-logo" alt="logo">
                 </a>
@@ -340,7 +343,7 @@
                                                     <div class="media-body ml-3">
                                                         <div class="media justify-content-between">
                                                             <h6 class="mb-0">Anna Mull</h6>
-                                                            <a href="main.jsp" class="mb-0 font-size-12"><i>切换账户</i></a>
+                                                            <a href="index.jsp" class="mb-0 font-size-12"><i>切换账户</i></a>
                                                         </div>
                                                         <p class="mb-0 font-size-12" style="color: #8f93f6;">[email&#160;protected]</p>
                                                     </div>
@@ -352,7 +355,7 @@
                                                     <div class="media-body ml-3">
                                                         <div class="media justify-content-between">
                                                             <h6 class="mb-0">King Poilin</h6>
-                                                            <a href="main.jsp" class="mb-0 font-size-12"><i>切换账户</i></a>
+                                                            <a href="index.jsp" class="mb-0 font-size-12"><i>切换账户</i></a>
                                                         </div>
                                                         <p class="mb-0 font-size-12" style="color: #8f93f6;">[email&#160;protected]</p>
                                                     </div>
@@ -364,7 +367,7 @@
                                                     <div class="media-body ml-3">
                                                         <div class="media justify-content-between">
                                                             <h6 class="mb-0">Devid Worner</h6>
-                                                            <a href="main.jsp" class="mb-0 font-size-12"><i>切换账户</i></a>
+                                                            <a href="index.jsp" class="mb-0 font-size-12"><i>切换账户</i></a>
                                                         </div>
                                                         <p class="mb-0 font-size-12" style="color: #8f93f6;">[email&#160;protected]</p>
                                                     </div>
@@ -389,7 +392,7 @@
                         <div class="navbar-breadcrumb">
                            <nav aria-label="breadcrumb">
                               <ul class="breadcrumb">
-                                 <li class="breadcrumb-item"><a href="main.jsp">My Drive</a></li>
+                                 <li class="breadcrumb-item"><a href="index.jsp">My Drive</a></li>
                                  <li class="breadcrumb-item active" aria-current="page">Alexa Workshop</li>
                               </ul>
                            </nav>
@@ -427,120 +430,58 @@
             </div>
             <div class="icon icon-grid i-grid">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-block card-stretch card-transparent">
-                            <div class="card-header d-flex justify-content-between pb-0">
-                                <div class="header-title">
-                                    <h4 class="card-title">Images</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <div class="card card-block card-stretch card-height" >
                             <div class="card-body image-thumb ">
                                 <div class="mb-4 text-center p-3 rounded iq-thumb">
-                                    <a class="image-popup-vertical-fit" href="assets/images/layouts/page-1/01.png">
-                                        <img src="assets/images/layouts/page-1/01.png" class="img-fluid" alt="images" />  
+                                    <a class="image-popup-vertical-fit" href="assets/images/layouts/page-5/01.png">
+                                        <img src="assets/images/layouts/page-5/01.png" class="img-fluid" alt="images" />
                                         <div class="iq-image-overlay"></div>
-                                    </a>           
+                                    </a>
                                 </div>
-                                <h6>Alexa.jpeg</h6>          
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body image-thumb">
-                                <div class="mb-4 text-center p-3 rounded iq-thumb">
-                                    <a class="image-popup-vertical-fit" href="assets/images/layouts/page-1/02.png">
-                                        <img src="assets/images/layouts/page-1/02.png" class="img-fluid" alt="images" />  
-                                        <div class="iq-image-overlay"></div>
-                                    </a>           
-                                </div>
-                                <h6>Eliminator.png</h6>          
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body image-thumb">
-                                <div class="mb-4 text-center p-3 rounded iq-thumb">
-                                    <a class="image-popup-vertical-fit" href="assets/images/layouts/page-1/03.png">
-                                        <img src="assets/images/layouts/page-1/03.png" class="img-fluid" alt="images" />  
-                                        <div class="iq-image-overlay"></div>
-                                    </a>           
-                                </div>
-                                <h6>Screenshot.svg</h6>        
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body image-thumb">
-                                <div class="mb-4 text-center p-3 rounded iq-thumb">
-                                    <a class="image-popup-vertical-fit" href="assets/images/layouts/page-1/04.png">
-                                        <img src="assets/images/layouts/page-1/04.png" class="img-fluid" alt="images" />  
-                                        <div class="iq-image-overlay"></div>
-                                        <div class="overlay-img-icon">
-                                                <i class="las la-play-circle"></i>
-                                        </div> 
-                                    </a>           
-                                </div>
-                                <h6>Video.mp4</h6>            
-                            </div>
-                        </div>
-                    </div>              
-                    <div class="col-lg-12">
-                        <div class="card card-block card-stretch card-transparent">
-                            <div class="card-header d-flex justify-content-between pb-0">
-                                <div class="header-title">
-                                    <h4 class="card-title">Documents</h4>
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="file_name shield" data-toggle="tooltip" data-placement="right" title="">Cone.jpeg</h6>
+                                    <div class="card-header-toolbar">
+                                        <div class="dropdown">
+                                            <span class="dropdown-toggle" id="dropdownMenuButton00" data-toggle="dropdown">
+                                                <i class="ri-more-2-fill"></i>
+                                            </span>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton00">
+                                                <a class="dropdown-item" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/images/layouts/page-5/01.png" data-toggle="modal" data-target="#exampleModal" data-title="01.png" ><i class="ri-eye-fill mr-2"></i>查看</a>
+                                                <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>编辑</a>
+                                                <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>删除</a>
+                                                <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>下载</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
                         <div class="card card-block card-stretch card-height">
                             <div class="card-body image-thumb">
                                 <div class="mb-4 text-center p-3 rounded iq-thumb">
                                     <div class="iq-image-overlay"></div>
-                                    <a href="#" data-title="Mobile-plan.pdf" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal" data-title="alexa5.pdf"><img src="assets/images/layouts/page-1/pdf.png" class="img-fluid" alt="image1"></a>         
+                                    <a href="#" data-load-file="file" data-title="Chat.pdf" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal"><img src="assets/images/layouts/page-5/pdf.png" class="img-fluid" alt="image1"></a>
                                 </div>
-                                <h6>Mobile-plan.pdf</h6>            
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body image-thumb">
-                                <div class="mb-4 text-center p-3 rounded iq-thumb">
-                                    <div class="iq-image-overlay"></div>
-                                    <a href="#" data-title="Strategy.docx" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal" data-target="#exampleModal"><img src="assets/images/layouts/page-1/doc.png" class="img-fluid" alt="image1"></a>
+                                <div class="d-flex justify-content-between">
+                                    <h6 class="file_name" data-toggle="tooltip" data-placement="right" title="">Chat.pdf</h6>
+                                    <div class="card-header-toolbar">
+                                        <div class="dropdown">
+                                            <span class="dropdown-toggle" id="dropdownMenuButton05" data-toggle="dropdown">
+                                                <i class="ri-more-2-fill"></i>
+                                            </span>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton05">
+                                                <a class="dropdown-item" href="#"  data-load-file="file" data-title="Chat.pdf" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal"><i class="ri-eye-fill mr-2"></i>查看</a>
+                                                <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>编辑</a>
+                                                <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>删除</a>
+                                                <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>打印</a>
+                                                <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>下载</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h6>Strategy.docx</h6>     
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body image-thumb">
-                                <div class="mb-4 text-center p-3 rounded iq-thumb">
-                                    <div class="iq-image-overlay"></div>
-                                    <a href="#" data-title="Web.xlsx" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.xlsx" data-toggle="modal" data-target="#exampleModal"><img src="assets/images/layouts/page-1/xlsx.png" class="img-fluid" alt="image1"></a>
-                                </div>
-                                <h6>Web.xlsx</h6> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-block card-stretch card-height">
-                            <div class="card-body image-thumb">
-                                <div class="mb-4 text-center p-3 rounded iq-thumb">
-                                    <div class="iq-image-overlay"></div>
-                                    <a href="#" data-title="Testing.pptx" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pptx" data-toggle="modal" data-target="#exampleModal"><img src="assets/images/layouts/page-1/ppt.png" class="img-fluid" alt="image1"></a>           
-                                </div>
-                                <h6>Testing.pptx</h6>          
                             </div>
                         </div>
                     </div>
@@ -548,40 +489,32 @@
             </div>
             <div class="icon icon-grid i-list">
                 <div class="row">
-                    <div class="col-lg-12">                        
-                        <div class="card card-block card-stretch card-transparent">
-                            <div class="card-header d-flex justify-content-between pb-0">
-                                <div class="header-title">
-                                    <h4 class="card-title">list View</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-12">
                         <div class="card card-block card-stretch card-height">
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table mb-0 table-borderless tbl-server-info">
-                                    <thead>
+                                <div class="table-responsive min-size">
+                                    <table class="table mb-0 table-borderless tbl-server-info" width="100%">
+                                        <thead>
                                         <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Owner</th>
-                                            <th scope="col">Last Edit</th>
-                                            <th scope="col">File Size</th>
-                                            <th scope="col"></th>
+                                            <th scope="col" width="60%" class="shield">文件名</th>
+                                            <th scope="col" width="25%" class="shield">上传时间</th>
+                                            <th scope="col" width="10%" class="shield">大小</th>
+                                            <th scope="col" width="5%" class="shield"></th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
+                                        </thead>
+                                        <tbody>
                                         <tr>
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="mr-3">
-                                                        <a href="#"><img src="assets/images/layouts/page-1/01.png" class="img-fluid avatar-30" alt="image1"></a>
+                                                        <a class="image-popup-vertical-fit" href="assets/images/layouts/page-5/01.png">
+                                                            <img src="assets/images/layouts/page-5/01.png" class="img-fluid avatar-30" alt="image1">
+                                                            <div class="iq-image-overlay"></div>
+                                                        </a>
                                                     </div>
-                                                    Alexa.jpeg
+                                                    <div class="shield" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/images/layouts/page-5/01.png" data-toggle="modal" data-target="#exampleModal" data-title="01.png" style="cursor: pointer;">Cond.jpeg</div>
                                                 </div>
                                             </td>
-                                            <td>Me</td>
                                             <td>jan 21, 2020 me</td>
                                             <td>02 MB</td>
                                             <td>
@@ -590,92 +523,10 @@
                                                         <i class="ri-more-fill"></i>
                                                     </span>
                                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton6">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mr-3">
-                                                        <a href="#"><img src="assets/images/layouts/page-1/02.png" class="img-fluid avatar-30" alt="image1"></a>
-                                                    </div>
-                                                    Alexa2.png
-                                                </div>
-                                            </td>
-                                            <td>Poul Molive</td>
-                                            <td>jan 25, 2020 Poul Molive</td>
-                                            <td>64 MB</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" id="dropdownMenuButton7" data-toggle="dropdown">
-                                                        <i class="ri-more-fill"></i>
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton7">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mr-3">
-                                                        <a href="#"><img src="assets/images/layouts/page-1/03.png" class="img-fluid avatar-30" alt="image1"></a>
-                                                    </div>
-                                                    Alexa3.svg
-                                                </div>
-                                            </td>
-                                            <td>Me</td>
-                                            <td>Mar 30, 2020 Gail Forcewind</td>
-                                            <td>30 MB</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" id="dropdownMenuButton8" data-toggle="dropdown">
-                                                        <i class="ri-more-fill"></i>
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton8">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mr-3">
-                                                        <a href="#"><img src="assets/images/layouts/page-1/04.png" class="img-fluid avatar-30" alt="image1"></a>
-                                                    </div>
-                                                    Alexa Video.mp4
-                                                </div>
-                                            </td>
-                                            <td>Me</td>
-                                            <td>Mar 30, 2020 Gail Forcewind</td>
-                                            <td>10 MB</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" id="dropdownMenuButton9" data-toggle="dropdown">
-                                                        <i class="ri-more-fill"></i>
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton9">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                        <a class="dropdown-item" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/images/layouts/page-5/01.png" data-toggle="modal" data-target="#exampleModal" data-title="01.png" ><i class="ri-eye-fill mr-2"></i>查看</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>编辑</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>删除</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>下载</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -689,7 +540,6 @@
                                                     <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.pdf" data-toggle="modal" data-target="#exampleModal" data-title="alexa5.pdf" style="cursor: pointer;">Alexa5.pdf</div>
                                                 </div>
                                             </td>
-                                            <td>Me</td>
                                             <td>Mar 30, 2020 Gail Forcewind</td>
                                             <td>10 MB</td>
                                             <td>
@@ -698,97 +548,16 @@
                                                         <i class="ri-more-fill"></i>
                                                     </span>
                                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton10">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>查看</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>编辑</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>删除</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>打印</a>
+                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>下载</a>
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mr-3">
-                                                        <a href="#"><img src="assets/images/layouts/page-4/doc.png" class="img-fluid avatar-30" alt="image1"></a>
-                                                    </div>
-                                                    <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal" data-target="#exampleModal" data-title="alexa6.docx" style="cursor: pointer;">Alexa6.docx</div>
-                                                </div>
-                                            </td>
-                                            <td>Penny</td>
-                                            <td>Mar 31, 2020 Penny</td>
-                                            <td>65 MB</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" id="dropdownMenuButton11" data-toggle="dropdown">
-                                                        <i class="ri-more-fill"></i>
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton11">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mr-3">
-                                                        <a href="#"><img src="assets/images/layouts/page-4/xlsx.png" class="img-fluid avatar-30" alt="image1"></a>
-                                                    </div>
-                                                    <div data-title="Alexa8.xlsx" data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.xlsx" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;">Alexa8.xlsx</div>
-                                                </div>
-                                            </td>
-                                            <td>Banny</td>
-                                            <td>Mar 30, 2020 Banny</td>
-                                            <td>90 MB</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" id="dropdownMenuButton13" data-toggle="dropdown">
-                                                        <i class="ri-more-fill"></i>
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton13">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="mr-3">
-                                                        <a href="#"><img src="assets/images/layouts/page-4/ppt.png" class="img-fluid avatar-30" alt="image1"></a>
-                                                    </div>
-                                                    <div data-load-file="file" data-load-target="#resolte-contaniner" data-url="assets/vendor/doc-viewer/files/demo.docx" data-toggle="modal" data-target="#exampleModal" data-title="alexa7.pptx" style="cursor: pointer;">Alexa7.pptx</div>
-                                                </div>
-                                            </td>
-                                            <td>Me</td>
-                                            <td>Apr 04, 2020 me</td>
-                                            <td>10 MB</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" id="dropdownMenuButton12" data-toggle="dropdown">
-                                                        <i class="ri-more-fill"></i>
-                                                    </span>
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton12">
-                                                        <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
-                                                        <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>

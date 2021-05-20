@@ -13,17 +13,18 @@ public class SerurityInterceptor extends HandlerInterceptorAdapter {
             throws Exception {
 
         //Header token 范例  Access-Token: v2fHgKa784YJE3SKVkv44lBoJisMxmdk1154752643
-        Token token = new Token(request.getHeader("Access-Token"));
-        System.out.println("Access-Token:  "+ request.getHeader("Access-Token"));
-        System.out.println("Host:  "+ request.getHeader("Host"));
-        if (token.tokenInvoice()){
-            System.out.println("放行");
-            request.setAttribute("userId",request.getHeader("Host"));
-            return true;
-        }else {
-            System.out.println("SerurityInterceptor不放行");
-            response.sendRedirect("/");
-            return false;
-        }
+//        Token token = new Token(request.getHeader("Access-Token"));
+//        System.out.println("Access-Token:  "+ request.getHeader("Access-Token"));
+//        System.out.println("Host:  "+ request.getHeader("Host"));
+//        if (token.tokenInvoice()){
+//            System.out.println("放行");
+//            request.setAttribute("userId",request.getHeader("Host"));
+//            return true;
+//        }else {
+//            System.out.println("SerurityInterceptor不放行");
+//            response.sendRedirect("/");
+//            return false;
+//        }
+        return true;
     }
 }

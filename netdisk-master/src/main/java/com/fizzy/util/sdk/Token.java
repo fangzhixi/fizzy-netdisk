@@ -9,7 +9,7 @@ import java.util.*;
 public class Token extends RSAEncryption {
 
     private String algorithm;//加密规则(HMAC-SHA256、MD5)
-    private String userID;//用户名
+    private Integer userId;//用户编号
     private Integer nonce;//随机数(推荐6位随机数字)
     private Long timestamp;//到期时间戳(10位数字)
     private String masterKey;//主机认证口令
@@ -20,9 +20,9 @@ public class Token extends RSAEncryption {
         this.signature = signature;
     }
 
-    public Token(String algorithm, String userID, Integer nonce, Long timestamp, String masterKey) {
+    public Token(String algorithm, Integer userId, Integer nonce, Long timestamp, String masterKey) {
         this.algorithm = algorithm;
-        this.userID = userID;
+        this.userId = userId;
         this.nonce = nonce;
         this.timestamp = timestamp;
         this.masterKey = masterKey;
@@ -36,12 +36,12 @@ public class Token extends RSAEncryption {
         this.algorithm = algorithm;
     }
 
-    public String getUserID() {
-        return userID;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getNonce() {
@@ -74,8 +74,8 @@ public class Token extends RSAEncryption {
 
     /**
      * 签名验证(true通过,false不通过)[以MHAC-SHA-256解密方式为例]
-     * Token按照以下方式排列: algorithm=解密方式,userID=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),masterKey=主机认证口令
-     * 样例: 				  algorithm=RSA-SHA256,userID=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
+     * Token按照以下方式排列: algorithm=解密方式,userId=用户ID,nonce=随机数字(推荐6位),timestamp=到期时间戳(10位),masterKey=主机认证口令
+     * 样例: 				  algorithm=RSA-SHA256,userId=17820478359,nonce=169081,timestamp=1620454429,masterKey=KohIzIccGD6wNMnDCPeGf
      *
      * 加密后的token格式:     Base64格式密码串
      * 样例:				  nft7AMsMTUguKohIzIccGD6wNMnDCPeGfxHMAEHmSfGA
@@ -130,7 +130,7 @@ public class Token extends RSAEncryption {
         if (masterKey.equals(tokenMap.get("masterKey"))) {
             System.out.println("5-5.验证通过,在token存放数据");
             this.setAlgorithm(tokenMap.get("algorithm"));
-            this.setUserID(tokenMap.get("userID"));
+            this.setUserId(Integer.parseInt(tokenMap.get("userId")));
             this.setNonce(Integer.parseInt(tokenMap.get("nonce")));
             this.setTimestamp(now + TIME_OUT);//设置过期时间 = 当前时间 + 过期时间
             this.setMasterKey(tokenMap.get("masterKey"));
@@ -148,7 +148,7 @@ public class Token extends RSAEncryption {
     public String format() {
         String signature =
                 "algorithm=" + getAlgorithm()
-                        + ",userID=" + getUserID()
+                        + ",userId=" + getUserId()
                         + ",nonce=" + getNonce()
                         + ",timestamp=" + getTimestamp()
                         + ",masterKey=" + getMasterKey();
@@ -159,7 +159,7 @@ public class Token extends RSAEncryption {
     public String toString() {
         return "Token{" +
                 "algorithm='" + algorithm + '\'' +
-                ", userID='" + userID + '\'' +
+                ", userId='" + userId + '\'' +
                 ", nonce=" + nonce +
                 ", timestamp=" + timestamp +
                 ", masterKey='" + masterKey + '\'' +
