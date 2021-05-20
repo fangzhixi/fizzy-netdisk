@@ -10,6 +10,7 @@
         <result property="userId" column="user_id"/>
         <result property="fileName" column="file_name"/>
         <result property="fileSize" column="file_size"/>
+        <result property="fileType" column="file_type"/>
         <result property="typeImageUrl" column="type_image_url"/>
         <result property="fileUrl" column="file_url"/>
         <result property="createTime" column="create_time"/>
@@ -23,6 +24,7 @@
             file.`user_id` AS user_id,
             file.`file_name` AS file_name,
             file.`file_size` AS file_size,
+            file.`file_type` AS file_type,
             type.`type_image_url` AS type_image_url,
             file.`file_url` AS file_url,
             file.`create_time` AS create_time,
@@ -37,7 +39,7 @@
             <if test="element_id != null and element_id > 0">
                 file.element_id = #{element_id} AND
             </if>
-            <if test="parent_element_id != null and parent_element_id > 0">
+            <if test="parent_element_id != null and parent_element_id >= 0">
                 file.parent_element_id = #{parent_element_id} AND
             </if>
             <if test="user_id != null and user_id > 0">

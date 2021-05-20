@@ -167,6 +167,31 @@ public class File {
         return new File(this);
     }
 
+    public static String getSubDirByFileType(Integer fileType){
+        switch (fileType){
+            case 1:
+                return "Word 文档";
+            case 2:
+                return "Excel 表格";
+            case 3:
+                return "PPT 幻灯片";
+            case 4:
+                return "PDF 电子书";
+            case 5:
+                return "Photo 照片";
+            case 6:
+                return "Media 视频";
+            case 7:
+                return "Audio 音乐";
+            case 8:
+                return "ZIP 压缩包";
+            case 9:
+                return "Folder 文件夹";
+            default:
+                return "个人归纳文件";
+        }
+    }
+
     public Map<String, Object> getMap() {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("element_id", getElementId());

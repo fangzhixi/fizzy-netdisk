@@ -44,9 +44,11 @@ public class TransferController {
 
         Integer userId = Integer.parseInt(request.getAttribute("user_id").toString());
         List<File> fileList = fileServiceimpl.selectFile(0, 0, userId, "", 0, fileType, "", null, null);
+        model.addAttribute("file_type", fileType);
+        model.addAttribute("subdir", File.getSubDirByFileType(fileType));
         model.addAttribute("file", fileList);
         model.addAttribute("token", token);
-        System.out.println(fileList.toString());
+        System.out.println("file: "+fileList.toString());
         return "sort.jsp";
     }
 

@@ -56,7 +56,7 @@
             <nav class="iq-sidebar-menu">
                 <ul id="iq-sidebar-toggle" class="iq-menu">
                     <li class="active">
-                        <a href="index.jsp" class="">
+                        <a>
                             <i class="las la-home iq-arrow-left"></i><span>首页</span>
                         </a>
                         <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
@@ -431,7 +431,7 @@
                                         <span class="search-replace"></span>
                                         <span class="caret"><!--icon--></span>
                                     </label>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" style="z-index: 99">
                                         <li>
                                             <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
                                         </li>
