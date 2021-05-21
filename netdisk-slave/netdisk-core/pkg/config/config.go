@@ -26,6 +26,7 @@ type Configuration struct {
 		UUID  string //主机返回的通用唯一识别码
 	} `yaml:"remote_conf"`
 	LocalConfig struct {
+		Port       string `yaml:"port"`        //本机监听端口
 		LocalPath  string `yaml:"local_path"`  //空间存储位置
 		TotalSpace int64  `yaml:"total_space"` //总容量(单位:字节)
 	} `yaml:"local_conf"`

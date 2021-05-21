@@ -70,47 +70,47 @@
                         </a>
                         <ul id="files-list" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class='<c:if test="${file_type == 1}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',1);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',1,'parent_element_id',-1);">
                                     <span class="icon iconfont iconword"></span><span>Word&nbsp;文档</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 2}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',2);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',2,'parent_element_id',-1);">
                                     <span class="icon iconfont iconexcel"></span><span>Excel&nbsp;表格</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 3}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',3);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',3,'parent_element_id',-1);">
                                     <span class="icon iconfont iconpptx"></span><span>PPT&nbsp;幻灯片</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 4}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',4);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',4,'parent_element_id',-1);">
                                     <span class="icon iconfont iconpdf"></span><span>PDF&nbsp;电子书</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 5}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',5);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',5,'parent_element_id',-1);">
                                     <span class="icon iconfont iconmedia-photo"></span><span>Photo&nbsp;照片</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 6}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',6);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',6,'parent_element_id',-1);">
                                     <span class="icon iconfont iconmedia"></span><span>Media&nbsp;视频</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 7}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',7);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',7,'parent_element_id',-1);">
                                     <span class="icon iconfont iconaudio"></span><span>Audio&nbsp;音乐</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 8}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',8);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',8,'parent_element_id',-1);">
                                     <span class="icon iconfont iconzip"></span><span>ZIP&nbsp;压缩包</span>
                                 </a>
                             </li>
                             <li class='<c:if test="${file_type == 9}"><c:out value="active"/></c:if>'>
-                                <a href="JavaScript:post_a('/sort', '${token}','file_type',9);">
+                                <a href="JavaScript:post_a('/sort', '${token}','file_type',9,'parent_element_id',0);">
                                     <span class="icon iconfont iconfolder"></span><span>Folder&nbsp;文件夹</span>
                                 </a>
                             </li>
@@ -422,7 +422,30 @@
 
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="select-dropdown input-prepend input-append">
+                        <div class="btn-group">
+                            <label data-toggle="dropdown">
+                                <div class="dropdown-toggle search-query">上传项目<i
+                                        class="las la-angle-down ml-3"></i></div>
+                                <span class="search-replace"></span>
+                                <span class="caret"><!--icon--></span>
+                            </label>
+                            <ul class="dropdown-menu" style="z-index: 99">
+                                <li>
+                                    <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
+                                </li>
+                                <li>
+                                    <div class="item" onclick="post_a('/upload', '${token}','element_id', '${element_id}','', 0)"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
+                                </li>
+                                <li>
+                                    <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10">
                     <div class="d-flex align-items-center justify-content-between welcome-content mb-3">
                         <div class="navbar-breadcrumb">
                             <nav aria-label="breadcrumb">
@@ -600,7 +623,40 @@
                                 </div>
                             </c:when>
                             <c:when test="${item.fileType == 9}">
-
+                                <div class="col-lg-2 col-md-2 col-sm-2">
+                                    <div class="card card-block card-stretch card-height">
+                                        <div class="card-body image-thumb">
+                                            <div class="mb-4 text-center p-3 rounded iq-thumb">
+                                                <div class="iq-image-overlay"></div>
+                                                <a href="JavaScript:post_a('/sort', '${token}','file_type',-1,'parent_element_id',${item.elementId});"><img src="${item.typeImageUrl}"
+                                                        class="img-fluid"
+                                                        alt="image1"></a>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <h6 class="file_name" data-toggle="tooltip"
+                                                    data-placement="right" title="">
+                                                        ${item.fileName}</h6>
+                                                <div class="card-header-toolbar">
+                                                    <div class="dropdown">
+                                            <span class="dropdown-toggle" id="dropdownMenuButton0${userStatus }"
+                                                  data-toggle="dropdown">
+                                                <i class="ri-more-2-fill"></i>
+                                            </span>
+                                                        <div class="dropdown-menu dropdown-menu-right"
+                                                             aria-labelledby="dropdownMenuButton0${userStatus}">
+                                                            <a class="dropdown-item"  href="JavaScript:post_a('/sort', '${token}','file_type',-1,'parent_element_id',${item.elementId});">
+                                                                <i class="ri-file-download-fill mr-2"></i>进入</a>
+                                                            <a class="dropdown-item" href="#"><i
+                                                                    class="ri-pencil-fill mr-2"></i>编辑</a>
+                                                            <a class="dropdown-item" href="#"><i
+                                                                    class="ri-delete-bin-6-fill mr-2"></i>删除</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </c:when>
 
                         </c:choose>

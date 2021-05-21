@@ -2,6 +2,7 @@ package config
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"math/rand"
 	"time"
@@ -50,42 +51,35 @@ func SlaveRegister() (err error) {
 
 	var size int64
 
+	//1.数据初始化
+	//1-1.获取本机监听地址
 	ip, err := sdk.ExternalIP()
 	if err != nil {
 		fmt.Println(err)
+		return err
+	} else if len(Config.LocalConfig.Port) == 0 {
+		errStr := "port number acquisition failed"
+		fmt.Println(errStr)
+		panic(errors.New(errStr))
 	}
+	address := ip.String() + Config.LocalConfig.Port
+	//1-2.生成随机数
 	rand.Seed(time.Now().UnixNano()) //利用当前时间的UNIX时间戳初始化rand包
 	nonce := 100000 + rand.Intn(899999)
+	//1-3.获取本机密钥
 	masterKey, err := autograph.GetMasterKey()
 	if err != nil {
 		fmt.Println("获取口令失败: ", err)
 		return err
 	}
 
-	//判断是否存在该目录
-	if iodisk.IsDir(Config.LocalConfig.LocalPath) {
-		//获取存储目录大小
-		size, err = iodisk.DirSize(Config.LocalConfig.LocalPath)
-		if err != nil {
-			fmt.Println(err)
-			return err
-		}
-	} else {
-		//尚无目标目录,新建目录
-		err = iodisk.Mkdir(Config.LocalConfig.LocalPath)
-		if err != nil {
-			fmt.Println(err)
-			return err
-		}
-	}
-
 	master := &autograph.Master{Algorithm: "HMAC-SHA256",
-		Address:   ip.String(),
+		Address:   address,
 		Nonce:     int64(nonce),
 		Timestamp: time.Now().Unix(),
 		MasterKey: *masterKey}
 
-	//口令加密
+	//1-4.口令加密
 	fmt.Println("master: ", *master.Format())
 	signature, err := autograph.RsaEncryptOutBase64(master.Format()) //加密
 	if err != nil {
@@ -93,7 +87,26 @@ func SlaveRegister() (err error) {
 		return err
 	}
 
-	//设置request body (json格式)
+	//2.初始化网盘托管目录
+	//2-1.判断是否存在该目录
+	if iodisk.IsDir(Config.LocalConfig.LocalPath) {
+		//2-1-1.获取存储目录大小
+		size, err = iodisk.DirSize(Config.LocalConfig.LocalPath)
+		if err != nil {
+			fmt.Println(err)
+			return err
+		}
+	} else {
+		//2-2-1.尚无目标目录,新建目录
+		err = iodisk.Mkdir(Config.LocalConfig.LocalPath)
+		if err != nil {
+			fmt.Println(err)
+			return err
+		}
+	}
+
+	//3.请求Master主机注册服务
+	//3-1.设置request body (json格式)
 	body := []byte(fmt.Sprintf("totalSpace=%d&usedSpace=%d", Config.LocalConfig.TotalSpace, size))
 
 	sdk := sdk.Sdk{BaseUrl: Config.RemoteConfig.Ip}
@@ -111,8 +124,10 @@ func SlaveRegister() (err error) {
 		fmt.Println("json解析数据失败")
 		return err
 	}
+
+	//4.存放UUID
 	Config.RemoteConfig.UUID = rspMap["uuid"].(string)
 	fmt.Println("rspMap", rspMap)
-
+	fmt.Println("主机注册请求初始化结束: UUID: ", Config.RemoteConfig.UUID)
 	return nil
 }

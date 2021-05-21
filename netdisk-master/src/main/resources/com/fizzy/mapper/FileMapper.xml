@@ -51,7 +51,7 @@
             <if test="file_size != null and file_size > 0">
                 file.file_size = #{file_size} AND
             </if>
-            <if test="file_type != null and file_type > 0">
+            <if test="file_type != null and file_type >= 0">
                 file.file_type = #{file_type} AND
             </if>
             <if test="file_url != null and file_url != ''">

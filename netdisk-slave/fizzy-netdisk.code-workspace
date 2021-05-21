@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "netdisk-api"
+		},
+		{
+			"path": "netdisk-core"
+		},
+		{
+			"path": "netdisk-gateway"
+		},
+		{
+			"path": "..\\..\\Golang\\learn\\ftp"
+		}
+	],
+	"settings": {}
+}

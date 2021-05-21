@@ -436,7 +436,7 @@
                                             <div class="item"><i class="ri-folder-add-line pr-3"></i>新建文件夹</div>
                                         </li>
                                         <li>
-                                            <div class="item"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
+                                            <div class="item" onclick="post_a('/upload', '${token}', 'element_id', ${element_id}, null, null)"><i class="ri-file-upload-line pr-3"></i>上传文件</div>
                                         </li>
                                         <li>
                                             <div class="item"><i class="ri-folder-upload-line pr-3"></i>上传文件夹</div>

@@ -67,6 +67,6 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="com.fizzy.util.sdk.RSAEncryptionTest" name="rsaEncryptOutBase64" time="0"/>
-  <testcase classname="com.fizzy.util.sdk.RSAEncryptionTest" name="rsaDecryptByBase64" time="0.005"/>
-  <testcase classname="com.fizzy.util.sdk.RSAEncryptionTest" name="format" time="0.002"/>
+  <testcase classname="com.fizzy.util.sdk.RSAEncryptionTest" name="rsaDecryptByBase64" time="0.006"/>
+  <testcase classname="com.fizzy.util.sdk.RSAEncryptionTest" name="format" time="0.001"/>
 </testsuite>
