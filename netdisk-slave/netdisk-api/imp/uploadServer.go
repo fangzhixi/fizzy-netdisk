@@ -8,10 +8,12 @@ import (
 	"net/url"
 	"os"
 
+	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/config"
 	"github.com/fangzhixi/fizzy-netdisk/netdisk-slave/netdisk-core/pkg/utils/cros"
 )
 
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
+	cros.ResponseWithOrigin(w, r)
 	for key, value := range r.Header {
 		fmt.Println("key: ", key)
 		fmt.Println("value: ", value)
@@ -21,25 +23,17 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		panic(err)
 	}
-	// element_id, err := url.QueryUnescape(fmt.Sprintf("%s", r.Header["element_id"]))
-	// if err != nil {
-	// 	fmt.Println(err)
-	// 	panic(err)
-	// }
-	// token, err := url.QueryUnescape(fmt.Sprintf("%s", r.Header["token"]))
-	// if err != nil {
-	// 	fmt.Println(err)
-	// 	panic(err)
-	// }
 	//去掉header文件名中括号(例: [example.exe])
 	if len := len(filename); len > 2 {
 		fmt.Println(len)
 		filename = filename[1 : len-1]
+	} else {
+		return
 	}
 
 	fmt.Println("解码后文件名:", filename)
 
-	file, err := os.Create(filename)
+	file, err := os.Create(config.Config.RootPathName + filename)
 	if err != nil {
 		fmt.Println(err)
 		panic(err)
@@ -57,6 +51,5 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 		panic(err)
 	}
-	cros.ResponseWithOrigin(w, r)
-	w.Write([]byte("upload success"))
+	w.Write([]byte("{\"success\":\"true\"}"))
 }

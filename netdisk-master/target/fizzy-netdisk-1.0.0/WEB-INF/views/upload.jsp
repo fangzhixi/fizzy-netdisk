@@ -510,9 +510,9 @@
 
             xhr = new XMLHttpRequest(); // XMLHttpRequest 对象
             xhr.open("post", url, true); //post方式，url为服务器请求地址，true 该参数规定请求是否异步处理。
-            xhr.setRequestHeader("token", "${token}")
-            xhr.setRequestHeader("element_id", "${elementId}")
-            xhr.setRequestHeader("filename", fileNameUri)
+            xhr.setRequestHeader("Token", "${token}")
+            xhr.setRequestHeader("Element-id", "${elementId}")
+            xhr.setRequestHeader("Filename", fileNameUri)
             xhr.onload = uploadComplete; //请求完成
             xhr.onerror = uploadFailed; //请求失败
             xhr.upload.onprogress = progressFunction;//【上传进度调用方法实现】

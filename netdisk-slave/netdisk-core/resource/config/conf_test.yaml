@@ -5,7 +5,7 @@ log_path: logger/
 listen_address: 50009
 public_key_path: config/public.key
 private_key_path: config/private.key
-root_path_name: fizzy-netdisk
+root_path_name: fizzy-netdisk/
 
 # 主服务器设置
 remote_conf: 

@@ -581,7 +581,7 @@
                                         <div class="iq-image-overlay"></div>
                                         <img src="${item.typeImageUrl}" class="img-fluid" alt="image1">
                                     </div>
-                                    <h6>Demo.pdf</h6>
+                                    <h6>${item.fileName}</h6>
                                 </div>
                             </div>
                         </a>

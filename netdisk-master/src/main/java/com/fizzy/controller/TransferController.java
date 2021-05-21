@@ -33,7 +33,7 @@ public class TransferController {
                                 Model model) {
 
         Integer userId = Integer.parseInt(request.getAttribute("user_id").toString());
-        List<File> fileList = fileServiceimpl.selectFile(0, 0, userId, "", 0, 0, "", null, null);
+        List<File> fileList = fileServiceimpl.selectFile(0, 0, userId, "", 0, -1, "", null, null);
         model.addAttribute("file", fileList);
         model.addAttribute("token", token);
         System.out.println(fileList.toString());

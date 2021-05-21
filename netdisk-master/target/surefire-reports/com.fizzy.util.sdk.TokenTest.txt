@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.fizzy.util.sdk.TokenTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 sec <<< FAILURE!
-tokenInvoice(com.fizzy.util.sdk.TokenTest)  Time elapsed: 0.01 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 sec <<< FAILURE!
+tokenInvoice(com.fizzy.util.sdk.TokenTest)  Time elapsed: 0.011 sec  <<< ERROR!
 java.lang.NumberFormatException: null
 	at java.lang.Integer.parseInt(Integer.java:542)
 	at java.lang.Integer.parseInt(Integer.java:615)
